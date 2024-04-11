@@ -35,11 +35,11 @@ mediaTypeID = <cfqueryparam cfsqltype="CF_SQL_INTEGER" value="#new_mediaTypeID#"
 mediaURL = <cfqueryparam cfsqltype="CF_SQL_VARCHAR" value="#new_mediaURL#"  null="#NOT len(trim(new_mediaURL))#" /> ,
 
 mediaName = <cfqueryparam cfsqltype="CF_SQL_VARCHAR" value="#new_mediaName#"  null="#NOT len(trim(new_mediaName))#" /> ,
-
+<cfif #isdefined('sdffdsfsdds')#>
 mediaFilename = <cfqueryparam cfsqltype="CF_SQL_VARCHAR" value="#new_mediaFilename#" maxlength="200" null="#NOT len(trim(new_mediaFilename))#" /> ,
 
 mediaExt = <cfqueryparam cfsqltype="CF_SQL_VARCHAR" value="#new_mediaExt#" maxlength="3" null="#NOT len(trim(new_mediaExt))#" /> ,
-
+</cfif>
 userid = <cfqueryparam cfsqltype="CF_SQL_INTEGER" value="#new_userid#"  null="#NOT len(trim(new_userid))#" /> ,
 
 isDeleted = <cfqueryparam cfsqltype="CF_SQL_BIT" value="#new_isDeleted#"  null="#NOT len(trim(new_isDeleted))#" /> ,
