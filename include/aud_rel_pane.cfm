@@ -42,7 +42,7 @@
             <div class="col-md-2 py-2">Add relationship:</div>
             <div class="col-md-3 py-2">
                 <div class="input-group">
-                    <select class="form-control" name="autocomplete_aud" id="autocomplete_audx">
+                    <select class="form-control" name="autocomplete_aud" id="autocomplete_aud">
 
                     
                         <option value="">Select Contact...</option>
