@@ -30,8 +30,8 @@ SELECT distinct d.contactid
 
   
     
-FROM contactdetails d where d.userid = #userid# and d.contact_id NOT IN 
-(select contact_id from audcontacts_auditions_xref where audprojectid = #audprojectid#)
+FROM contactdetails d where d.userid = #userid# and d.contactid NOT IN 
+(select contactid from audcontacts_auditions_xref where audprojectid = #audprojectid#)
     
     
     ORDER BY d.recordname
