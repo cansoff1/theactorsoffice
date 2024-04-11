@@ -452,7 +452,7 @@
    <td class="text-nowrap">
 
                    
-                           <cfif #audmedia.mediaurl# is not "">
+                           <cfif #audmedia.mediaurl# is not "" and #audmedia.mediaurl# is not "https://">
                         <A href="#audmedia.mediaurl#" target="new"  style="text-decoration: underline; color: blue;" >#audmedia.mediaurl#</a>
 
                         </cfif>
