@@ -14,9 +14,6 @@
 
 <cfset host=ListFirst(currentURL, "." ) />
 
-<script> helpwiseSettings = { widget_id: '65958ef4eb602', align: 'right' } </script>
-
-<script src="https://cdn.helpwise.io/assets/js/livechat.js"></script>
 
 
 <cfoutput>

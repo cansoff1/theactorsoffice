@@ -118,13 +118,14 @@ body.authentication-bg {
 
 
 
-
+<cfif NOT #isdefined('asddfdfs')#>
 <script type="text/javascript">
   var helpwiseSettings = {
     widget_id: '65958ef4eb602',
     align: 'right'
   };
 </script>
+</cfif>
 
    </head>
 

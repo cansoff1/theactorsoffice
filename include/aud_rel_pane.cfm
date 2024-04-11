@@ -47,7 +47,7 @@
                     
                         <option value="">Select Contact...</option>
                         <!-- Loop through the audcontacts query to populate the select list -->
-                        <cfloop query="audcontacts"><cfoutput>
+                        <cfloop query="audcontacts_sel"><cfoutput>
                             <option value="#contactname#">#contactname#</option></cfoutput>
                         </cfloop>
                     </select>

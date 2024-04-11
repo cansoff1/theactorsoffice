@@ -21,3 +21,18 @@ WHERE x.audprojectid = #audprojectid#
     
     ORDER BY d.recordname
 </cfquery>
+
+<cfquery name="audcontacts_sel" datasource="#dsn#">
+SELECT distinct d.contactid
+,d.recordname as contactname
+
+,d.contactStatus
+
+  
+    
+FROM contactdetails d where d.userid = #userid# and d.contactid NOT IN 
+(select contactid from audcontacts_auditions_xref where audprojectid = #audprojectid#)
+    
+    
+    ORDER BY d.recordname
+</cfquery>

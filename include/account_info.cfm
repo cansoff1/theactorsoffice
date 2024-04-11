@@ -11,7 +11,7 @@
     WHERE u.userid = #userid#
 </cfquery>
 
-<script src="/app/assets/js/jquery.chained.js?ver=1.4"></script>
+
 
 <cfquery name="FindUser" datasource="#dsn#">
     SELECT
@@ -34,8 +34,7 @@
    ,u.add1,u.add2,u.city,u.regionid,u.zip,u.countryid
 
  ,u.dateformatid
-    ,df.formatExample
-    ,df.formatNotes
+
     FROM taousers u
     LEFT JOIN dateformats df on df.id = u.dateFormatid
  
