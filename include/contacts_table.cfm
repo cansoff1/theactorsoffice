@@ -352,6 +352,27 @@
     
     
     
+                // Handle form submission event 
+        $('#myformsystem').on('submit', function(e) {
+            var formsystem = this;
+
+            var rows_selectedsystem = table.column(0).checkboxes.selected();
+
+            // Iterate over all selected checkboxes
+            $.each(rows_selectedsystem, function(index, rowId) {
+                // Create a hidden element 
+                $(formsystem).append(
+                    $('<input>')
+                    .attr('type', 'hidden')
+                    .attr('name', 'idlist')
+                    .val(rowId)
+                );
+
+            });
+
+        });
+    
+    
     
     
     
