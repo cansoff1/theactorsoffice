@@ -236,13 +236,31 @@
         $('#<cfoutput>#contacts_table#_container</cfoutput>').css( 'display', 'table' );
     
     
-    
+         // Handle form submission event 
+        $('#meform').on('submit', function(e) {
+            var form = this;
+
+            var rows_selected = table.column(0).checkboxes.selected();
+
+            // Iterate over all selected checkboxes
+            $.each(rows_selected, function(index, rowId) {
+                // Create a hidden element 
+                $(form).append(
+                    $('<input>')
+                    .attr('type', 'hidden')
+                    .attr('name', 'idlist')
+                    .val(rowId)
+                );
+
+            });
+
+        });
     
     
 
         // Handle form submission event 
-        $('#meform').on('submit', function(e) {
-            var form = this;
+        $('#myformsystem').on('submit', function(e) {
+            var formsystem = this;
 
             var rows_selected = table.column(0).checkboxes.selected();
 
