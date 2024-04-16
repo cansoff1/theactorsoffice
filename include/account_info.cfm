@@ -12,7 +12,7 @@
 </cfquery>
 
 
-
+HERE<cfabort>
 <cfquery name="FindUser" datasource="#dsn#">
     SELECT
     u.userid
@@ -204,7 +204,7 @@
     <cfset new_countryid=def_countryid />
 
 </cfif>
-HERE<cfabort>
+
 
 <cfinclude template="/include/qry/timezones.cfm" />
 <cfparam name="t2" default="0" />
