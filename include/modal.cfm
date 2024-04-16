@@ -1,5 +1,5 @@
 <cfoutput>
-{{{
+ 
     <div id="#modalid#" class="modal" tabindex="-1" role="dialog" aria-labelledby="standard-modalLabel" aria-bs-hidden="true">
 
         <div class="modal-dialog">
@@ -26,6 +26,6 @@
 
     </div>
 
-</cfoutput>}}}<CFABORt>
+</cfoutput> <CFABORt>
  
 <!---  modal-fullscreen --->
