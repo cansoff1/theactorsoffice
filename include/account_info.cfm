@@ -2,7 +2,7 @@
 
 
 
- 
+ account_invo<cfabort>
 
 <cfquery datasource="#dsn#" name="details">
     SELECT u.viewtypeid, u.add1, u.add2, u.city, u.regionid, u.zip, u.tzid, u.defRows,u.calstarttime, u.calendtime, u.avatarname, u.userfirstname, u.userlastname, u.useremail, u.nletter_yn,u.nletter_link, v.viewtype,u.defcountry,u.defstate,
