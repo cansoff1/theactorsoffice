@@ -236,11 +236,11 @@
 
     </cfif>
 </cfif>
-
+HERE<cfabort>
 <cfset modalid = "dashboardupdate" />
 
 <cfset modaltitle = "Dashboard Peferences" />
-
+<cfoutput>#modalTItle#</cfoutput>
 <cfinclude template="/include/modal.cfm" />
 
 
