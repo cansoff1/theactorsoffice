@@ -204,7 +204,7 @@
     <cfset new_countryid=def_countryid />
 
 </cfif>
-
+HERE<cfabort>
 
 <cfinclude template="/include/qry/timezones.cfm" />
 <cfparam name="t2" default="0" />
@@ -236,7 +236,7 @@
 
     </cfif>
 </cfif>
-HERE<cfabort>
+
 <cfset modalid = "dashboardupdate" />
 
 <cfset modaltitle = "Dashboard Peferences" />
