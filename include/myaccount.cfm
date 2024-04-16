@@ -243,13 +243,13 @@
 
 <cfset modaltitle = "Custom Panel Add" />
 
-<cfinclude template="/include/modal.cfm" />
+<cfinclude template="/include/modal.cfm" />stop<cfabort>
 
 
 <cfset modalid = "dashboardupdate" />
 
 <cfset modaltitle = "Dashboard Peferences" />
-
+<Cfabort>
 <cfinclude template="/include/modal.cfm" />
 
 <cfoutput>
