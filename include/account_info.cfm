@@ -119,6 +119,11 @@
     ORDER BY a.actionNo
 </cfquery>
 
+<cfset modalid = "dashboardupdate" />
+<cfset modaltitle = "Dashboard Peferences" />
+<cfoutput>#modalTItle#</cfoutput>
+<cfinclude template="/include/modal.cfm" />
+
 
 
 <cfparam name="new_isAuditionModule" default="0" />
@@ -210,11 +215,7 @@
 <cfparam name="t2" default="0" />
 
 
-<cfset modalid = "dashboardupdate" />
 
-<cfset modaltitle = "Dashboard Peferences" />
-<cfoutput>#modalTItle#</cfoutput>
-<cfinclude template="/include/modal.cfm" />here<cFABORT>
 
 <cfif #devicetype# is "mobile">
 
