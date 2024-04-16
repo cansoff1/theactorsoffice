@@ -1,4 +1,4 @@
-<CFINCLUDE template="/include/remote_load.cfm"  />
+<CFINCLUDE template="/include/remote_load.cfm"  />sssss<cfabort>
 <script>
     $(document).ready(function() {
         $("#dashboardupdate").on("show.bs.modal", function(event) {
@@ -6,8 +6,7 @@
             $(this).find(".modal-body").load("<cfoutput>/include/dashboardupdate.cfm?userid=#userid#</cfoutput>");
         });
     });
-</script>sssss<Cfabort>
-
+</script> 
 <cfloop query="mylinks">
     <cfoutput>
         <script>
