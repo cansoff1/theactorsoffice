@@ -1,5 +1,5 @@
 <cfparam name="ctaction" default="view" />
-stop<cfabort>
+ 
 <cfparam name="defCountry" default="" />
 
 <cfparam name="usercontactid" default="30" />
@@ -249,7 +249,7 @@ stop<cfabort>
 <cfset modalid = "dashboardupdate" />
 
 <cfset modaltitle = "Dashboard Peferences" />
-<Cfabort>
+ 
 <cfinclude template="/include/modal.cfm" />
 
 <cfoutput>
