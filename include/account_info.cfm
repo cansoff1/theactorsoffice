@@ -12,7 +12,7 @@
 </cfquery>
 
 
-HERE<cfabort>
+
 <cfquery name="FindUser" datasource="#dsn#">
     SELECT
     u.userid
@@ -210,7 +210,11 @@ HERE<cfabort>
 <cfparam name="t2" default="0" />
 
 
+<cfset modalid = "dashboardupdate" />
 
+<cfset modaltitle = "Dashboard Peferences" />
+<cfoutput>#modalTItle#</cfoutput>
+<cfinclude template="/include/modal.cfm" />here<cFABORT>
 
 <cfif #devicetype# is "mobile">
 
@@ -236,12 +240,8 @@ HERE<cfabort>
 
     </cfif>
 </cfif>
+ 
 
-<cfset modalid = "dashboardupdate" />
-
-<cfset modaltitle = "Dashboard Peferences" />
-<cfoutput>#modalTItle#</cfoutput>
-<cfinclude template="/include/modal.cfm" />
 
 
 
