@@ -1,4 +1,4 @@
-<CFINCLUDE template="/include/remote_load.cfm"  />sssss<cfabort>
+<CFINCLUDE template="/include/remote_load.cfm"  /> 
 <script>
     $(document).ready(function() {
         $("#dashboardupdate").on("show.bs.modal", function(event) {
