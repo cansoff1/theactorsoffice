@@ -1,6 +1,6 @@
 <cfoutput>
 {{{
-    <div id="#modalid#" class="modal" tabindex="-1" role="dialog" aria-labelledby="standard-modalLabel" aria-hidden="FALSE">
+    <div id="#modalid#" class="modal" tabindex="-1" role="dialog" aria-labelledby="standard-modalLabel" aria-bs-hidden="true">
 
         <div class="modal-dialog">
 
