@@ -1,6 +1,6 @@
 <cfoutput>
-
-    <div id="#modalid#" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="standard-modalLabel" aria-hidden="true">
+STOP<cfABORT>
+    <div id="#modalid#" class="modal" tabindex="-1" role="dialog" aria-labelledby="standard-modalLabel" aria-hidden="true">
 
         <div class="modal-dialog">
 
