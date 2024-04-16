@@ -19,6 +19,7 @@
 <cfinclude template="/include/qry/timezones.cfm" />
 
 <cfinclude template="/include/qry/thrivecartdetails.cfm" />
+stop<cfabort>
 
 <cfquery datasource="#dsn#" name="details">
     SELECT tzid,defRows,calstarttime,calendtime,avatarname,userfirstname,userlastname,useremail,nletter_yn,nletter_link FROM taousers WHERE userid = #userid#
@@ -243,8 +244,7 @@
 
 <cfset modaltitle = "Custom Panel Add" />
 
-<cfinclude template="/include/modal.cfm" />stop<cfabort>
-
+<cfinclude template="/include/modal.cfm" />
 
 <cfset modalid = "dashboardupdate" />
 
