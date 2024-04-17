@@ -226,7 +226,7 @@
         ,userlastname = '#new_userlastname#'
         ,avatarname = '#new_avatarname#'
         ,useremail = '#new_useremail#'
- 
+ <Cfif #isdefined('sadfdsf')#>
         ,add1 = '#add1#'
         ,add2 = '#add2#'
         ,city = '#city#'
@@ -234,6 +234,8 @@
         ,regionid = '#new_regionid#'
         ,countryid = '#new_countryid#'
         ,isAuditionModule = #new_isAuditionModule#
+
+        </cfif>
         where userid = #userid#
     </cfquery>
 
