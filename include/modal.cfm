@@ -26,6 +26,6 @@
 
     </div>
 
-</cfoutput> <CFABORt>
+</cfoutput> 
  
 <!---  modal-fullscreen --->
