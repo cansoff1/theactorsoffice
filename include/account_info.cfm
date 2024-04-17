@@ -2,7 +2,7 @@
 
 <cfset modalid = "dashboardupdate" />
 <cfset modaltitle = "Dashboard Preferences" />
-<cfoutput>#modalTItle#</cfoutput>
+
 <cfinclude template="/include/modal.cfm" />
 
 
