@@ -112,7 +112,7 @@
                      
                                     <th>URL</th>
                                     <th>Created</th>
-                                          <th>Auditionz</th>
+                                          <th>Audition</th>
                                 </tr>
                       
                 
