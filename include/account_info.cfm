@@ -646,7 +646,6 @@
 </div> <!-- modal end -->
 
 
-<cfabort>
 
 <div id="remoteUpdateAccount" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="standard-modalLabel" aria-hidden="true">
     <div class="modal-dialog">
