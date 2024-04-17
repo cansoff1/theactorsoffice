@@ -130,7 +130,7 @@ columnnames="projDate,projName,audRoleName,audcatsubname,audsource,cdfirstname,c
   <cfset audcatname = "">
   <cfset audsubcatname = "">
 </cfif>
-
+<cfoutput>#importdata.projDate#<cfaborT></cfoutput>
     
         <cfquery datasource="#dsn#" name="find">
             INSERT INTO `auditionsimport` (`uploadid`

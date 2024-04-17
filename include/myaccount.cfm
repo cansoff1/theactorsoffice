@@ -1,5 +1,5 @@
 <cfparam name="ctaction" default="view" />
-
+ 
 <cfparam name="defCountry" default="" />
 
 <cfparam name="usercontactid" default="30" />
@@ -19,6 +19,7 @@
 <cfinclude template="/include/qry/timezones.cfm" />
 
 <cfinclude template="/include/qry/thrivecartdetails.cfm" />
+
 
 <cfquery datasource="#dsn#" name="details">
     SELECT tzid,defRows,calstarttime,calendtime,avatarname,userfirstname,userlastname,useremail,nletter_yn,nletter_link FROM taousers WHERE userid = #userid#
@@ -62,6 +63,8 @@
     WHERE au.userid = #userid#
     ORDER BY a.actionNo
 </cfquery>
+
+
 
 <cfif #ctaction# is "update">
 
@@ -245,11 +248,10 @@
 
 <cfinclude template="/include/modal.cfm" />
 
-
 <cfset modalid = "dashboardupdate" />
 
 <cfset modaltitle = "Dashboard Peferences" />
-
+ 
 <cfinclude template="/include/modal.cfm" />
 
 <cfoutput>
@@ -491,7 +493,6 @@
 
     <div class="col-md-12">
 
-        <cfinclude template="/include/account_view.cfm" />
 
     </div>
 
@@ -618,93 +619,6 @@
 </div> <!-- modal end -->
 
 
-<div id="remoteUpdateAccount" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="standard-modalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header" style="background-color: #f3f7f9;">
-                <h4 class="modal-title" id="standard-modalLabel">Account & Security</h4>
-                <button type="button" class="close" data-bs-dismiss="modal" aria-hidden="true"><i class="mdi mdi-close-thick"></i></button>
-            </div>
-            <div class="modal-body">
-
-
-                <cfparam name="t1" default="0" />
-
-                <cfparam name="t2" default="0" />
-
-                <cfparam name="t3" default="0" />
-
-                <cfparam name="t4" default="0" />
-
-                <cfparam name="t5" default="0" />
-
-                <cfparam name="t6" default="0" />
-
-
-                <form action="/app/myaccount/" method="post" class="parsley-examples" id="account" data-parsley-excluded="input[type=button], input[type=submit], input[type=reset], input[type=hidden], [disabled], :hidden" data-parsley-trigger="keyup" data-parsley-validate>
-
-
-                    <cfoutput>
-                        <input type="hidden" name="ctaction" value="update" />
-                        <input type="hidden" name="t3" value="1" />
-                        <div class="form-group col-md-12">
-                            <label for="userFirstName">First Name<span class="text-danger">*</span></label></label>
-
-
-                            <input class="form-control" type="text" id="new_userFirstName" name="new_userFirstName" value="#details.userFirstName#" data-parsley-required data-parsley-error-message="First Name is required" placeholder="Enter your first name">
-
-
-                        </div>
-
-                        <div class="form-group col-md-12">
-                            <label for="userLastName">Last Name<span class="text-danger">*</span></label></label>
-
-
-                            <input class="form-control" type="text" id="new_userLastName" name="new_userLastName" value="#details.userLastName#" data-parsley-required data-parsley-error-message="Last Name is required" placeholder="Enter your last name">
-
-
-                        </div>
-
-                        <div class="form-group col-md-12">
-                            <label for="new_AvatarName">Avatar Name<span class="text-danger">*</span></label></label>
-
-
-                            <input class="form-control" type="text" id="new_AvatarName" name="new_AvatarName" value="#details.avatarname#" data-parsley-required data-parsley-error-message="Avatar Name is required" placeholder="Enter your Avatar name">
-
-
-                        </div>
-
-
-
-                        <div class="form-group col-md-12">
-                            <label for="useremail">Email<span class="text-danger">*</span></label>
-
-
-                            <input class="form-control" name="new_useremail" value="#details.useremail#" data-parsley-type="email" id="email_address" data-parsley-required data-parsley-trigger="focusout" data-parsley-checkemail data-parsley-checkemail-message="Email Address already Exists" placeholder="Enter your email">
-
-
-                        </div>
-
-
-
-
-                        <div class="form-group text-center col-md-12">
-                            <button class=" btn btn-primary editable-submit btn-sm waves-effect waves-light" type="submit" style="background-color: ##406e8e; border: ##406e8e;">Update</button>
-                        </div>
-
-                    </cfoutput>
-
-
-
-                </form>
-
-
-            </div>
-        </div>
-
-    </div>
-
-</div>
 
 
 

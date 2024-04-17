@@ -25,7 +25,7 @@ SELECT  * from tags_user where userid = #session.userid# <cfif #tagtypes# is "te
 
     
                 <div class="form-group col-md-6">
-          <label for="contactFullName"><Cfoutput>#tagtypes#</Cfoutput>Name:</label>
+          <label for="contactFullName">Name:</label>
  
           <input class="form-control" type="text" id="contactfullname" name="contactfullname"   required placeholder="Enter Name">
  
