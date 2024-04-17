@@ -6,6 +6,50 @@
 <cfinclude template="/include/modal.cfm" />
 
 
+
+<script>
+    $(document).ready(function() {
+        $("#dashboardupdate").on("show.bs.modal", function(event) {
+            // Place the returned HTML into the selected element
+            $(this).find(".modal-body").load("<cfoutput>/include/dashboardupdate.cfm?userid=#userid#</cfoutput>");
+        });
+    });
+</script>
+
+<cfset modalid="remoteAddContact" />
+
+<cfset modaltitle="Add Contact" />
+
+<cfinclude template="/include/modal.cfm" />
+
+
+
+<script>
+    $(document).ready(function() {
+        $("#remoteAddContact").on("show.bs.modal", function(event) {
+            // Place the returned HTML into the selected element
+            $(this).find(".modal-body").load("<cfoutput>/include/remoteAddContact.cfm?userid=#userid#&src=account</cfoutput>");
+        });
+    });
+</script>
+
+
+<cfquery datasource="#dsn#" name="details">
+    SELECT u.viewtypeid, u.add1, u.add2, u.city, u.regionid, u.zip, u.tzid, u.defRows,u.calstarttime, u.calendtime, u.avatarname, u.userfirstname, u.userlastname, u.useremail, u.nletter_yn,u.nletter_link, v.viewtype,u.defcountry,u.defstate,
+    u.add1,u.add2,u.city,u.regionid,u.zip,u.dateformatid,df.*
+    
+    FROM taousers u 
+    LEFT JOIN dateformats df on df.id = u.dateFormatid
+    left outer join viewtypes v on v.viewtypeid = u.viewtypeid
+    left join regions r on r.regionid = u.regionid
+    WHERE u.userid = #userid#
+</cfquery>
+
+
+
+
+
+
 <div id="updatecal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="standard-modalLabel" aria-hidden="true">
 
     <div class="modal-dialog">
@@ -284,46 +328,6 @@
 
 </div> <!-- modal end -->
 
-
-
-
-<script>
-    $(document).ready(function() {
-        $("#dashboardupdate").on("show.bs.modal", function(event) {
-            // Place the returned HTML into the selected element
-            $(this).find(".modal-body").load("<cfoutput>/include/dashboardupdate.cfm?userid=#userid#</cfoutput>");
-        });
-    });
-</script>
-
-<cfset modalid="remoteAddContact" />
-
-<cfset modaltitle="Add Contact" />
-
-<cfinclude template="/include/modal.cfm" />
-
-
-
-<script>
-    $(document).ready(function() {
-        $("#remoteAddContact").on("show.bs.modal", function(event) {
-            // Place the returned HTML into the selected element
-            $(this).find(".modal-body").load("<cfoutput>/include/remoteAddContact.cfm?userid=#userid#&src=account</cfoutput>");
-        });
-    });
-</script>
-
-
-<cfquery datasource="#dsn#" name="details">
-    SELECT u.viewtypeid, u.add1, u.add2, u.city, u.regionid, u.zip, u.tzid, u.defRows,u.calstarttime, u.calendtime, u.avatarname, u.userfirstname, u.userlastname, u.useremail, u.nletter_yn,u.nletter_link, v.viewtype,u.defcountry,u.defstate,
-    u.add1,u.add2,u.city,u.regionid,u.zip,u.dateformatid,df.*
-    
-    FROM taousers u 
-    LEFT JOIN dateformats df on df.id = u.dateFormatid
-    left outer join viewtypes v on v.viewtypeid = u.viewtypeid
-    left join regions r on r.regionid = u.regionid
-    WHERE u.userid = #userid#
-</cfquery>
 
 
 
