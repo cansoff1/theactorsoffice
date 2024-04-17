@@ -6,6 +6,16 @@
 <cfinclude template="/include/modal.cfm" />
 
 
+<script>
+    $(document).ready(function() {
+        $("#dashboardupdate").on("show.bs.modal", function(event) {
+            // Place the returned HTML into the selected element
+            $(this).find(".modal-body").load("<cfoutput>/include/dashboardupdate.cfm?userid=#userid#</cfoutput>");
+        });
+    });
+</script>
+
+
 <cfquery datasource="#dsn#" name="details">
     SELECT u.viewtypeid, u.add1, u.add2, u.city, u.regionid, u.zip, u.tzid, u.defRows,u.calstarttime, u.calendtime, u.avatarname, u.userfirstname, u.userlastname, u.useremail, u.nletter_yn,u.nletter_link, v.viewtype,u.defcountry,u.defstate,
     u.add1,u.add2,u.city,u.regionid,u.zip,u.dateformatid,df.*
@@ -337,14 +347,6 @@
 
 
 
-<script>
-    $(document).ready(function() {
-        $("#dashboardupdate").on("show.bs.modal", function(event) {
-            // Place the returned HTML into the selected element
-            $(this).find(".modal-body").load("<cfoutput>/include/dashboardupdate.cfm?userid=#userid#</cfoutput>");
-        });
-    });
-</script>
 
 
 
