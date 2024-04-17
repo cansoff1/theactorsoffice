@@ -6,6 +6,7 @@
 <cfinclude template="/include/modal.cfm" />
 
 
+<cfinclude template="/include/qry/timezones.cfm" />
 
 <script>
     $(document).ready(function() {
@@ -614,7 +615,6 @@
 </cfif>
 
 
-<cfinclude template="/include/qry/timezones.cfm" />
 <cfparam name="t2" default="0" />
 
 
