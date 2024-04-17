@@ -1,7 +1,7 @@
  <CFINCLUDE template="/include/remote_load.cfm" />
 
 <cfset modalid = "dashboardupdate" />
-<cfset modaltitle = "Dashboard Peferences" />
+<cfset modaltitle = "Dashboard Preferences" />
 <cfoutput>#modalTItle#</cfoutput>
 <cfinclude template="/include/modal.cfm" />
 
