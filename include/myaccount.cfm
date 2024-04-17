@@ -491,7 +491,6 @@
 
     <div class="col-md-12">
 
-        <cfinclude template="/include/account_view.cfm" />
 
     </div>
 
