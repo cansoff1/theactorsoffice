@@ -106,28 +106,25 @@ $("#select-relationship").selectize({
 
 
 
-
-
-
                                         <div class="col-3">
                              <div class="form-group">
-                                 <label class="control-label">Type<span class="text-danger">*</span></label>
+                                 <label class="control-label">Version<span class="text-danger">*</span></label>
                                  
-                                      <select class="form-control" name="new_alphabeta" id="new_alphabeta" required>
+                                      <select class="form-control" name="new_version" id="new_version" required>
 
- 
+<cfloop index="p" from="0" to="9" >
     <cfoutput> 
-             <option value="alpha" <cfif #details.alphabeta# is "alpha"> selected </cfif>>alpha</option>
-                     <option value="beta" <cfif #details.alphabeta# is "beta"> selected </cfif>>beta</option>                   
-                                 
-                                 
+             <option value="#p#" <cfif #p# is "#details.version#"> selected </cfif>>#p#</option>
 </cfoutput>
- 
+    </cfloop>
 
         </select>
                           
                              </div>
-                         </div>      
+                         </div>            
+
+
+
 
 
 
