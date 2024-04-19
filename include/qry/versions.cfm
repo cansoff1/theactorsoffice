@@ -33,5 +33,5 @@ v.verid
 
  FROM taoversions v
  
- ORDER BY v.major,v.minor,v.patch
+ ORDER BY v.major,v.minor,v.patch,v.version
  </cfquery>   
