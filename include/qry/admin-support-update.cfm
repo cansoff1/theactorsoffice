@@ -28,7 +28,7 @@ t.ticketid
 ,v.major
 ,v.minor
 ,v.patch
-,v.alphabeta
+,v.alphabeta,v.version
 ,v.releasedate
 ,t.customtestpagename    
 ,t.customtestpagelink      

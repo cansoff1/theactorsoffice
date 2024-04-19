@@ -7,7 +7,7 @@ SET major = <cfqueryparam cfsqltype="cf_sql_integer" value="#new_major#" />
 ,minor = <cfqueryparam cfsqltype="cf_sql_integer" value="#new_minor#" />
 ,patch = <cfqueryparam cfsqltype="cf_sql_integer" value="#new_patch#" />
 ,versionstatus = <cfqueryparam cfsqltype="cf_sql_varchar" value="#new_versionstatus#" />
-,alphabeta = <cfqueryparam cfsqltype="cf_sql_varchar" value="#new_alphabeta#" />
+,version = <cfqueryparam cfsqltype="cf_sql_integer" value="#new_version#" />
 
     
 <cfif #new_reviewDate# is not "">

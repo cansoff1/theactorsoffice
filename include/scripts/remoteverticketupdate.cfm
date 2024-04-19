@@ -81,7 +81,8 @@ ORDER BY u.recordname
     
     
         	<cfquery name="vers" datasource="#dsn#" >
-    SELECT verid AS id, major,minor,patch, alphabeta,isactive FROM taoversions ORDER BY major,minor,patch
+    SELECT verid AS id, major,minor,patch,version, alphabeta,isactive FROM taoversions 
+    ORDER BY major,minor,patch,version
     </cfquery>
 
 <div class="row">
@@ -157,7 +158,7 @@ ORDER BY u.recordname
 <option value="">None</option>
 
     <cfoutput query="vers" >
-        <option value="#vers.id#" <cfif #vers.id# is "#details.verid#"> selected </cfif>  >#vers.major#.#vers.minor#.#vers.patch#-#vers.alphabeta#</option>
+        <option value="#vers.id#" <cfif #vers.id# is "#details.verid#"> selected </cfif>  >#vers.major#.#vers.minor#.#vers.patch#.#vers.version#</option>
     </cfoutput>
       
 </select>

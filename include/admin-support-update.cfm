@@ -183,7 +183,7 @@
 <option value="">None</option>
 
     <cfoutput query="vers" >
-        <option value="#vers.id#" <cfif #vers.id# is "#details.verid#"> selected </cfif>  >#vers.major#.#vers.minor#.#vers.patch#-#vers.alphabeta#</option>
+        <option value="#vers.id#" <cfif #vers.id# is "#details.verid#"> selected </cfif>  >#vers.major#.#vers.minor#.#vers.patch#.#vers.version#</option>
     </cfoutput>
       
 </select>

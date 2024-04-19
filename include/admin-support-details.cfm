@@ -285,7 +285,7 @@
                      <div class="mt-0 font-size-12">
                          
                        <cfif #details.verid# is not "">
-                    #details.major#.#details.minor#.#details.patch#-#details.alphabeta#     
+                    #details.major#.#details.minor#.#details.patch#.#details.version#     
                     </cfif>
                          
                          
