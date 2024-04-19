@@ -5,7 +5,7 @@ v.verid
 ,v.major
 ,v.minor
 ,v.patch
-,v.alphabeta
+,v.alphabeta,v.version
 ,v.releasedate
 ,v.releaseTime
 ,v.reviewDate
@@ -13,7 +13,7 @@ v.verid
 ,v.reviewtime
 ,v.versionstatus
 ,v.isActive
-,CONCAT(v.major,'.',v.minor,'.',v.patch,'-',v.alphabeta) AS vername
+,CONCAT(v.major,'.',v.minor,'.',v.patch,'.',v.version) AS vername
 ,(SELECT COUNT(*) FROM tickets WHERE verid = v.verid) AS total_tickets
 ,(SELECT sum(esthours) FROM tickets WHERE verid = v.verid) AS total_hours
  FROM taoversions v

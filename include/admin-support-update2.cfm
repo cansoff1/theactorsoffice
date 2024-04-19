@@ -351,12 +351,12 @@ select recordname as new_findname from pgpages where pgid = #new_pgid#
 
 
 <cfquery name="old" datasource="#dsn#" >
-select CONCAT(v.major,'.',v.minor,'.',v.patch,'-',v.alphabeta) as old_findname from taoversions v where v.verid = #numberformat(old_verid)#
+select CONCAT(v.major,'.',v.minor,'.',v.patch,'.',v.version) as old_findname from taoversions v where v.verid = #numberformat(old_verid)#
 
 </cfquery>
 
 <cfquery name="new" datasource="#dsn#" >
-select CONCAT(v.major,'.',v.minor,'.',v.patch,'-',v.alphabeta) as new_findname from taoversions v where v.verid = #numberformat(new_verid)#
+select CONCAT(v.major,'.',v.minor,'.',v.patch,'.',v.version) as new_findname from taoversions v where v.verid = #numberformat(new_verid)#
 
 </cfquery>
 
@@ -447,7 +447,7 @@ t.ticketid
 ,v.major
 ,v.minor
 ,v.patch
-,v.alphabeta
+,v.alphabeta,v.version
 ,v.releasedate
 ,t.customtestpagename    
 ,t.customtestpagelink      

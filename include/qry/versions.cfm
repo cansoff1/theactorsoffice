@@ -25,7 +25,7 @@ v.verid
 ,v.major
 ,v.minor
 ,v.patch
-,v.alphabeta
+,v.alphabeta,v.version
 
 ,((v.hoursavail) - (SELECT SUM(esthours) FROM tickets t WHERE verid = v.verid)) AS col6 
 ,v.isActive
