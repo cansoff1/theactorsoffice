@@ -13,7 +13,7 @@ v.verid
 
     
     
-,CONCAT(v.major,'.',v.minor,'.',v.patch,'-',v.version) AS col1
+,CONCAT(v.major,'.',v.minor,'.',v.patch,'.',v.version) AS col1
 ,v.reviewDate as col2
 ,v.reviewtime 
 ,v.releasedate as col3
