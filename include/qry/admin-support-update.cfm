@@ -85,5 +85,5 @@ ORDER BY u.recordname
     
     
         	<cfquery name="vers" datasource="#dsn#" >
-    SELECT verid AS id, major,minor,patch, alphabeta,isactive FROM taoversions ORDER BY major,minor,patch
+    SELECT verid AS id, major,minor,patch,version, alphabeta,isactive FROM taoversions ORDER BY major,minor,patch,version
     </cfquery>
