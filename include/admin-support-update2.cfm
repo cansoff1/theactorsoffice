@@ -519,4 +519,4 @@ WHERE t.ticketid = <cfqueryparam cfsqltype="cf_sql_integer" value="#ticketid#" /
      
      
 
-<cflocation url="/app/version/?recid=13" />       
+<cflocation url="/app/version/?recid=#new_verid#" />       
