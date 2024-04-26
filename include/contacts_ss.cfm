@@ -10,7 +10,7 @@
     <cfset search=form["search[value]"]>
 </cfif>
  
- 
+ <cfset length = length - 1 />
     
 <!--- Data set after filtering --->
  <CFINCLUDE template="/include/remote_load.cfm" /><cfquery datasource="#dsn#" name="qFiltered" >
@@ -104,10 +104,10 @@ AND
 
 
 <cfquery datasource="#dsn#" dbtype="query" name="qCount">
-SELECT COUNT(#sIndexColumn#) - 1 as total
+SELECT COUNT(#sIndexColumn#) as total
 FROM   qFiltered
 </cfquery>
- <cfoutput><h2>#qcount.total#</cfoutput><cfabort>
+ 
 <cfif qFiltered.recordcount gt 0>
     <cfset recordsTotal=#qCount.total#>
 <cfelse>
