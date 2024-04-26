@@ -100,7 +100,10 @@ AND
 </cfquery>
  
 <!--- Total data set length --->
-<CFINCLUDE template="/include/remote_load.cfm" /><cfquery datasource="#dsn#" dbtype="query" name="qCount">
+<CFINCLUDE template="/include/remote_load.cfm" />
+
+
+<cfquery datasource="#dsn#" dbtype="query" name="qCount">
 SELECT COUNT(#sIndexColumn#) as total
 FROM   qFiltered
 </cfquery>
@@ -114,18 +117,18 @@ FROM   qFiltered
 <!---
 Output
 --->
- <cfset startrow = start + 1/>
+
 {"draw": <cfoutput>#val(draw)#</cfoutput>,
 "recordsTotal": <cfoutput>#recordsTotal#</cfoutput>,
 "recordsFiltered": <cfoutput>#qFiltered.recordCount#</cfoutput>,
 "data":
 <cfif qFiltered.recordcount gt 0>
 [
-<cfloop query="qFiltered" startrow="#val(startrow)#">
+<cfloop query="qFiltered" startrow="#val(start+1)#">
 <cfoutput>
     <cfset n = #n# + 1 />
    <cfif n LTE val(length)>
-    <cfif currentRow gt (startrow)>,</cfif>
+    <cfif currentRow gte (start+1)>,</cfif>
     [
     
 
