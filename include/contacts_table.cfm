@@ -333,24 +333,20 @@
     
     
                 // Handle form submission event 
-        $('#myformsystem').on('submit', function(e) {
-            var formsystem = this;
+   $('#myformsystem').on('submit', function(e) {
+    e.preventDefault(); // Temporarily prevent form submission for debugging
+    var formsystem = this;
+    var rows_selectedsystem = table.column(0).checkboxes.selected();
+    console.log(rows_selectedsystem); // Check what's being selected
 
-            var rows_selectedsystem = table.column(0).checkboxes.selected();
+    $.each(rows_selectedsystem, function(index, rowId) {
+        console.log(rowId); // Output each row ID
+        $(formsystem).append($('<input>').attr('type', 'hidden').attr('name', 'idlist').val(rowId));
+    });
 
-            // Iterate over all selected checkboxes
-            $.each(rows_selectedsystem, function(index, rowId) {
-                // Create a hidden element 
-                $(formsystem).append(
-                    $('<input>')
-                    .attr('type', 'hidden')
-                    .attr('name', 'idlist')
-                    .val(rowId)
-                );
-
-            });
-
-        });
+    // Uncomment the below line to allow form submission after testing
+    //formsystem.submit();
+});
     
     
     
