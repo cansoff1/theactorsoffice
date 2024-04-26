@@ -107,7 +107,7 @@ AND
 SELECT COUNT(#sIndexColumn#) as total
 FROM   qFiltered
 </cfquery>
- 
+ <cfoutput><h2>#qcount.total#</cfoutput><cfabort>
 <cfif qFiltered.recordcount gt 0>
     <cfset recordsTotal=#qCount.total#>
 <cfelse>
