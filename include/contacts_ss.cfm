@@ -10,7 +10,7 @@
     <cfset search=form["search[value]"]>
 </cfif>
  
- <cfset length = length - 1 />
+ 
     
 <!--- Data set after filtering --->
  <CFINCLUDE template="/include/remote_load.cfm" /><cfquery datasource="#dsn#" name="qFiltered" >
@@ -100,10 +100,7 @@ AND
 </cfquery>
  
 <!--- Total data set length --->
-<CFINCLUDE template="/include/remote_load.cfm" />
-
-
-<cfquery datasource="#dsn#" dbtype="query" name="qCount">
+<CFINCLUDE template="/include/remote_load.cfm" /><cfquery datasource="#dsn#" dbtype="query" name="qCount">
 SELECT COUNT(#sIndexColumn#) as total
 FROM   qFiltered
 </cfquery>
@@ -117,7 +114,7 @@ FROM   qFiltered
 <!---
 Output
 --->
-
+ 
 {"draw": <cfoutput>#val(draw)#</cfoutput>,
 "recordsTotal": <cfoutput>#recordsTotal#</cfoutput>,
 "recordsFiltered": <cfoutput>#qFiltered.recordCount#</cfoutput>,
@@ -128,7 +125,7 @@ Output
 <cfoutput>
     <cfset n = #n# + 1 />
    <cfif n LTE val(length)>
-    <cfif currentRow gte (start+1)>,</cfif>
+    <cfif currentRow gt (start+1)>,</cfif>
     [
     
 
