@@ -9,7 +9,9 @@
 <cfif len(form["search[value]"]) gt 0>
     <cfset search=form["search[value]"]>
 </cfif>
- 
+ <Cfoutput>
+ <cfset length = #length# + 1 />
+ </cfoutput>
  
     
 <!--- Data set after filtering --->
