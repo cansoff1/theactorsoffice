@@ -2,11 +2,16 @@
  
 <cfparam name="idlist" default="0" />
 
+<Cfif not #isdefined('session.idlist')#>
+<cfset session.idlist = idlist />
+
+</cfif>
+
  <cfif #idlist# is "0" and #session.idlist# is not "0">
  <cfset idlist = session.idlist />
 
  </cfif>
-<cfoutput>idlist: #idlist#<BR>session idlist: #session.idlist#<BR><cfoutput><cfabort>
+
  <CFINCLUDE template="/include/remote_load.cfm" />
 
 
