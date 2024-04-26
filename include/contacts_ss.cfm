@@ -121,7 +121,7 @@ Output
 "data":
 <cfif qFiltered.recordcount gt 0>
 [
-<cfloop query="qFiltered" startrow="#val(start+1)#">
+<cfloop query="qFiltered" startrow="#val(start)#">
 <cfoutput>
     <cfset n = #n# + 1 />
     <cfif n LT val(length)>
