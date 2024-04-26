@@ -114,18 +114,18 @@ FROM   qFiltered
 <!---
 Output
 --->
- 
+ <cfset startrow = start + 1/>
 {"draw": <cfoutput>#val(draw)#</cfoutput>,
 "recordsTotal": <cfoutput>#recordsTotal#</cfoutput>,
 "recordsFiltered": <cfoutput>#qFiltered.recordCount#</cfoutput>,
 "data":
 <cfif qFiltered.recordcount gt 0>
 [
-<cfloop query="qFiltered" startrow="#val(start+1)#">
+<cfloop query="qFiltered" startrow="#val(startrow)#">
 <cfoutput>
     <cfset n = #n# + 1 />
    <cfif n LTE val(length)>
-    <cfif currentRow gt (start+1)>,</cfif>
+    <cfif currentRow gt (startrow)>,</cfif>
     [
     
 
