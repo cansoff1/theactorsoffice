@@ -104,7 +104,7 @@ AND
 
 
 <cfquery datasource="#dsn#" dbtype="query" name="qCount">
-SELECT COUNT(#sIndexColumn#) as total
+SELECT COUNT(#sIndexColumn#) - 1 as total
 FROM   qFiltered
 </cfquery>
  <cfoutput><h2>#qcount.total#</cfoutput><cfabort>
