@@ -569,7 +569,7 @@ $(document).ready(function() {
                <form method="post" class="parsley-examples demo-default selectize-close-btn" data-parsley-excluded="input[type=button], input[type=submit], input[type=reset], input[type=hidden], [disabled], :hidden" data-parsley-trigger="keyup" data-parsley-validate="" novalidate=""   id="myformexport" name="myformexport"  action="/include/tmpcontactgroups.cfm" method="POST" >
    
      <div class="form-group col-md-12">
-         <label for="valuetext">Add System to all selected relationships</label>
+         <label for="valuetext">Add System to all selected relationships.</label>
      </div>
 
 <div class="form-group col-md-6">
