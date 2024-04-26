@@ -10,7 +10,7 @@
     <cfset search=form["search[value]"]>
 </cfif>
  <Cfoutput>
- <cfset length = #length# + 1 />
+ <cfset length = #length# - 1 />
  </cfoutput>
  
     
