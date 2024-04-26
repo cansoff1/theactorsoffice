@@ -6,7 +6,7 @@
  <cfset idlist = session.idlist />
 
  </cfif>
-
+<cfoutput>idlist: #idlist#<BR>session idlist: #session.idlist#<BR><cfoutput><cfabort>
  <CFINCLUDE template="/include/remote_load.cfm" />
 
 
