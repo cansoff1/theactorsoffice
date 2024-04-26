@@ -56,11 +56,11 @@
 
 <cfinclude template="/include/qry/imports.cfm" />
    
-
+<cfset userdefRows = userdefRows  />
 <script type="text/javascript">
     $(document).ready(function() {
         var table = $('#<cfoutput>#contacts_table#</cfoutput>').DataTable({
-            "pageLength": < cfoutput > #userdefRows # < /cfoutput>,
+            "pageLength": < cfoutput > #userdefRows# < /cfoutput>,
             stateSave: false,
             dom: 'Bfrtip',
               responsive: {
