@@ -124,7 +124,7 @@ Output
 <cfloop query="qFiltered" startrow="#val(start+1)#">
 <cfoutput>
     <cfset n = #n# + 1 />
-    <cfif n LT val(length)>
+   <cfif n LTE val(length)>
     <cfif currentRow gt (start+1)>,</cfif>
     [
     
