@@ -341,17 +341,17 @@
             // Iterate over all selected checkboxes
             $.each(rows_selectedsystem, function(index, rowId) {
                 // Create a hidden element 
-                $(formsystem).append(
-                    $('<input>')
-                    .attr('type', 'hidden')
-                    .attr('name', 'idlist')
-       .val(rowId)
-                );
+        $(formsystem).append(
+            $('<input>')
+            .attr('type', 'hidden')
+            .attr('name', 'idlist')
+            .val(rowId)
+        );
+    });
 
-            });
-
-        });
-
+    $('#exampleModal3').modal('show'); // Correctly placing the modal display inside the submit handler
+    e.preventDefault(); // Prevent the default form submission
+});
     
     
     
