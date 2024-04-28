@@ -3,7 +3,6 @@
 <cfparam name="d" default="0" />
 <cfparam name="s" default="0" />
 
-
 <cfparam name="contactcheckvisible" default="false" />
 <cfparam name="maintenance_expand" default="false" />
 <cfparam name="bytag" default="" />
