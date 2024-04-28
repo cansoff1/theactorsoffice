@@ -334,7 +334,7 @@
         $('#myformsystem').on('submit', function(e) {
             var formsystem = this;
 
-
+ $('input[name="idlist"]', formsystem).remove(); // Clear previous IDs
 
     var rows_selectedsystem = table.column(0).checkboxes.selected();
 
