@@ -214,11 +214,13 @@
     $('#<cfoutput>#contacts_table#</cfoutput>').on('select.dt deselect.dt', function() {
   table.buttons( ['.updatetag'] ).enable(
     table.rows( { selected: true } ).indexes().length === 0 ? false : true
-  )    
-        
-        
-        
+  )      
 });
+
+    $('#<cfoutput>#contacts_table#</cfoutput>').on('select.dt deselect.dt', function() {
+  table.buttons( ['.updatesystem'] ).enable(
+    table.rows( { selected: true } ).indexes().length === 0 ? false : true
+  )}); 
     
     
       $('#<cfoutput>#contacts_table#</cfoutput>').on('select.dt deselect.dt', function() {
@@ -226,10 +228,7 @@
     table.rows( { selected: true } ).indexes().length === 0 ? false : true
   )}); 
     
-          $('#<cfoutput>#contacts_table#</cfoutput>').on('select.dt deselect.dt', function() {
-  table.buttons( ['.updatesystem'] ).enable(
-    table.rows( { selected: true } ).indexes().length === 0 ? false : true
-  )}); 
+ 
     
     
         
@@ -258,26 +257,7 @@
     
     
 
-        // Handle form submission event 
-        $('#myformsystem').on('submit', function(e) {
-            var formsystem = this;
-
-            var rows_selected = table.column(0).checkboxes.selected();
-
-            // Iterate over all selected checkboxes
-            $.each(rows_selected, function(index, rowId) {
-                // Create a hidden element 
-                $(form).append(
-                    $('<input>')
-                    .attr('type', 'hidden')
-                    .attr('name', 'idlist')
-                    .val(rowId)
-                );
-
-            });
-
-        });
-    
+  
     
     
             // Handle form submission event 

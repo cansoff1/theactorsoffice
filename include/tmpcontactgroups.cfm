@@ -2,6 +2,11 @@
  
 <cfparam name="idlist" default="0" />
 
+<Cfif not #isdefined('session.idlist')#>
+<cfset session.idlist = idlist />
+
+</cfif>
+
  <cfif #idlist# is "0" and #session.idlist# is not "0">
  <cfset idlist = session.idlist />
 
