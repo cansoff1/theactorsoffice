@@ -368,7 +368,7 @@ $('#myformsystem').on('submit', function(e) {
 $('#<cfoutput>#contacts_table#_container</cfoutput>').css( 'display', 'block' );
 table.columns.adjust().draw();
 
-        $('#buttonz').click(function() {
+        $('#buttonzz').click(function() {
             var numChecked = table.column(0).checkboxes.selected();
             $('log').html(numChecked);
         })
