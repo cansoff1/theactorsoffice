@@ -136,7 +136,7 @@
            action: function (e, node, config){
                 $('#exampleModal3').modal('show')
                 },
-                enabled: true
+                enabled: false
             },
                 
 
