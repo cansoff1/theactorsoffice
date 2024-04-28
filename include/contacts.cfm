@@ -763,7 +763,22 @@ $(document).ready(function() {
     
     
     
-    
+    <script>
+    $('#formsystem').on('submit', function(e) {
+    e.preventDefault(); // to stop the form from submitting traditionally
+    var formData = $(this).serialize();
+    console.log("Attempting to submit:", formData);
+
+    // Uncomment this to perform the submission if you handle it via AJAX
+    // $.post('/path/to/server', formData, function(response) {
+    //     console.log("Server response:", response);
+    // });
+
+    // If submitting traditionally, you might need to do this:
+    // this.submit(); // Only if you absolutely need to submit traditionally after manual handling
+});
+
+</script>
     
 
     
