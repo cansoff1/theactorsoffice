@@ -310,7 +310,7 @@
                 // Handle form submission event 
         $('#myformtag').on('submit', function(e) {
             var formtag = this;
-
+ $('input[name="idlist"]', formtag).remove(); // Clear previous IDs
             var rows_selectedtag = table.column(0).checkboxes.selected();
 
             // Iterate over all selected checkboxes
