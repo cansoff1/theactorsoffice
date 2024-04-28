@@ -328,19 +328,23 @@
         });
     
     
-    
-    
-                // Handle form submission event 
-        $('#myformsystem').on('submit', function(e) {
-            var formsystem = this;
+$('#myformsystem').on('submit', function(e) {
+    e.preventDefault(); // Ensure form doesn't submit traditionally, which might refresh the page
+    var formsystem = this;
 
- $('input[name="idlist"]', formsystem).remove(); // Clear previous IDs
+    // Clear previous IDs
+    $('input[name="idlist"]', formsystem).remove();
 
+    // Debugging: Check what's currently in the form
+    console.log("Current form before adding new ids:", $(formsystem).serialize());
+
+    // Capture currently selected IDs
     var rows_selectedsystem = table.column(0).checkboxes.selected();
+    console.log("Selected IDs for system:", rows_selectedsystem); // Debugging: Log selected IDs
 
-            // Iterate over all selected checkboxes
-            $.each(rows_selectedsystem, function(index, rowId) {
-                // Create a hidden element 
+    // Iterate over all selected checkboxes
+    $.each(rows_selectedsystem, function(index, rowId) {
+        // Create a hidden element
         $(formsystem).append(
             $('<input>')
             .attr('type', 'hidden')
@@ -349,10 +353,12 @@
         );
     });
 
-    $('#exampleModal3').modal('show'); // Correctly placing the modal display inside the submit handler
-    e.preventDefault(); // Prevent the default form submission
+    // Debugging: Check what's being submitted
+    console.log("Final form submission data:", $(formsystem).serialize());
+
+    $('#exampleModal3').modal('show'); // Show the modal
 });
-    
+
     
     
     
