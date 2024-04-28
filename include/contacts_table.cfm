@@ -345,14 +345,13 @@
                     $('<input>')
                     .attr('type', 'hidden')
                     .attr('name', 'idlist')
-                    .val(rowId)
+       .val(rowId)
                 );
 
             });
 
-           });
-$('#exampleModal3').modal('show'); // This should not be here, seems like misplaced line.
-},
+        });
+
     
     
     
