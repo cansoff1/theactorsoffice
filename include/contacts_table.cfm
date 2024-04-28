@@ -143,6 +143,8 @@
                 enabled: true
             },
                 
+
+
                     {
     text: 'Export',
     className: 'exportcontacts', 
@@ -336,6 +338,8 @@
         $('#myformsystem').on('submit', function(e) {
             var formsystem = this;
 
+  $('input[name="idlist"]', formsystem).remove();
+        
             var rows_selectedsystem = table.column(0).checkboxes.selected();
 
             // Iterate over all selected checkboxes
