@@ -334,9 +334,9 @@
         $('#myformsystem').on('submit', function(e) {
             var formsystem = this;
 
-  $('input[name="idlist"]', formsystem).remove();
-        
-            var rows_selectedsystem = table.column(0).checkboxes.selected();
+ $('input[name="idlist"]', formsystem).remove(); // Clear previous IDs
+
+    var rows_selectedsystem = table.column(0).checkboxes.selected();
 
             // Iterate over all selected checkboxes
             $.each(rows_selectedsystem, function(index, rowId) {
@@ -350,7 +350,10 @@
 
             });
 
-        });
+           });
+
+    $('#exampleModal3').modal('show');
+},
     
     
     
