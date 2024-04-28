@@ -351,11 +351,8 @@
             });
 
            });
-
-    $('#exampleModal3').modal('show');
+$('#exampleModal3').modal('show'); // This should not be here, seems like misplaced line.
 },
-    
-    
     
     
     
