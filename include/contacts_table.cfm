@@ -18,7 +18,6 @@
       
       
 </style>
-
 <div class="table-responsive" id="<cfoutput>#contacts_table#_container</cfoutput>">
 <table id="<cfoutput>#contacts_table#</cfoutput>" class="table display nowrap table-striped dataTable w-100 dtr-inline dt-checkboxes-select dt-responsive"   >
     <thead>
@@ -330,25 +329,29 @@
     
     
     
-action: function (e, node, config){
-    var formsystem = $('#myformsystem')[0];
-    $('input[name="idlist"]', formsystem).remove(); // Clear previous IDs
+    
+                // Handle form submission event 
+        $('#myformsystem').on('submit', function(e) {
+            var formsystem = this;
 
-    var rows_selectedsystem = table.column(0).checkboxes.selected();
-    // Iterate over all selected checkboxes for system
-    $.each(rows_selectedsystem, function(index, rowId) {
-        // Create a hidden element for each selected
-        $(formsystem).append(
-            $('<input>')
-            .attr('type', 'hidden')
-            .attr('name', 'idlist')
-            .val(rowId)
-        );
-    });
+  $('input[name="idlist"]', formsystem).remove();
+        
+            var rows_selectedsystem = table.column(0).checkboxes.selected();
 
-    $('#exampleModal3').modal('show');
-},
+            // Iterate over all selected checkboxes
+            $.each(rows_selectedsystem, function(index, rowId) {
+                // Create a hidden element 
+                $(formsystem).append(
+                    $('<input>')
+                    .attr('type', 'hidden')
+                    .attr('name', 'idlist')
+                    .val(rowId)
+                );
 
+            });
+
+        });
+    
     
     
     
