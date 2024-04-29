@@ -294,7 +294,7 @@
       
                  
                     <div class="col">
-                        <a class="dropdown-icon-item" href="mailto:support@theactorsoffice.com?subject=I%20Need%20Some%20Support%20with%20TAO">
+                        <a class="dropdown-icon-item" id="additionalHelpButton" href="">
                            
                       <a href="" id="additionalHelpButton">
                             <img src="/assets/images/contact.png?ver=3" alt="Contact Support">
