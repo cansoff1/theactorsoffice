@@ -269,7 +269,7 @@
 
 
             
-<cfif #FindPage.userrole# is "Administrator">
+<cfif #userRole# is "Administrator">
 <BR>
 
 <div class="col">
