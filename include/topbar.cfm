@@ -18,7 +18,9 @@
         </form>
                 
                 
-                
+              <script> helpwiseSettings = { widget_id: '65958ef4eb602', align: 'right' } </script>
+
+<script src="https://cdn.helpwise.io/assets/js/livechat.js"></script>  
  
                 
                 
@@ -267,7 +269,7 @@
 
 
             
-<cfif #FindPage.compowner# is "A">
+<cfif #FindPage.userrole# is "Administrator">
 <BR>
 
 <div class="col">
