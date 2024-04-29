@@ -3,7 +3,6 @@
 <cfparam name="d" default="0" />
 <cfparam name="s" default="0" />
 
-
 <cfparam name="contactcheckvisible" default="false" />
 <cfparam name="maintenance_expand" default="false" />
 <cfparam name="bytag" default="" />
@@ -206,7 +205,7 @@
                             <i class="mdi mdi-tag-plus"></i>
                         </a>
 
-                        <a href="" class="text-reset font-18 py-1 px-2 d-inline-block" title="Add System to selected" id="buttonz" data-bs-toggle="modal" data-bs-target="#exampleModal3">
+                        <a href="" class="text-reset font-18 py-1 px-2 d-inline-block" title="Add System to selected" id="buttonx" data-bs-toggle="modal" data-bs-target="#exampleModal3">
                             <i class="mdi mdi-checkbox-multiple-marked"></i>
                         </a>
 
@@ -567,7 +566,7 @@ $(document).ready(function() {
             
 <div class="modal-body">
 
-               <form method="post" class="parsley-examples demo-default selectize-close-btn" data-parsley-excluded="input[type=button], input[type=submit], input[type=reset], input[type=hidden], [disabled], :hidden" data-parsley-trigger="keyup" data-parsley-validate="" novalidate=""   id="myformexport" name="myformexport"  action="/include/tmpcontactgroups.cfm" method="POST" >
+               <form method="post" class="parsley-examples demo-default selectize-close-btn" data-parsley-excluded="input[type=button], input[type=submit], input[type=reset], input[type=hidden], [disabled], :hidden" data-parsley-trigger="keyup" data-parsley-validate="" novalidate=""   id="myformsystem" name="myformsystem"  action="/include/tmpcontactgroups.cfm" method="POST" >
    
      <div class="form-group col-md-12">
          <label for="valuetext">Add System to all selected relationships.</label>
@@ -764,8 +763,7 @@ $(document).ready(function() {
     
     
     
-    
-    
+  
     
 
     
