@@ -56,31 +56,6 @@
 
 
 
-      <div class="form-group col-sm-6 mb-6">
-        <label for="refer_contact_id">Referred By</label>
-
-        <select id="refer_contact_id" name="refer_contact_id" class="form-control" style="width:100%;" >
-
-
-            <option value="">Select a Relationship</option>
-            <cfoutput query="refers">
-                <option value="#refers.contactid#">#refers.contactfullname#</option>
-
-
-            </cfoutput>
-        
-        </select>
-
-
-
-    </div>
-
-
-
-
-
-
-
 
 
 
