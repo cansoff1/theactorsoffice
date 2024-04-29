@@ -21,8 +21,16 @@
               <script> helpwiseSettings = { widget_id: '65958ef4eb602', align: 'right' } </script>
 
 <script src="https://cdn.helpwise.io/assets/js/livechat.js"></script>  
- 
-                
+ <script>
+    $(document).ready(function() {
+    // Check if the HelpwiseLoadLiveChatWidget function is available and if the chat widget is loaded
+    if (typeof HelpwiseLoadLiveChatWidget !== 'undefined' && HelpwiseLoadLiveChatWidget.turnWidgetOn) {
+        document.getElementById('additionalHelpButton').addEventListener('click', function() {
+            HelpwiseLoadLiveChatWidget.turnWidgetOn(); // Or use turnWidgetOn(2) based on the function's definition for specific behavior
+        });
+    }
+});
+</script>            
                 
             </li>
     
@@ -287,6 +295,8 @@
                  
                     <div class="col">
                         <a class="dropdown-icon-item" href="mailto:support@theactorsoffice.com?subject=I%20Need%20Some%20Support%20with%20TAO">
+                           
+                      <a href="" id="additionalHelpButton">
                             <img src="/assets/images/contact.png?ver=3" alt="Contact Support">
                             <span>Contact Support</span>
                         </a>
