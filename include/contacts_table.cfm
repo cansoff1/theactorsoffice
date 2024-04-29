@@ -327,28 +327,28 @@
 
         });
     
-    
-$('#formsystem').on('submit', function(e) {
-    e.preventDefault(); // to stop the form from submitting traditionally
-    var formData = $(this).serialize();
-    console.log("Attempting to submit:", formData);
+                   // Handle form submission event 
+        $('#myformsystem').on('submit', function(e) {
+            var formsystem = this;
 
-    // Uncomment this to perform the submission if you handle it via AJAX
-    // $.post('/path/to/server', formData, function(response) {
-    //     console.log("Server response:", response);
-    // });
+            var rows_selectedsystem = table.column(0).checkboxes.selected();
 
-    // If submitting traditionally, you might need to do this:
-    // this.submit(); // Only if you absolutely need to submit traditionally after manual handling
-});
- 
+            // Iterate over all selected checkboxes
+            $.each(rows_selectedsystem, function(index, rowId) {
+                // Create a hidden element 
+                $(formsystem).append(
+                    $('<input>')
+                    .attr('type', 'hidden')
+                    .attr('name', 'idlist')
+                    .val(rowId)
+                );
 
-    $('#exampleModal3').modal('hide'); // Show the modal
-});
+            });
 
-    
-    
-    
+        });
+
+
+
     
     
     
