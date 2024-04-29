@@ -328,30 +328,20 @@
         });
     
     
-$('#myformsystem').on('submit', function(e) {
-    e.preventDefault(); // Ensure form doesn't submit traditionally, which might refresh the page
-    var formsystem = this;
+$('#formsystem').on('submit', function(e) {
+    e.preventDefault(); // to stop the form from submitting traditionally
+    var formData = $(this).serialize();
+    console.log("Attempting to submit:", formData);
 
-    // Clear previous IDs
-    $('input[name="idlist"]', formsystem).remove();
+    // Uncomment this to perform the submission if you handle it via AJAX
+    // $.post('/path/to/server', formData, function(response) {
+    //     console.log("Server response:", response);
+    // });
 
-    // Debugging: Check what's currently in the form
-    console.log("Current form before adding new ids:", $(formsystem).serialize());
+    // If submitting traditionally, you might need to do this:
+    // this.submit(); // Only if you absolutely need to submit traditionally after manual handling
+});
 
-    // Capture currently selected IDs
-    var rows_selectedsystem = table.column(0).checkboxes.selected();
-    console.log("Selected IDs for system:", rows_selectedsystem); // Debugging: Log selected IDs
-
-    // Iterate over all selected checkboxes
-    $.each(rows_selectedsystem, function(index, rowId) {
-        // Create a hidden element
-        $(formsystem).append(
-            $('<input>')
-            .attr('type', 'hidden')
-            .attr('name', 'idlist')
-            .val(rowId)
-        );
-    });
 
     // Debugging: Check what's being submitted
     console.log("Final form submission data:", $(formsystem).serialize());
