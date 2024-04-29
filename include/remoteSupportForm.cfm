@@ -117,7 +117,8 @@ ORDER BY u.recordname
          <select class="form-control" name="new_pgid" id="new_pgid" required>
 
 <cfoutput query="pages" >
-             <option value="#pages.id#" <cfif #pages.id# is "#new_pgid#"> selected </cfif>>#pages.name#</option>
+   <option value="">SELECT A PAGE</option>
+             <option value="#pages.id#">#pages.name#</option>
 </cfoutput>
 
 
