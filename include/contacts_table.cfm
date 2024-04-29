@@ -343,7 +343,7 @@ $('#formsystem').on('submit', function(e) {
 });
  
 
-    $('#exampleModal3').modal('show'); // Show the modal
+    $('#exampleModal3').modal('hide'); // Show the modal
 });
 
     
