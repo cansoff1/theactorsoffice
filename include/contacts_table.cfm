@@ -341,10 +341,7 @@ $('#formsystem').on('submit', function(e) {
     // If submitting traditionally, you might need to do this:
     // this.submit(); // Only if you absolutely need to submit traditionally after manual handling
 });
-
-
-    // Debugging: Check what's being submitted
-    console.log("Final form submission data:", $(formsystem).serialize());
+ 
 
     $('#exampleModal3').modal('show'); // Show the modal
 });
