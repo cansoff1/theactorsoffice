@@ -294,9 +294,9 @@
       
                  
                     <div class="col">
-                        <a class="dropdown-icon-item" id="additionalHelpButton" href="">
+                        <a class="dropdown-icon-item" id="additionalHelpButton" href="mailto:support@theactorsoffice.com?subject=I%20Need%20Some%20Support%20with%20TAO">
                            
-                      <a href="" id="additionalHelpButton">
+                    <a href="d.cfm" data-bs-remote="true" data-bs-toggle="modal" data-bs-target="#z" class="dropdown-icon-item">
                             <img src="/assets/images/contact.png?ver=3" alt="Contact Support">
                             <span>Contact Support</span>
                         </a>

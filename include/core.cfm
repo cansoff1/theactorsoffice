@@ -210,6 +210,25 @@ $('#menu a').click(function (e) {
            
                     <cfparam name="pgdir" default="">
                 <cfparam name="pgid" default="0" />
+
+
+                <div id="z" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="standard-modalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header" style="background-color: #f3f7f9;">
+                <h4 class="modal-title" id="standard-modalLabel">Support Center</h4>
+                <button type="button" class="close" data-bs-dismiss="modal" aria-hidden="true"></button>
+            </div>
+            <div class="modal-body">
+                Click icon on the bottom right of the TAO program window
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
                 <script>
                     $(document).ready(function() {
                         $("#remoteSupportForm").on("show.bs.modal", function(event) {
