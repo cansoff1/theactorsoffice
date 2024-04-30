@@ -225,7 +225,7 @@
 
     <cfset thispage="#replace('#thispage#','\','')#" />
 
-
+</row><row>
 
 
 <cfquery datasource="#dsn#" name="FindPage">
