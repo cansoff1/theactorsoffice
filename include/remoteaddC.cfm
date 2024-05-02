@@ -443,43 +443,36 @@
              
              
              
-             
-             
-             
-     <cfoutput>
+             <cfoutput>
     <div class="form-group col-md-12">
         <label for="valueCompany">#details.recordname# Name<span class="text-danger">*</span></label>
+        <select id="valueCompany" name="valueCompany" class="form-control" onchange="toggleCustomField(this);" data-parsley-required data-parsley-error-message="Name is required.">
+            <option value="">Select an option</option>
+            <option value="custom" selected>***ADD NEW***</option>
+            <cfloop query="companies">
+                <option value="#companies.new_valuecompany#">#companies.new_valuecompany#</option>
+            </cfloop>
+        </select>
     </div>
 </cfoutput>
 
-  <div class="form-group col-md-12">
-    <!-- Select Dropdown -->
-    <select id="valueCompany" name="valueCompany" class="form-control" data-parsley-required data-parsley-error-message="Name is required." onchange="toggleCustomField(this);">
-        <option value=""></option>
-        <option value="custom" selected>***ADD NEW***</option>
-        <cfoutput query="companies">
-            <option value="#companies.new_valuecompany#">#companies.new_valuecompany#</option>
-        </cfoutput>
-    </select>
- 
-</div>
 <cfoutput>
     <!-- Custom Text Field -->
     <div class="form-group col-md-12" id="special" style="visibility:visible;">
-        <input class="form-control" type="text" id="custom" name="custom" style="visibility:visible;" value="" placeholder="Enter Custom #details.recordname#">
+        <label for="custom">Custom Name</label>
+        <input class="form-control" type="text" id="custom" name="custom" value="" placeholder="Enter Custom #details.recordname#">
     </div>
 </cfoutput>
 
 <script>
     window.onload = function() {
-        // Set initial visibility based on the currently selected value when the page loads
+        // Adjust visibility based on the initial value of the select field
         toggleCustomField(document.getElementById('valueCompany'));
     };
 
     function toggleCustomField(select) {
-        var customField = document.getElementById('special');
         var isCustomSelected = select.value === 'custom';
-        customField.style.visibility = isCustomSelected ? 'visible' : 'hidden';  // Correctly manage visibility
+        document.getElementById('special').style.visibility = isCustomSelected ? 'visible' : 'hidden';
     }
 </script>
 
