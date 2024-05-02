@@ -453,6 +453,7 @@
         <label for="valueCompany">#details.recordname# Name<span class="text-danger">*</span></label>
     </div>
     </cfoutput>
+       <div class="form-group col-md-12">
     <!-- Select Dropdown -->
     <select id="valueCompany" name="valueCompany" class="form-control" data-parsley-required data-parsley-error-message="Name is required." onchange="toggleCustomField(this);">
         <option value=""></option>
@@ -461,13 +462,16 @@
             <option value="#companies.new_valuecompany#">#companies.new_valuecompany#</option>
         </cfoutput>
     </select>
+    </div> 
+ <div class="form-group col-md-12">
+
 <cfoutput>
     <!-- Custom Text Field -->
     <div class="form-group col-md-12" id="special" style="visibility:visible;"> <!-- Set to visible -->
         <input class="form-control" type="text" id="custom" name="custom" style="visibility:visible;" value="" placeholder="Enter Custom #details.recordname#"> <!-- Set to visible -->
     </div>
 </cfoutput>
-
+</div>
 <script>
     function toggleCustomField(select) {
         var isCustomSelected = select.value === 'custom';
