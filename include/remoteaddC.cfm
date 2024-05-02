@@ -450,7 +450,7 @@
     <div class="form-group col-md-12">
         <label for="valueCompany">#details.recordname# Name<span class="text-danger">*</span></label>
     </div>
-
+</cfoutput>
     <!-- Select Dropdown -->
     <select id="valueCompany" name="valueCompany" class="form-control" data-parsley-required data-parsley-error-message="Name is required." onchange="toggleCustomField(this);">
         <option value=""></option>
