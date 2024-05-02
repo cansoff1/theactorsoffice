@@ -519,13 +519,6 @@
 
 
 
-        <script>
-function showDiv(divId, element)
-{
-    document.getElementById(divId).style.display = element.value == "Custom" ? 'block' : 'none';
-}
-        </script>
-
 
 <cfif #new_catid# is "1665">
 <script src="/app/assets/js/intlTelInput.js"></script>
