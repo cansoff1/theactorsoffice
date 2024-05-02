@@ -460,7 +460,7 @@
 
 
                 <option value=""></option>
-                 <option value="custom">***ADD NEW***</option>
+                 <option value="custom" selected>***ADD NEW***</option>
                 <cfoutput query="companies">
                     <option value="#companies.new_valuecompany#">#companies.new_valuecompany# </option>
 
@@ -473,7 +473,7 @@
         </div>
 
 
-        <div class="form-group col-md-12" id="special" style="visibility:hidden">
+        <div class="form-group col-md-12" id="special" style="visibility:show;">
             <cfoutput>
 
 
