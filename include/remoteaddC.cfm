@@ -459,7 +459,7 @@
             <option value="#companies.new_valuecompany#">#companies.new_valuecompany#</option>
         </cfoutput>
     </select>
-</cfoutput>
+ 
 
 <cfoutput>
     <!-- Custom Text Field -->
