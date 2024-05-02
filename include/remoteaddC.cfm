@@ -471,13 +471,17 @@
 </cfoutput>
 
 <script>
+    window.onload = function() {
+        // Set initial visibility based on the currently selected value when the page loads
+        toggleCustomField(document.getElementById('valueCompany'));
+    };
+
     function toggleCustomField(select) {
-        var isCustomSelected = select.value === 'custom';
         var customField = document.getElementById('special');
-        customField.style.visibility = isCustomSelected ? 'visible' : 'hidden';
+        var isCustomSelected = select.value === 'custom';
+        customField.style.visibility = isCustomSelected ? 'visible' : 'hidden';  // Correctly manage visibility
     }
 </script>
-
 
 
                  <div class="form-group col-md-12">
