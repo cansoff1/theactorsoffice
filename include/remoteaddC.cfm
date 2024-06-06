@@ -135,7 +135,10 @@
              <option value=""></option>
              <cfoutput query="types">
  
-                 <option value="#types.valuetype#" <cfif #types.valuetype# is "#details.valuetypedef#"> selected </cfif>><cfif #types.valuetype# is "Custom">*Add New Type<Cfelse>#types.valuetype#</cfif></option>
+                 <option value="#types.valuetype#" <cfif #types.valuetype# is "#details.valuetypedef#"> selected </cfif>
+                 
+                 
+                 <cfif #types.valuetype# is "Custom">*Add New Type<Cfelse>#types.valuetype#</cfif></option>
   
  
              </cfoutput>
