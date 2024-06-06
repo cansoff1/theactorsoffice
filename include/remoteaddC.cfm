@@ -443,12 +443,6 @@
              
              
              
-             
-             
-             
-             
-             
-             
              <cfoutput>
 
 
@@ -467,22 +461,37 @@
         </cfoutput>
         <option value="custom">***ADD NEW***</option>
 
+    <div class="form-group col-md-12">
+        <label for="valueCompany">#details.recordname# Name<span class="text-danger">*</span></label>
+        <select id="valueCompany" name="valueCompany" class="form-control" onchange="toggleCustomField(this);" data-parsley-required data-parsley-error-message="Name is required.">
+            <option value="">Select an option</option>
+            <option value="custom" selected>***ADD NEW***</option>
+            <cfloop query="companies">
+                <option value="#companies.new_valuecompany#">#companies.new_valuecompany#</option>
+            </cfloop>
         </select>
+    </div>
+</cfoutput>
 
-        </div>
+<cfoutput>
+    <!-- Custom Text Field -->
+    <div class="form-group col-md-12" id="special" style="visibility:visible;">
+        <label for="custom">Custom Name</label>
+        <input class="form-control" type="text" id="custom" name="custom" value="" placeholder="Enter Custom #details.recordname#">
+    </div>
+</cfoutput>
 
+<script>
+    window.onload = function() {
+        // Adjust visibility based on the initial value of the select field
+        toggleCustomField(document.getElementById('valueCompany'));
+    };
 
-        <div class="form-group col-md-12" id="special" style="visibility:hidden">
-            <cfoutput>
-
-
-                <input class="form-control" type="text" id="custom" name="custom" style="visibility:hidden;" value="" placeholder="Enter Custom #details.recordname#">
-
-
-        </div>
-
-
-
+    function toggleCustomField(select) {
+        var isCustomSelected = select.value === 'custom';
+        document.getElementById('special').style.visibility = isCustomSelected ? 'visible' : 'hidden';
+    }
+</script>
 
 
                  <div class="form-group col-md-12">
@@ -506,18 +515,7 @@
                  </div>
 
            
-                 
-                 
-                 
-                 
-                 
-                 
-                 
-                 
-                 
-
-             </cfoutput>
-
+                  
 
          </Cfif>
 
@@ -534,13 +532,6 @@
  </form>
 
 
-
-        <script>
-function showDiv(divId, element)
-{
-    document.getElementById(divId).style.display = element.value == "Custom" ? 'block' : 'none';
-}
-        </script>
 
 
 <cfif #new_catid# is "1665">
