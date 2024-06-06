@@ -135,7 +135,10 @@
              <option value=""></option>
              <cfoutput query="types">
  
-                 <option value="#types.valuetype#" <cfif #types.valuetype# is "#details.valuetypedef#"> selected </cfif>><cfif #types.valuetype# is "Custom">*Add New Type<Cfelse>#types.valuetype#</cfif></option>
+                 <option value="#types.valuetype#" <cfif #types.valuetype# is "#details.valuetypedef#"> selected </cfif>
+                 
+                 
+                 <cfif #types.valuetype# is "Custom">*Add New Type<Cfelse>#types.valuetype#</cfif></option>
   
  
              </cfoutput>
@@ -444,6 +447,23 @@
              
              
              <cfoutput>
+
+
+                <div class="form-group col-md-12">
+                    <label for="valueCompany">#details.recordname# Name<span class="text-danger">*</span></label>
+            </cfoutput>
+
+            <select id="valueCompany" name="valueCompany" class="form-control" data-parsley-required data-parsley-error-message="Name is required." onchange="if (this.value=='custom'){this.form['custom'].style.visibility='visible',this.form['CustomNetwork'].required=true} else {this.form['custom'].style.visibility='hidden',this.form['CustomNetwork'].required=true};">
+
+
+                <option value=""></option>
+                <cfoutput query="companies">
+                    <option value="#companies.new_valuecompany#">#companies.new_valuecompany# </option>
+
+
+        </cfoutput>
+        <option value="custom">***ADD NEW***</option>
+
     <div class="form-group col-md-12">
         <label for="valueCompany">#details.recordname# Name<span class="text-danger">*</span></label>
         <select id="valueCompany" name="valueCompany" class="form-control" onchange="toggleCustomField(this);" data-parsley-required data-parsley-error-message="Name is required.">
