@@ -79,7 +79,7 @@
 
         <cfoutput>
 
-            <a href="" title="Default State for your Contacts" data-bs-toggle="modal" data-bs-target="##updatecal">#details.tzid#</a>
+            <a href="" title="Default State for your Contacts" data-bs-toggle="modal" data-bs-target="##updatecal">#details.tzgeneral#</a>
 
         </cfoutput>
 
