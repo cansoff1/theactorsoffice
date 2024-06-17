@@ -466,9 +466,11 @@
      
 </div>
 
+html
+Copy code
 <cfoutput>
     <!-- Custom Text Field -->
-    <div class="form-group col-md-12" id="special" style="visibility:hidden;">
+    <div class="form-group col-md-12" id="special" style="display:none;">
         <label for="custom">Custom Name</label>
         <input class="form-control" type="text" id="custom" name="custom" value="" placeholder="Enter Custom #details.recordname#">
     </div>
@@ -482,7 +484,7 @@
 
     function toggleCustomField(select) {
         var isCustomSelected = select.value === 'custom';
-        document.getElementById('special').style.visibility = isCustomSelected ? 'visible' : 'hidden';
+        document.getElementById('special').style.display = isCustomSelected ? 'block' : 'none';
     }
 </script>
 
