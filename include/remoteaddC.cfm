@@ -465,7 +465,7 @@
         <option value="custom">***ADD NEW***</option>
 <cfoutput>
     <div class="form-group col-md-12">
-        <label for="valueCompany">#details.recordname# Name<span class="text-danger">*</span></label>
+        <label for="valueCompany">#details.recordname# Namex<span class="text-danger">*</span></label>
         <select id="valueCompany" name="valueCompany" class="form-control" onchange="toggleCustomField(this);" data-parsley-required data-parsley-error-message="Name is required.">
             <option value="">Select an option</option>
             <option value="custom" selected>***ADD NEW***</option>
