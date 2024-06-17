@@ -36,13 +36,14 @@
 
 
 <cfquery datasource="#dsn#" name="details">
-    SELECT u.viewtypeid, u.add1, u.add2, u.city, u.regionid, u.zip, u.tzid, u.defRows,u.calstarttime, u.calendtime, u.avatarname, u.userfirstname, u.userlastname, u.useremail, u.nletter_yn,u.nletter_link, v.viewtype,u.defcountry,u.defstate,
+    SELECT u.viewtypeid, tz.tzgeneral,u.add1, u.add2, u.city, u.regionid, u.zip, u.tzid, u.defRows,u.calstarttime, u.calendtime, u.avatarname, u.userfirstname, u.userlastname, u.useremail, u.nletter_yn,u.nletter_link, v.viewtype,u.defcountry,u.defstate,
     u.add1,u.add2,u.city,u.regionid,u.zip,u.dateformatid,df.*
     
     FROM taousers u 
     LEFT JOIN dateformats df on df.id = u.dateFormatid
     left outer join viewtypes v on v.viewtypeid = u.viewtypeid
     left join regions r on r.regionid = u.regionid
+    left join timezones tz on tz.tzid = u.tzid
     WHERE u.userid = #userid#
 </cfquery>
 
@@ -301,9 +302,9 @@
 
                         <select class="form-control" name="tzid" id="tzid" data-parsley-required data-parsley-error-message="Timezone is required">
 
-                            <cfoutput query="timezones">
+                            <cfoutput query="timezones_min">
 
-                                <option value="#timezones.tzid#" <cfif #details.tzid# is "#timezones.tzid#"> Selected </cfif> >(#timezones.gmt#) #timezones.tzname#</option>
+                                <option value="#timezones_min.tzid#" <cfif #details.tzid# is "#timezones_min.tzid#"> Selected </cfif> >(#timezones_min.gmt#) #timezones_min.tzgeneral#</option>
 
                             </cfoutput>
 

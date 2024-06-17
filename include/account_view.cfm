@@ -612,7 +612,7 @@ see your report. </p>
 
 
 
-	        <div class="col-md-2 p-2"><strong>Time Zone:</strong></div>
+	        <div class="col-md-2 p-2"><strong>Time Zones:</strong></div>
 	        <div class="col-md-10 p-2">
 	            <cfoutput> <a href="" title="Default State for your Contacts" data-bs-toggle="modal" data-bs-target="##updatecal">#details.tzid#</a></cfoutput>
 	        </div>
