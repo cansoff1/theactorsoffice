@@ -467,13 +467,13 @@
 </div>
 
  
-<cfoutput>
+ 
     <!-- Custom Text Field -->
-    <div class="form-group col-md-12" id="speciaf" style="display:none;">
-        <label for="custom">Custom Namez</label>
-        <input class="form-control" type="text" id="custom" name="custom" value="" placeholder="Enter sCustom #details.recordname#">
+    <div class="form-group col-md-12" id="specia" style="display:none;">
+        <label for="custom">Custom Name</label>
+        <input class="form-control" type="text" id="custom" name="custom" value="" placeholder="Enter Custom #details.recordname#">
     </div>
-</cfoutput>
+ 
 
 <script>
     window.onload = function() {
