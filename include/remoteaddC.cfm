@@ -264,14 +264,16 @@ Copy code
                 }
             }
         </script>
-
+<Cfoutput>
            <div class="form-group col-md-12" id="special" style="display: none;">
 
-        <div class="form-group col-md-12"  >
+  
             <label for="custom">Custom Name</label>
             <input class="form-control" type="text" id="custom" name="custom" value="" placeholder="Enter Custom #details.recordname#">
-        </div>
+   
 </div>
+
+</cfoutput>
         <script>
             window.onload = function() {
                 // Adjust visibility based on the initial value of the select field
