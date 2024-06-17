@@ -301,9 +301,9 @@
 
                         <select class="form-control" name="tzid" id="tzid" data-parsley-required data-parsley-error-message="Timezone is required">
 
-                            <cfoutput query="timezones">
+                            <cfoutput query="timezones_min">
 
-                                <option value="#timezones.tzid#" <cfif #details.tzid# is "#timezones.tzid#"> Selected </cfif> >(#timezones.gmt#) #timezones.tzname#</option>
+                                <option value="#timezones_min.tzid#" <cfif #details.tzid# is "#timezones_min.tzid#"> Selected </cfif> >(#timezones_min.gmt#) #timezones_min.tzname#</option>
 
                             </cfoutput>
 
