@@ -443,33 +443,34 @@
              
              
              
-             
-             
-             
-             <cfoutput>
-
-
-                <div class="form-group col-md-12">
-                    <label for="valueCompany">#details.recordname# Name<span class="text-danger">*</span></label>
-            </cfoutput>
-
-            <select id="valueCompany" name="valueCompany" class="form-control" data-parsley-required data-parsley-error-message="Name is required." onchange="if (this.value=='custom'){this.form['custom'].style.visibility='visible',this.form['CustomNetwork'].required=true} else {this.form['custom'].style.visibility='hidden',this.form['CustomNetwork'].required=true};">
-
-
-                <option value="" selected></option>
-                   <option value="custom">***ADD NEW***</option>
-                <cfoutput query="companies">
-                    <option value="#companies.new_valuecompany#">#companies.new_valuecompany# </option>
-
-
-        </cfoutput>
      
-</div>
+<cfoutput>
+    <div class="form-group col-md-12">
+        <label for="valueCompany">#details.recordname# Name<span class="text-danger">*</span></label>
+        <select id="valueCompany" name="valueCompany" class="form-control" data-parsley-required data-parsley-error-message="Name is required." onchange="handleValueCompanyChange(this)">
+            <option value="" selected></option>
+            <option value="custom">***ADD NEW***</option>
+            <cfoutput query="companies">
+                <option value="#companies.new_valuecompany#">#companies.new_valuecompany#</option>
+            </cfoutput>
+        </select>
+    </div>
+</cfoutput>
 
+<script>
+    function handleValueCompanyChange(select) {
+        var customInput = select.form['custom'];
+        var isCustomSelected = select.value === 'custom';
+        if (customInput) {
+            customInput.style.visibility = isCustomSelected ? 'visible' : 'hidden';
+            customInput.required = isCustomSelected;
+        }
+    }
+</script>
  
  
     <!-- Custom Text Field -->
-    <div class="form-group col-md-12" id="specia" style="display:none;">
+    <div class="form-group col-md-12" id="special" >
         <label for="custom">Custom Name</label>
         <input class="form-control" type="text" id="custom" name="custom" value="" placeholder="Enter Custom #details.recordname#">
     </div>
