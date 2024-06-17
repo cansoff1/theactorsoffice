@@ -303,7 +303,7 @@
 
                             <cfoutput query="timezones_min">
 
-                                <option value="#timezones_min.tzid#" <cfif #details.tzid# is "#timezones_min.tzid#"> Selected </cfif> >(#timezones_min.gmt#) #timezones_min.tzname#</option>
+                                <option value="#timezones_min.tzid#" <cfif #details.tzid# is "#timezones_min.tzid#"> Selected </cfif> >(#timezones_min.gmt#) #timezones_min.tzgeneral#</option>
 
                             </cfoutput>
 
