@@ -468,7 +468,7 @@
 
 <cfoutput>
     <!-- Custom Text Field -->
-    <div class="form-group col-md-12" id="special" style="visibility:visible;">
+    <div class="form-group col-md-12" id="special" style="visibility:hidden;">
         <label for="custom">Custom Name</label>
         <input class="form-control" type="text" id="custom" name="custom" value="" placeholder="Enter Custom #details.recordname#">
     </div>
