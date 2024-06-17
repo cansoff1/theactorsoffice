@@ -466,8 +466,7 @@
      
 </div>
 
-html
-Copy code
+ 
 <cfoutput>
     <!-- Custom Text Field -->
     <div class="form-group col-md-12" id="special" style="display:none;">
