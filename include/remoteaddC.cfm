@@ -456,7 +456,7 @@
             <select id="valueCompany" name="valueCompany" class="form-control" data-parsley-required data-parsley-error-message="Name is required." onchange="if (this.value=='custom'){this.form['custom'].style.visibility='visible',this.form['CustomNetwork'].required=true} else {this.form['custom'].style.visibility='hidden',this.form['CustomNetwork'].required=true};">
 
 
-                <option value=""></option>
+                <option value="" selected></option>
                    <option value="custom">***ADD NEW***</option>
                 <cfoutput query="companies">
                     <option value="#companies.new_valuecompany#">#companies.new_valuecompany# </option>
@@ -464,7 +464,7 @@
 
         </cfoutput>
      
-
+</div>
 
 <cfoutput>
     <!-- Custom Text Field -->
