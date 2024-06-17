@@ -8,6 +8,9 @@ Copy code
 
 <CFINCLUDE template="/include/remote_load.cfm" />
 <cfparam name="placeholder" default="" />
+<cfparam name="userid" default="0" type="integer">
+<cfparam name="new_catid" default="0" type="integer">
+<cfparam name="new_regionid" default="" type="string">
 
 <cfquery name="FindUser" datasource="#dsn#">
     SELECT
@@ -32,7 +35,6 @@ Copy code
 
 <cfset new_catid=catid />
 <cfoutput>
-<cfparam name="new_regionid" default="" >
 <cfparam name="new_countryid" default="" >
 </cfoutput>
 
