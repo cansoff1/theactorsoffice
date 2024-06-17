@@ -450,31 +450,21 @@
 
 
                 <div class="form-group col-md-12">
-                    <label for="valueCompany">#details.recordname# Nameo<span class="text-danger">*</span></label>
+                    <label for="valueCompany">#details.recordname# Name<span class="text-danger">*</span></label>
             </cfoutput>
 
             <select id="valueCompany" name="valueCompany" class="form-control" data-parsley-required data-parsley-error-message="Name is required." onchange="if (this.value=='custom'){this.form['custom'].style.visibility='visible',this.form['CustomNetwork'].required=true} else {this.form['custom'].style.visibility='hidden',this.form['CustomNetwork'].required=true};">
 
 
                 <option value=""></option>
+                   <option value="custom">***ADD NEW***</option>
                 <cfoutput query="companies">
                     <option value="#companies.new_valuecompany#">#companies.new_valuecompany# </option>
 
 
         </cfoutput>
-        <option value="custom">***ADD NEW***</option>
-<cfoutput>
-    <div class="form-group col-md-12">
-        <label for="valueCompany">#details.recordname# Namex<span class="text-danger">*</span></label>
-        <select id="valueCompany" name="valueCompany" class="form-control" onchange="toggleCustomField(this);" data-parsley-required data-parsley-error-message="Name is required.">
-            <option value="">Select an option</option>
-            <option value="custom" selected>***ADD NEW***</option>
-            <cfloop query="companies">
-                <option value="#companies.new_valuecompany#">#companies.new_valuecompany#</option>
-            </cfloop>
-        </select>
-    </div>
-</cfoutput>
+     
+
 
 <cfoutput>
     <!-- Custom Text Field -->
