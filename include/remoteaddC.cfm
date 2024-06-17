@@ -47,7 +47,7 @@ Copy code
     <cfquery name="findcountryb" datasource="#dsn#" maxrows="1">
         SELECT countryid 
         FROM regions 
-        WHERE regionid = <cfqueryparam value="#new_regionid#" cfsqltype="cf_sql_integer">
+        WHERE regionid = <cfqueryparam value="#new_regionid#" cfsqltype="cf_sql_varchar">
     </cfquery>
 
     <cfif findcountryb.recordcount eq 1>
