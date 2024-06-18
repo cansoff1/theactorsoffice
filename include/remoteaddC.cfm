@@ -239,41 +239,38 @@ Copy code
             ORDER BY i.valuecompany
         </cfquery>
 
-        <cfoutput>
-            <div class="form-group col-md-12">
-                <label for="valueCompany">#details.recordname# Name<span class="text-danger">*</span></label>
 
-        </cfoutput>        
-                <select id="valueCompany" name="valueCompany" class="form-control" data-parsley-required data-parsley-error-message="Name is required." onchange="handleValueCompanyChange(this)">
-                    <option value="" selected></option>
-                    <option value="custom">***ADD NEW***</option>
-                    <cfoutput query="companies">
-                        <option value="#companies.new_valuecompany#">#companies.new_valuecompany#</option>
-                    </cfoutput>
-                </select>
-            </div>
- 
-
-        <script>
-            function handleValueCompanyChange(select) {
-                var customInput = select.form['custom'];
-                var isCustomSelected = select.value === 'custom';
-                if (customInput) {
-                    customInput.style.visibility = isCustomSelected ? 'visible' : 'hidden';
-                    customInput.required = isCustomSelected;
-                }
-            }
-        </script>
-<Cfoutput>
-           <div class="form-group col-md-12" id="special" style="display: none;">
-
-  
-            <label for="custom">Custom Name</label>
-            <input class="form-control" type="text" id="custom" name="custom" value="" placeholder="Enter Custom #details.recordname#">
-   
+cfm
+Copy code
+<div class="form-group col-md-12">
+    <label for="valueCompany">#details.recordname# Name<span class="text-danger">*</span></label>
+    <select id="valueCompany" name="valueCompany" class="form-control" data-parsley-required data-parsley-error-message="Name is required." onchange="toggleCustomField(this)">
+        <option value="" selected></option>
+        <option value="custom">***ADD NEW***</option>
+        <cfoutput query="companies">
+            <option value="#companies.new_valuecompany#">#companies.new_valuecompany#</option>
+        </cfoutput>
+    </select>
 </div>
 
+<script>
+    function toggleCustomField(select) {
+        var customField = document.getElementById('special');
+        customField.style.display = select.value === 'custom' ? 'block' : 'none';
+    }
+
+    window.onload = function() {
+        toggleCustomField(document.getElementById('valueCompany'));
+    };
+</script>
+
+<cfoutput>
+<div class="form-group col-md-12" id="special" style="display: none;">
+    <label for="custom">Custom Name</label>
+    <input class="form-control" type="text" id="custom" name="custom" value="" placeholder="Enter Custom #details.recordname#">
+</div>
 </cfoutput>
+
         <script>
             window.onload = function() {
                 // Adjust visibility based on the initial value of the select field
