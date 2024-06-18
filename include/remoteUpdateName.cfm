@@ -44,17 +44,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
         <div class="form-group col-sm-6 mb-6">
             <label for="simpleinput">Next Birthday</label>
 
@@ -65,20 +54,12 @@
 
 
 
-
-
-
-
-
-
         <div class="form-group col-sm-6 mb-6">
             <label for="simpleinput">Initial Meeting Date</label>
 
 
             <input class="form-control" id="contactmeetingdate" value="#details.contactmeetingdate#" type="date" name="contactmeetingdate">
         </div>
-
-
 
         <div class="form-group col-sm-6 mb-6">
             <label for="contactmeetingloc">Initial Meeting Location</label>
