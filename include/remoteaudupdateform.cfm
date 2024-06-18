@@ -983,24 +983,9 @@
                             </cfoutput>
                         </select>
 
-
-
-
                     </div>
 
-
-
-
-
-
-
-
-
-
                 </div>
-
-
-
 
 
                 <div id="hiddenDiv_2">

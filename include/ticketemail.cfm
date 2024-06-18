@@ -1,7 +1,7 @@
-<cfmail from="support@theactorsoffice.com" failto="kevinking7135@gmail.com" replyto="kevinking7135@gmail.com" to="#emailto#" bcc="kevinking7135@gmail.com"  cc="#emailcc#" 
-         usessl="true"
-         usetls="true"
-        subject="TICKET NO #new_ticketid# - #emailsubject#" type="HTML">
+
+
+        <cfmail from="support@theactorsoffice.com" to="#emailto#" subject="TICKET NO #new_ticketid# - #emailsubject#" type="HTML" bcc="kevinking7135@gmail.com"  cc="#emailcc#" >
+
     <HTML>
        <head><title>TAO TICKET NO #new_ticketid#</title>
 

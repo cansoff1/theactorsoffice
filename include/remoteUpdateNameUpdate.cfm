@@ -26,19 +26,18 @@ SET contactfullname = <cfqueryparam cfsqltype="cf_sql_varchar" value="#trim(cont
  <cfelse>
      ,contactPronoun = <cfqueryparam cfsqltype="cf_sql_varchar" value="#trim(contactPronoun)#" />
      </cfif>
-
-     
-           <cfif #contactbirthday# is not "">
-    ,contactbirthday = <cfqueryparam cfsqltype="cf_sql_date" value="#contactbirthday#" /> 
-    <cfelse>
-     ,contactbirthday = NULL
-    </cfif>
-            
  
+
+        ,contactbirthday = 
+<cfqueryparam cfsqltype="cf_sql_date" value="#iif(contactbirthday EQ '', null, contactbirthday)#" />
+
+
+
+             
+    ,contactmeetingdate = 
+<cfqueryparam cfsqltype="cf_sql_date" value="#iif(contactmeetingdate EQ '', null, contactmeetingdate)#" />
+
     
-            <cfif #contactmeetingdate# is not "">
-    ,contactmeetingdate = <cfqueryparam cfsqltype="cf_sql_date" value="#contactmeetingdate#" /> 
-    </cfif>
      ,contactmeetingloc = <cfqueryparam cfsqltype="cf_sql_varchar" value="#trim(contactmeetingloc)#" />
                 
     <cfif #deleteitem# is "1">
