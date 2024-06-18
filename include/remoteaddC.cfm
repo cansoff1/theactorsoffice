@@ -239,11 +239,9 @@ Copy code
             ORDER BY i.valuecompany
         </cfquery>
 
-
-cfm
-Copy code
+ 
 <div class="form-group col-md-12">
-    <label for="valueCompany">#details.recordname# Name<span class="text-danger">*</span></label>
+  <CFoutput>  <label for="valueCompany">#details.recordname# Name<span class="text-danger">*</span></label></cfoutput>
     <select id="valueCompany" name="valueCompany" class="form-control" data-parsley-required data-parsley-error-message="Name is required." onchange="toggleCustomField(this)">
         <option value="" selected></option>
         <option value="custom">***ADD NEW***</option>
