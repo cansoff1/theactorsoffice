@@ -12,8 +12,8 @@ contactpronoun: #contactpronoun#<BR>
     custom: #custom#<BR>
 
 </cfoutput>
-
 <cfset contactBirthdayValue = iif(contactbirthday EQ '', javaCast('null', ''), contactbirthday) />
+<cfset contactmeetingdateValue = iif(contactmeetingdate EQ '', javaCast('null', ''), contactmeetingdate) />
 <cfquery name="update" datasource="#dsn#" >
 UPDATE contactdetails
 SET contactfullname = <cfqueryparam cfsqltype="cf_sql_varchar" value="#trim(contactfullname)#" />
@@ -35,9 +35,9 @@ SET contactfullname = <cfqueryparam cfsqltype="cf_sql_varchar" value="#trim(cont
 
              
     ,contactmeetingdate = 
-<cfqueryparam cfsqltype="cf_sql_date" value="#iif(contactmeetingdate EQ '', null, contactmeetingdate)#" />
+ 
 
-    
+    <cfqueryparam cfsqltype="cf_sql_date" value="#contactmeetingdateValue#" />
      ,contactmeetingloc = <cfqueryparam cfsqltype="cf_sql_varchar" value="#trim(contactmeetingloc)#" />
                 
     <cfif #deleteitem# is "1">
