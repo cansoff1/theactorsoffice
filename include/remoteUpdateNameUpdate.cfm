@@ -13,7 +13,7 @@ contactpronoun: #contactpronoun#<BR>
 
 </cfoutput>
 
-
+<cfset contactBirthdayValue = iif(contactbirthday EQ '', javaCast('null', ''), contactbirthday) />
 <cfquery name="update" datasource="#dsn#" >
 UPDATE contactdetails
 SET contactfullname = <cfqueryparam cfsqltype="cf_sql_varchar" value="#trim(contactfullname)#" />
@@ -29,7 +29,7 @@ SET contactfullname = <cfqueryparam cfsqltype="cf_sql_varchar" value="#trim(cont
  
 
         ,contactbirthday = 
-<cfqueryparam cfsqltype="cf_sql_date" value="#iif(contactbirthday EQ '', null, contactbirthday)#" />
+<cfqueryparam cfsqltype="cf_sql_date" value="#contactBirthdayValue#" />
 
 
 
