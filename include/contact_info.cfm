@@ -469,21 +469,24 @@ T4: #t4#<BR>
     SELECT * FROM itemcategory
 </cfquery>
 
-<cfloop query="c">
-
-
 
     <script>
     $(document).ready(function() {
-         $("#remoteAdd<cfoutput>C#c.catid#</cfoutput>").on("show.bs.modal", function(event) {
+         $("#remoteAdd2").on("show.bs.modal", function(event) {
             // Load the content into the modal body
-            $(this).find(".modal-body").load("<cfoutput>/include/remoteAddC.cfm?catid=#c.catid#&userid=#session.userid#&contactid=#currentid#</cfoutput>", function() {
+            $(this).find(".modal-body").load("<cfoutput>/include/remoteAddC.cfm?catid=<cfoutput>#c.catid#&userid=#session.userid#&contactid=#currentid#</cfoutput>", function() {
                 // After loading content, initialize the chained selects
                 $("#regionid").chained("#countryid");
             });
         });
     });
 </script>
+
+
+
+<cfloop query="c">
+
+
 
 
 
