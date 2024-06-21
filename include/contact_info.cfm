@@ -474,7 +474,7 @@ T4: #t4#<BR>
     $(document).ready(function() {
          $("#remoteAdd2").on("show.bs.modal", function(event) {
             // Load the content into the modal body
-            $(this).find(".modal-body").load("<cfoutput>/include/remoteAddC.cfm?catid=<cfoutput>#c.catid#&userid=#session.userid#&contactid=#currentid#</cfoutput>", function() {
+            $(this).find(".modal-body").load("<cfoutput>/include/remoteAddC.cfm?catid=#c.catid#&userid=#session.userid#&contactid=#currentid#</cfoutput>", function() {
                 // After loading content, initialize the chained selects
                 $("#regionid").chained("#countryid");
             });
