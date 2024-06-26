@@ -5,10 +5,33 @@
     <cfset script_name_include="/include/#ListLast(GetCurrentTemplatePath(), " \")#" />
     <cfinclude template="/include/bigbrotherinclude.cfm" />
 
+
+    <cfquery datasource="#dsn#" name="find" maxrow="1">
+SELECT verid,releaseDate, releaseTime FROM taoversions WHERE isactive = 1
+</cfquery>
+   <Cfif #find.recordcount# is "1">
+<Cfset new_verid = find.verid />
+<cfelse>
+<Cfset new_verid = 0 />
+</cfif>
+
+<CFIF #FIND.RECORDCOUNT# gt 0
+    <cfset deadlineDateTime = parseDateTime(find.releaseDate & " " & find.releaseTime)>
+    
+    <!--- Format the date-time variable for Todoist --->
+    <cfset formattedDeadline = dateFormat(deadlineDateTime, "yyyy-MM-dd") & "T" & timeFormat(deadlineDateTime, "HH:mm") & ":00">
+    
+</CFIF>
+
+
+
+
     <cfquery name="add" datasource="#dsn#" result="result">
-        INSERT INTO tickets (pgid,ticketName,ticketdetails,tickettype,userid,ticketactive,ticketstring)
+        INSERT INTO tickets (pgid,verid,ticketName,ticketdetails,tickettype,userid,ticketactive,ticketstring)
         Values (
         <cfqueryparam value="#new_pgid#" cfsqltype="cf_sql_integer" />
+        ,
+        <cfqueryparam value="#new_verid#" cfsqltype="cf_sql_integer" />
         ,
         <cfqueryparam value="#new_ticketName#" cfsqltype="cf_sql_varchar" />
         ,
@@ -96,6 +119,23 @@
 </cfif>
 
 <cfif #mailuser# is "Y" >
+
+
+
+    <cfmail from="support@theactorsoffice.com" 
+            to="add.task.swxn8hp4jz4m0x79@todoist.net" 
+            bcc="kevinking7135@gmail.com" 
+            subject="#details.recid# - #details.ticketdetails# !!1 @Programming #formattedDeadline#" 
+            type="HTML">
+        <cfset emailBody = "<p>#details.ticketdetails#</p>">
+        #emailBody#
+    </cfmail>
+
+
+
+
+
+
    <cfmail from="support@theactorsoffice.com"   to="add.task.swxn8hp4jz4m0x79@todoist.net" bcc="kevinking7135@gmail.com" subject="#details.recid# - #details.ticketdetails# " type="HTML">
       
 </cfmail>
