@@ -14,7 +14,7 @@
 
   <div class="row">
     <!-- First Column: 20% Width -->
-    <div class="col-2">
+    <div class="col-md-2">
       <p class="card-text">
         <a href="/app/image-upload/?contactid=<cfoutput>#contactid#&ref_pgid=7</cfoutput>">
          <center> <figure>

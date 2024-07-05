@@ -51,8 +51,8 @@ $("#select-relationship").selectize({
                      <div class="row">
                          
                          
-                         <div class="col-2">
-                         <div class="col-2">
+                         <div class="col-md-2">
+                         <div class="col-md-2">
                              <div class="form-group">
                                  <label class="control-label">Major<span class="text-danger">*</span></label>
                                  
@@ -70,7 +70,7 @@ $("#select-relationship").selectize({
                          </div>
                           
                   
-                               <div class="col-2">
+                               <div class="col-md-2">
                              <div class="form-group">
                                  <label class="control-label">Minor<span class="text-danger">*</span></label>
                                  
@@ -87,7 +87,7 @@ $("#select-relationship").selectize({
                              </div>
                          </div>            
                   
-                                        <div class="col-2">
+                                        <div class="col-md-2">
                              <div class="form-group">
                                  <label class="control-label">Patch<span class="text-danger">*</span></label>
                                  
@@ -107,7 +107,7 @@ $("#select-relationship").selectize({
 
 
 
-                                        <div class="col-2">
+                                        <div class="col-md-2">
                              <div class="form-group">
                                  <label class="control-label">Version<span class="text-danger">*</span></label>
                                  
@@ -129,7 +129,7 @@ $("#select-relationship").selectize({
 
 
 
-              <div class="col-2">
+              <div class="col-md-2">
                              <div class="form-group">
                                  <label class="control-label">Version<span class="text-danger">*</span></label>
                                  
