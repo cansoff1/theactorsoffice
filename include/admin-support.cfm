@@ -240,7 +240,7 @@ ORDER BY p.pgname
                         <cfloop query="results">
  
                                           	<cfquery name="versions" datasource="#dsn#" >
-    SELECT v.major,v.minor,v.patch,v.verid AS id, v.alphabeta,CONCAT(v.major,'.',v.minor,'.',v.patch,'.',v.version) as name
+    SELECT v.major,v.minor,v.patch,v.verid AS id, v.alphabeta,CONCAT(v.major,'.',v.minor,'.',v.patch,'.',v.version,'.',v.version) as name
       ,((v.hoursavail) - IFNULL((SELECT SUM(esthours) FROM tickets t WHERE verid = v.verid),0)   ) AS hoursleft              
     
                                                 FROM taoversions v 
@@ -249,7 +249,7 @@ ORDER BY p.pgname
                                                 and v.versionstatus = 'Pending'
                                                 
     UNION
-        SELECT v.major,v.minor,v.patch,v.verid AS id, v.alphabeta,CONCAT(v.major,'.',v.minor,'.',v.patch,'.',v.version) as name
+        SELECT v.major,v.minor,v.patch,v.verid AS id, v.alphabeta,CONCAT(v.major,'.',v.minor,'.',v.patch,'.',v.version,'.',v.version) as name
       ,((v.hoursavail) - (SELECT SUM(esthours) FROM tickets t WHERE verid = v.verid)) AS hoursleft              
     
                                                 FROM taoversions v  WHERE v.verid = #results.verid#
