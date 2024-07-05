@@ -60,6 +60,8 @@ $("#select-relationship").selectize({
 
 
 
+html
+Copy code
 <div class="card-body">
     <form method="post" action="/include/version-update2.cfm" class="parsley-examples" name="version-form" id="form-version" data-parsley-excluded="input[type=button], input[type=submit], input[type=reset], input[type=hidden], [disabled], :hidden" data-parsley-trigger="keyup" data-parsley-validate>
         <h5>Version Update Form</h5>
@@ -121,6 +123,19 @@ $("#select-relationship").selectize({
                 </div>
             </div>
             
+            <div class="col-md-2">
+                <div class="form-group">
+                    <label class="control-label">Build <span class="text-danger">*</span></label>
+                    <select class="form-control" name="new_build" id="new_build" required>
+                        <cfloop index="b" from="0" to="9">
+                            <cfoutput>
+                                <option value="#b#" <cfif #b# is "#details.build#">selected</cfif>>#b#</option>
+                            </cfoutput>
+                        </cfloop>
+                    </select>
+                </div>
+            </div>
+
             <div class="col-md-6">
                 <div class="form-group">
                     <label for="tickettype">Status <span class="text-danger">*</span></label>
@@ -195,7 +210,6 @@ $("#select-relationship").selectize({
         </div>
     </form>
 </div>
-
 
 
 
