@@ -60,8 +60,10 @@ $("#select-relationship").selectize({
 
 
 
-html
-Copy code
+
+
+
+
 <div class="card-body">
     <form method="post" action="/include/version-update2.cfm" class="parsley-examples" name="version-form" id="form-version" data-parsley-excluded="input[type=button], input[type=submit], input[type=reset], input[type=hidden], [disabled], :hidden" data-parsley-trigger="keyup" data-parsley-validate>
         <h5>Version Update Form</h5>
@@ -210,9 +212,6 @@ Copy code
         </div>
     </form>
 </div>
-
-
-
 
 
 
