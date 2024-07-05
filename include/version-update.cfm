@@ -51,7 +51,8 @@ $("#select-relationship").selectize({
                      <div class="row">
                          
                          
-                         <div class="col-3">
+                         <div class="col-2">
+                         <div class="col-2">
                              <div class="form-group">
                                  <label class="control-label">Major<span class="text-danger">*</span></label>
                                  
@@ -69,7 +70,7 @@ $("#select-relationship").selectize({
                          </div>
                           
                   
-                               <div class="col-3">
+                               <div class="col-2">
                              <div class="form-group">
                                  <label class="control-label">Minor<span class="text-danger">*</span></label>
                                  
@@ -86,7 +87,7 @@ $("#select-relationship").selectize({
                              </div>
                          </div>            
                   
-                                        <div class="col-3">
+                                        <div class="col-2">
                              <div class="form-group">
                                  <label class="control-label">Patch<span class="text-danger">*</span></label>
                                  
@@ -106,7 +107,7 @@ $("#select-relationship").selectize({
 
 
 
-                                        <div class="col-3">
+                                        <div class="col-2">
                              <div class="form-group">
                                  <label class="control-label">Version<span class="text-danger">*</span></label>
                                  
@@ -121,10 +122,32 @@ $("#select-relationship").selectize({
         </select>
                           
                              </div>
+
+
+
                          </div>            
 
 
 
+              <div class="col-2">
+                             <div class="form-group">
+                                 <label class="control-label">Version<span class="text-danger">*</span></label>
+                                 
+                                      <select class="form-control" name="new_version" id="new_version" required>
+
+<cfloop index="p" from="0" to="9" >
+    <cfoutput> 
+             <option value="#p#" <cfif #p# is "#details.version#"> selected </cfif>>#p#</option>
+</cfoutput>
+    </cfloop>
+
+        </select>
+                          
+                             </div>
+
+
+                             
+                         </div>            
 
 
 
