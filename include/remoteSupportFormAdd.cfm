@@ -6,7 +6,7 @@
     <cfinclude template="/include/bigbrotherinclude.cfm" />
 
 
-    <cfquery datasource="#dsn#" name="find" maxrow="1">
+    <cfquery datasource="#dsn#" name="find" maxrows="1">
 SELECT verid,releaseDate, releaseTime FROM taoversions WHERE isactive = 1
 </cfquery>
    <Cfif #find.recordcount# is "1">
