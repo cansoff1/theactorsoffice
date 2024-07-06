@@ -538,7 +538,77 @@ $(document).ready(function() {
     
     
     
+    <div id="exampleModal99" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="standard-modalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="standard-modalLabel">System Delete</h4>
+                <button type="button" class="close" data-bs-dismiss="modal" aria-hidden="true"><i class="mdi mdi-close-thick"></i></button>
+            </div>
+            
+<div class="modal-body">
+
+               <form method="post" class="parsley-examples demo-default selectize-close-btn" data-parsley-excluded="input[type=button], input[type=submit], input[type=reset], input[type=hidden], [disabled], :hidden" data-parsley-trigger="keyup" data-parsley-validate="" novalidate=""   id="myformsystem" name="myformsystemdelete"  action="/include/deletesystemfromrel.cfm" method="POST" >
+   
+     <div class="form-group col-md-12">
+         <label for="valuetext">Delete system from all selected relationships.</label>
+     </div>
+
+<div class="form-group col-md-6">
     
+    <select id="select-system" name="new_systemtype"  class="form-control" data-parsley-required="" data-parsley-error-message="System is required"  >
+        
+             <option value="">Select a System...</option>
+        <cfloop query="systems">
+
+            <cfset new_system_id=systems.id />
+ 
+            <cfset new_select="" />
+
+            <cfoutput>
+
+            <option value="#new_system_id#">#systems.systemname#</option>
+
+            </cfoutput>
+
+        </cfloop>
+        
+    </select>
+
+</div>
+
+     
+     
+    
+       
+
+                   <div class="form-group text-center col-md-12">
+
+                        <button class="btn btn-primary editable-submit btn-sm waves-effect waves-light" type="submit" style="background-color: #406e8e; border: #406e8e;">Delete System</button>
+
+                    </div>
+
+     
+     
+
+
+ </form>
+
+ 
+   
+
+        
+        
+</div>
+        </div>
+    </div>
+</div><!--- xxx --->
+    
+
+
+
+
+
     
     
     
@@ -660,6 +730,57 @@ $(document).ready(function() {
     </div>
 </div><!--- xxx --->
     
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     
     
     <div id="exampleModal4" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="standard-modalLabel" aria-hidden="true">
