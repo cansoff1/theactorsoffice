@@ -16,7 +16,7 @@ v.verid
 ,v.versionstatus
 ,v.isActive
 ,((v.hoursavail) - (SELECT SUM(esthours) FROM tickets t WHERE verid = v.verid)) AS hoursleft 
-,CONCAT(v.major,'.',v.minor,'.',v.patch,'.',v.version,'.',v.version) AS vername
+,CONCAT(v.major,'.',v.minor,'.',v.patch,'.',v.version,'.',v.build) AS vername
 ,(SELECT COUNT(*) FROM tickets WHERE verid = v.verid) AS total_tickets
 ,(SELECT sum(esthours) FROM tickets WHERE verid = v.verid) AS total_hours
  FROM taoversions v
@@ -43,7 +43,7 @@ SELECT
 ,t.ticketstatus as col45
 ,t.ticketpriority as col5
 ,t.esthours as col6
-,CONCAT(v.major,'.',v.minor,'.',v.patch,'.',v.version,'.',v.version) AS col7
+,CONCAT(v.major,'.',v.minor,'.',v.patch,'.',v.version,'.',v.build) AS col7
 
 ,p.pgname
 ,p.pgdir

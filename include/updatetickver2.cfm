@@ -43,12 +43,12 @@ WHERE ticketid = <cfqueryparam cfsqltype="cf_sql_integer" value="#ticketid#" />
 
 
 <cfquery name="old" datasource="#dsn#" >
-select CONCAT(v.major,'.',v.minor,'.',v.patch,'.',v.version,'.',v.version) as old_findname from taoversions v where v.verid = #numberformat(old_verid)#
+select CONCAT(v.major,'.',v.minor,'.',v.patch,'.',v.version,'.',v.build) as old_findname from taoversions v where v.verid = #numberformat(old_verid)#
 
 </cfquery>
 
 <cfquery name="new" datasource="#dsn#" >
-select CONCAT(v.major,'.',v.minor,'.',v.patch,'.',v.version,'.',v.version) as new_findname from taoversions v where v.verid = #numberformat(new_verid)#
+select CONCAT(v.major,'.',v.minor,'.',v.patch,'.',v.version,'.',v.build) as new_findname from taoversions v where v.verid = #numberformat(new_verid)#
 
 </cfquery>
 
