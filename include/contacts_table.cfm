@@ -87,6 +87,30 @@
                     },
                     enabled: true
                 },
+                     {
+                    text: 'Add/Delete Tag',
+                    className: 'updatetag',
+                    action: function(e, node, config) {
+                        $('#exampleModal4').modal('show')
+                    },
+                    enabled: false
+                },
+                {
+                    text: 'Add System',
+                    className: 'updatesystem',
+                    action: function(e, node, config) {
+                        $('#exampleModal3').modal('show')
+                    },
+                    enabled: false
+                },
+                   {
+                    text: 'Delete System',
+                    className: 'deletesystem',
+                    action: function(e, node, config) {
+                        $('#exampleModal99').modal('show')
+                    },
+                    enabled: false
+                },
                 {
                     text: 'Import',
                     className: 'import',
@@ -114,22 +138,8 @@
                     },
                     enabled: false
                 },
-                {
-                    text: 'Add Tag',
-                    className: 'updatetag',
-                    action: function(e, node, config) {
-                        $('#exampleModal4').modal('show')
-                    },
-                    enabled: false
-                },
-                {
-                    text: 'Add System',
-                    className: 'updatesystem',
-                    action: function(e, node, config) {
-                        $('#exampleModal3').modal('show')
-                    },
-                    enabled: false
-                },
+           
+                
                 {
                     text: 'Export',
                     className: 'exportcontacts',

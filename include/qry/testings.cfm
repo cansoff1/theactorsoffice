@@ -19,7 +19,7 @@ SELECT
 ,t.ticketstatus as col45
 ,t.ticketpriority as col5
 ,t.esthours as col6
-,CONCAT(v.major,'.',v.minor,'.',v.patch,'.',v.version) AS col7
+,CONCAT(v.major,'.',v.minor,'.',v.patch,'.',v.version,'.',v.version) AS col7
 
 ,p.pgname
 ,p.pgdir

@@ -25,7 +25,7 @@
 ,t.ticketpriority as col5
 ,t.ticketpriority
 ,t.esthours as col6
-,CONCAT(v.major,'.',v.minor,'.',v.patch,'.',v.version) AS col7
+,CONCAT(v.major,'.',v.minor,'.',v.patch,'.',v.version,'.',v.version) AS col7
 ,t.verid
 ,t.tickettype
 ,t.ticketstatus
@@ -84,7 +84,7 @@ ORDER BY t.ticketCreatedDate DESC
     
     
             	<cfquery name="vers" datasource="#dsn#" >
-    SELECT v.major,v.minor,v.patch,v.verid AS id, v.alphabeta,CONCAT(v.major,'.',v.minor,'.',v.patch,'.',v.version) as name
+    SELECT v.major,v.minor,v.patch,v.verid AS id, v.alphabeta,CONCAT(v.major,'.',v.minor,'.',v.patch,'.',v.version,'.',v.version) as name
       ,((v.hoursavail) - (SELECT SUM(esthours) FROM tickets t WHERE verid = v.verid)) AS hoursleft              
                     FROM taoversions v ORDER BY v.major,v.minor,v.patch
     </cfquery>
