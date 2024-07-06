@@ -3,7 +3,7 @@
 <cfparam name="userrole" default="U" />
 
 <cfquery name="pages" datasource="#dsn#" >
-     SELECT p.pgid AS ID
+     SELECT distinct p.pgid AS ID
 	,p.pgname as name 
 
 	from pgpages  p inner join pgcomps c ON c.compid = p.compid 
