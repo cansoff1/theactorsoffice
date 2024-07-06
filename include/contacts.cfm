@@ -560,7 +560,7 @@ $(document).ready(function() {
              <option value="">Select a System...</option>
         <cfloop query="systems">
 
-            <cfset new_systemid=systems.system_id />
+            <cfset new_systemid=systems.id />
 
             <cfset new_select="" />
 
