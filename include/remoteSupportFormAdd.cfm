@@ -15,7 +15,7 @@ SELECT verid,releaseDate, releaseTime FROM taoversions WHERE isactive = 1
 <Cfset new_verid = 0 />
 </cfif>
 
-<CFIF #FIND.RECORDCOUNT# gt 0
+<CFIF #FIND.RECORDCOUNT# gt 0>
     <cfset deadlineDateTime = parseDateTime(find.releaseDate & " " & find.releaseTime)>
     
     <!--- Format the date-time variable for Todoist --->
