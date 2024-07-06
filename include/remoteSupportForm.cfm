@@ -116,8 +116,9 @@ ORDER BY u.recordname
         <label for="tickettype"> Page</label>
          <select class="form-control" name="new_pgid" id="new_pgid" required>
 
-<cfoutput query="pages" >
+
    <option value="">SELECT A PAGE</option>
+   <cfoutput query="pages" >
              <option value="#pages.id#">#pages.name#</option>
 </cfoutput>
 
