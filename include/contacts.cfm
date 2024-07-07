@@ -554,25 +554,14 @@ $(document).ready(function() {
      </div>
 
 <div class="form-group col-md-6">
-    
-    <select id="select-system" name="new_systemtype"  class="form-control" data-parsley-required="" data-parsley-error-message="System is required"  >
-        
-             <option value="">Select a System...</option>
-        <cfloop query="systems">
-
-      
-
-            <cfoutput >
-
-            <option value="#systemnames.id#">#systemnames.systemname#</option>
-
-            </cfoutput>
-
-        </cfloop>
-        
+    <select id="select-system" name="new_systemtype" class="form-control" data-parsley-required="" data-parsley-error-message="System is required">
+        <option value="">Select a System...</option>
+        <cfoutput query="systems">
+            <option value="#systems.id#">#systems.systemname#</option>
+        </cfoutput>
     </select>
-
 </div>
+
 
      
      
