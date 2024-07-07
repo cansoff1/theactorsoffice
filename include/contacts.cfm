@@ -554,7 +554,7 @@ $(document).ready(function() {
      </div>
 
 <div class="form-group col-md-6">
-    <select id="select-system" name="new_systemtype" class="form-control" data-parsley-required="" data-parsley-error-message="System is required">
+    <select id="select-system" name="new_systemid" class="form-control" data-parsley-required="" data-parsley-error-message="System is required">
         <option value="">Select a System...</option>
         <cfoutput query="systemNAMES">
             <option value="#systemNAMES.id#">#systemNAMES.systemname#</option>
