@@ -17,7 +17,7 @@
 
 
 <CFINCLUDE template="/include/remote_load.cfm" />
-
+<Cfset session.pg_action = "bulk" />
 <cfquery name="find_d"  datasource="#dsn#" >	
 select count(*) as totals
 from  fusystemusers_tbl  
