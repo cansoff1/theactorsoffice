@@ -17,7 +17,7 @@
 
 
 <CFINCLUDE template="/include/remote_load.cfm" />
-
+<Cfset session.pg_action = "bulk" />
 <cfquery name="find_d"  datasource="#dsn#" >	
 select count(*) as totals
 from  fusystemusers_tbl  
@@ -36,4 +36,4 @@ AND systemid = #new_systemid#
 </cfquery>
 
 
- <cflocation url="/app/contacts/?bt=system&d=#find_d.recordcount#&s=0&a=0&t=#new_systemid#" />
+ <cflocation url="/app/contacts/?pgaction=bulk&bt=system&d=#find_d.recordcount#&s=0&a=0&t=#new_systemid#" />
