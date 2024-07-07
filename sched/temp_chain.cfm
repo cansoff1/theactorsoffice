@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Chained Select Example</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/jquery-chained/jquery.chained.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-chained/2.0.0-beta.2/jquery.chained.min.js"></script>
     <style>
         body {
             font-family: Arial, sans-serif;
