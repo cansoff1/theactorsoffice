@@ -501,7 +501,7 @@ WHERE t.ticketid = <cfqueryparam cfsqltype="cf_sql_integer" value="#ticketid#" /
         
     </cfoutput>
         
-    <cfif #ismail# is "Y">STOP!<cfabort>
+    <cfif #ismail# is "Y">
             
         <cfinclude template="ticketemail.cfm" />
  
