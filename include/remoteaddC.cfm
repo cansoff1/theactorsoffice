@@ -199,26 +199,28 @@
             <input class="form-control" type="text" id="valuePostalCode" name="valuePostalCode" placeholder="Enter Postal Code">
         </div>
 
-        <div class="form-group col-md-6">
-            <label for="countryid">Country<span class="text-danger">*</span></label>
-            <select id="countryid" class="form-control" name="countryid" data-parsley-required data-parsley-error-message="Country is required">
-                <option value="">--</option>
-                <cfoutput query="countries">
-                    <option value="#countries.countryid#" <cfif countries.countryid eq new_countryid>selected</cfif>>#countries.countryname#</option>
-                </cfoutput>
-            </select>
-        </div>
+   
 
-        <div class="form-group col-md-6">
-            <label for="regionid">State/Region<span class="text-danger">*</span></label>
-            <select id="regionid" name="regionid" class="form-control">
-                <option value="">--</option>
-                <cfoutput query="regions">
-                    <option value="#regions.regionid#" data-chained="#regions.countryid#" <cfif regions.regionid eq new_regionid>selected</cfif>>#regions.regionname#</option>
-                </cfoutput>
-            </select>
-        </div>
-    </cfif>
+
+
+
+   
+<div class="form-group col-md-6">
+    <label for="countryid">Country<span class="text-danger">*</span></label>
+    <select id="countryid" class="form-control" name="countryid" data-parsley-required data-parsley-error-message="Country is required">
+        <option value="">--</option>
+        <cfoutput query="countries">
+            <option value="#countries.countryid#" <cfif countries.countryid eq new_countryid>selected</cfif>>#countries.countryname#</option>
+        </cfoutput>
+    </select>
+</div>
+
+<div class="form-group col-md-6">
+    <label for="regionid">State/Region<span class="text-danger">*</span></label>
+    <select id="regionid" name="regionid" class="form-control">
+        <option value="">--</option>
+    </select>
+</div>
 
     <cfif new_catid eq "13">
         <div class="form-group col-md-12">
@@ -345,6 +347,43 @@
     function showDiv(divId, element) {
         document.getElementById(divId).style.display = element.value == "Custom" ? 'block' : 'none';
     }
+</script>
+
+
+
+<script>
+$(document).ready(function(){
+    // Store the regions data in a variable
+    var regions = [
+        <cfoutput query="regions">
+        {countryid: '#regions.countryid#', regionid: '#regions.regionid#', regionname: '#regions.regionname#'}<#if regions.currentRow neq regions.recordCount>,</cfif>
+        </cfoutput>
+    ];
+    
+    // Function to populate the states based on selected country
+    function populateRegions(countryid) {
+        var regionSelect = $('#regionid');
+        regionSelect.empty();
+        regionSelect.append('<option value="">--</option>');
+        $.each(regions, function(index, region) {
+            if(region.countryid == countryid) {
+                regionSelect.append('<option value="' + region.regionid + '">' + region.regionname + '</option>');
+            }
+        });
+    }
+
+    // Event listener for country select change
+    $('#countryid').on('change', function() {
+        var selectedCountryId = $(this).val();
+        populateRegions(selectedCountryId);
+    });
+
+    // Initialize the regions based on the pre-selected country if any
+    var initialCountryId = $('#countryid').val();
+    if(initialCountryId) {
+        populateRegions(initialCountryId);
+    }
+});
 </script>
 
 <cfset script_name_include="/include/#ListLast(GetCurrentTemplatePath(), '\')#" />
