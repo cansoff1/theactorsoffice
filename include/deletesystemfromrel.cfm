@@ -21,7 +21,7 @@
 <cfquery name="find_d"  datasource="#dsn#" >	
 select count(*) as totals
 from  fusystemusers_tbl  
-where isdelete = 0
+where isdeleted = 0
 and contactid IN (#idlist#)
 AND systemid = #new_systemid#
 </cfquery>
@@ -30,7 +30,7 @@ AND systemid = #new_systemid#
  
 <cfquery name="deletesystem"  datasource="#dsn#" >	
 update fusystemusers_tbl  
-SET isdelete = 1
+SET isdeleted = 1
 WHERE contactid IN (#idlist#)
 AND systemid = #new_systemid#
 </cfquery>
