@@ -1,5 +1,5 @@
  <style>
-     .exportcontacts, .updatetag, .updatesystem, .addrelationship, .importhistory,.batchdelete,.searchtag, .import {
+     .exportcontacts, .updatetag, .updatesystem, .deletesystem, .addrelationship, .importhistory,.batchdelete,.searchtag, .import {
       color: #fff;
 	background-color: #406E8E;
 	border-color: #223a4a;
@@ -209,6 +209,14 @@
             )
         });
 
+                $('#<cfoutput>#contacts_table#</cfoutput>').on('select.dt deselect.dt', function() {
+            table.buttons(['.deletesystem']).enable(
+                table.rows({
+                    selected: true
+                }).indexes().length === 0 ? false : true
+            )
+        });
+
         $('#<cfoutput>#contacts_table#</cfoutput>').on('select.dt deselect.dt', function() {
             table.buttons(['.batchdelete']).enable(
                 table.rows({
@@ -293,6 +301,24 @@
 
         // Handle form submission event 
         $('#myformsystem').on('submit', function(e) {
+            var formsystem = this;
+
+            var rows_selectedsystem = table.column(0).checkboxes.selected();
+
+            // Iterate over all selected checkboxes
+            $.each(rows_selectedsystem, function(index, rowId) {
+                // Create a hidden element 
+                $(formsystem).append(
+                    $('<input>')
+                    .attr('type', 'hidden')
+                    .attr('name', 'idlist')
+                    .val(rowId)
+                );
+            });
+        });
+
+                // Handle form submission event 
+        $('#myformsystemdelete').on('submit', function(e) {
             var formsystem = this;
 
             var rows_selectedsystem = table.column(0).checkboxes.selected();
