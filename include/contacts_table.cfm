@@ -1,5 +1,5 @@
  <style>
-     .exportcontacts, .updatetag, .updatesystem, .addrelationship, .importhistory,.batchdelete,.searchtag, .import {
+     .exportcontacts, .updatetag, .updatesystem, .deletesystem, .addrelationship, .importhistory,.batchdelete,.searchtag, .import {
       color: #fff;
 	background-color: #406E8E;
 	border-color: #223a4a;
@@ -203,6 +203,14 @@
 
         $('#<cfoutput>#contacts_table#</cfoutput>').on('select.dt deselect.dt', function() {
             table.buttons(['.updatesystem']).enable(
+                table.rows({
+                    selected: true
+                }).indexes().length === 0 ? false : true
+            )
+        });
+
+                $('#<cfoutput>#contacts_table#</cfoutput>').on('select.dt deselect.dt', function() {
+            table.buttons(['.deletesystem']).enable(
                 table.rows({
                     selected: true
                 }).indexes().length === 0 ? false : true
