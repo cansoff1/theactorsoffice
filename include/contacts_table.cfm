@@ -317,6 +317,24 @@
             });
         });
 
+                // Handle form submission event 
+        $('#myformsystemdelete').on('submit', function(e) {
+            var formsystem = this;
+
+            var rows_selectedsystem = table.column(0).checkboxes.selected();
+
+            // Iterate over all selected checkboxes
+            $.each(rows_selectedsystem, function(index, rowId) {
+                // Create a hidden element 
+                $(formsystem).append(
+                    $('<input>')
+                    .attr('type', 'hidden')
+                    .attr('name', 'idlist')
+                    .val(rowId)
+                );
+            });
+        });
+
         $('#<cfoutput>#contacts_table#_container</cfoutput>').css('display', 'block');
         table.columns.adjust().draw();
 
