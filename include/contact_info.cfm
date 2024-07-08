@@ -1,5 +1,8 @@
 <CFINCLUDE template="/include/remote_load.cfm" />
 
+<cfinclude template="/include/qry/countries.cfm" />
+<cfinclude template="/include/qry/regions.cfm" />
+
 <cfparam name="recid" default="0" />
 
 <cfparam name="t2" default="0" />

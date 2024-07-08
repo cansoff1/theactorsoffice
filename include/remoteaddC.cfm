@@ -38,8 +38,7 @@
 </cfoutput>
 
 <cfparam name="valuetext" default="" >
-<cfinclude template="/include/qry/countries.cfm" />
-<cfinclude template="/include/qry/regions.cfm" />
+
 <cfinclude template="/include/qry/cities.cfm" />
 
 <cfif FindUser.regionid neq "">
