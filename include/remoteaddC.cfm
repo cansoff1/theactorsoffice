@@ -147,7 +147,7 @@
                 <input class="form-control" type="#valuefieldtype#" placeholder="#placeholder#" id="valuetext" value="#valuetext#" name="valuetext"
                     data-parsley-maxlength="800" data-parsley-maxlength-message="Max length 800 characters"
                     <cfif new_catid neq "4">placeholder="Enter #details.recordname#"</cfif>
-                >
+                
             </div>
         </cfoutput>
     </cfif>
@@ -221,6 +221,8 @@
         <option value="">--</option>
     </select>
 </div>
+
+</cfif>
 
     <cfif new_catid eq "13">
         <div class="form-group col-md-12">
@@ -387,5 +389,4 @@ $(document).ready(function(){
 });
 </script>
 
-<cfset script_name_include="/include/#ListLast(GetCurrentTemplatePath(), '\')#" />
-<cfinclude template="/include/bigbrotherinclude.cfm">
+ 
