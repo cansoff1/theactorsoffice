@@ -356,9 +356,10 @@ $(document).ready(function(){
     // Store the regions data in a variable
     var regions = [
         <cfoutput query="regions">
-        {countryid: '#regions.countryid#', regionid: '#regions.regionid#', regionname: '#regions.regionname#'}<#cfif regions.currentRow neq regions.recordCount>,</cfif>
+        {countryid: '#regions.countryid#', regionid: '#regions.regionid#', regionname: '#regions.regionname#'}<cfif regions.currentRow neq regions.recordCount>,</cfif>
         </cfoutput>
     ];
+
     
     // Function to populate the states based on selected country
     function populateRegions(countryid) {
