@@ -472,18 +472,59 @@ T4: #t4#<BR>
 <cfloop query="c">
 
 <cfif #catid# is "2">
-    <script>
-    $(document).ready(function() {
-         $("#remoteAdd<cfoutput>C#c.catid#</cfoutput>").on("show.bs.modal", function(event) {
-            // Load the content into the modal body
-            $(this).find(".modal-body").load("<cfoutput>/include/remoteAddC.cfm?catid=#c.catid#&userid=#session.userid#&contactid=#currentid#</cfoutput>", function() {
-                // After loading content, initialize the chained selects
 
-                $("#regionid").chained("#countryid");
-            });
+
+
+$(document).ready(function(){
+    // Function to populate the states based on selected country
+    function populateRegions(countryid) {
+        var regionSelect = $('#regionid');
+        regionSelect.empty();
+        regionSelect.append('<option value="">--</option>');
+        $.each(regions, function(index, region) {
+            if(region.countryid == countryid) {
+                regionSelect.append('<option value="' + region.regionid + '">' + region.regionname + '</option>');
+            }
+        });
+    }
+
+    // Event listener for country select change
+    $(document).on('change', '#countryid', function() {
+        var selectedCountryId = $(this).val();
+        populateRegions(selectedCountryId);
+    });
+
+    // Initialize the regions based on the pre-selected country if any
+    var initialCountryId = $('#countryid').val();
+    if(initialCountryId) {
+        populateRegions(initialCountryId);
+    }
+});
+
+// Load remoteAddName modal content
+$(document).ready(function() {
+    $("#remoteAddName").on("show.bs.modal", function(event) {
+        var modal = $(this);
+        modal.find(".modal-body").load("/include/remoteAddName.cfm", function() {
+            // Store the regions data in a variable
+            var regions = [
+                <cfoutput query="regions">
+                {countryid: '#regions.countryid#', regionid: '#regions.regionid#', regionname: '#regions.regionname#'}<cfif regions.currentRow neq regions.recordCount>,</cfif>
+                </cfoutput>
+            ];
+
+            // Initialize the regions based on the pre-selected country if any
+            var initialCountryId = $('#countryid').val();
+            if(initialCountryId) {
+                populateRegions(initialCountryId);
+            }
         });
     });
-</script>
+});
+
+
+
+
 <cfelse>
 
     <script>
