@@ -477,7 +477,7 @@ T4: #t4#<BR>
 <cfif #catid# is "2">
 
 
-
+<script>
 $(document).ready(function(){
     // Function to populate the states based on selected country
     function populateRegions(countryid) {
@@ -524,7 +524,7 @@ $(document).ready(function() {
         });
     });
 });
-
+</script>
 
 
 
