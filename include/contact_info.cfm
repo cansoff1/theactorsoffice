@@ -528,7 +528,7 @@ $(document).ready(function() {
 
 
 
-<cfelse>
+
 
     <script>
     $(document).ready(function() {
