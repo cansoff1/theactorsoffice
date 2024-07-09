@@ -478,9 +478,12 @@ T4: #t4#<BR>
 
 
 <script>
+javascript
+Copy code
 $(document).ready(function(){
     // Function to populate the states based on selected country
     function populateRegions(countryid) {
+        console.log("Populating regions for country ID:", countryid); // Log selected country ID
         var regionSelect = $('#regionid');
         regionSelect.empty();
         regionSelect.append('<option value="">--</option>');
@@ -494,11 +497,13 @@ $(document).ready(function(){
     // Event listener for country select change
     $(document).on('change', '#countryid', function() {
         var selectedCountryId = $(this).val();
+        console.log("Country changed to:", selectedCountryId); // Log country change
         populateRegions(selectedCountryId);
     });
 
     // Initialize the regions based on the pre-selected country if any
     var initialCountryId = $('#countryid').val();
+    console.log("Initial Country ID:", initialCountryId); // Log initial country ID
     if(initialCountryId) {
         populateRegions(initialCountryId);
     }
@@ -515,32 +520,17 @@ $(document).ready(function() {
                 {countryid: '#regions.countryid#', regionid: '#regions.regionid#', regionname: '#regions.regionname#'}<cfif regions.currentRow neq regions.recordCount>,</cfif>
                 </cfoutput>
             ];
+            console.log("Regions Array:", regions); // Log regions array
 
             // Initialize the regions based on the pre-selected country if any
             var initialCountryId = $('#countryid').val();
+            console.log("Initial Country ID after modal load:", initialCountryId); // Log initial country ID after modal load
             if(initialCountryId) {
                 populateRegions(initialCountryId);
             }
         });
     });
 });
-</script>
-
-
-
-
-
-    <script>
-    $(document).ready(function() {
-         $("#remoteAdd<cfoutput>C#c.catid#</cfoutput>").on("show.bs.modal", function(event) {
-            // Load the content into the modal body
-            $(this).find(".modal-body").load("<cfoutput>/include/remoteAddC.cfm?catid=#c.catid#&userid=#session.userid#&contactid=#currentid#</cfoutput>", function() {
-                // After loading content, initialize the chained selects
-
-               
-            });
-        });
-    });
 </script>
 
 </cfif>
