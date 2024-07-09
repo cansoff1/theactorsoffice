@@ -172,6 +172,10 @@
     </cfif>
 
     <cfif new_catid eq "2">
+
+    <cfinclude template="/include/qry/countries.cfm" />
+<cfinclude template="/include/qry/regions.cfm" />
+
         <cfoutput>
             <div class="form-group col-md-12">
                 <label for="valueStreetAddress">Address<span class="text-danger">*</span></label>
