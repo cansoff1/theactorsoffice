@@ -33,7 +33,7 @@
 ,p.pgname
 ,p.pgdir
  FROM tickets t
- INNER JOIN taousers_tbl u ON u.userid = t.userid
+ LEFT JOIN taousers_tbl u ON u.userid = t.userid
  left JOIN pgpages p ON p.pgid = t.pgid
 left join taoversions v on v.verid = t.verid
     
