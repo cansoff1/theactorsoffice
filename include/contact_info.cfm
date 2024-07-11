@@ -1,5 +1,8 @@
 <CFINCLUDE template="/include/remote_load.cfm" />
 
+<cfinclude template="/include/qry/countries.cfm" />
+<cfinclude template="/include/qry/regions.cfm" />
+
 <cfparam name="recid" default="0" />
 
 <cfparam name="t2" default="0" />
@@ -471,35 +474,6 @@ T4: #t4#<BR>
 
 <cfloop query="c">
 
-<cfif #catid# is "2">
-    <script>
-    $(document).ready(function() {
-         $("#remoteAdd<cfoutput>C#c.catid#</cfoutput>").on("show.bs.modal", function(event) {
-            // Load the content into the modal body
-            $(this).find(".modal-body").load("<cfoutput>/include/remoteAddC.cfm?catid=#c.catid#&userid=#session.userid#&contactid=#currentid#</cfoutput>", function() {
-                // After loading content, initialize the chained selects
-
-                $("#regionid").chained("#countryid");
-            });
-        });
-    });
-</script>
-<cfelse>
-
-    <script>
-    $(document).ready(function() {
-         $("#remoteAdd<cfoutput>C#c.catid#</cfoutput>").on("show.bs.modal", function(event) {
-            // Load the content into the modal body
-            $(this).find(".modal-body").load("<cfoutput>/include/remoteAddC.cfm?catid=#c.catid#&userid=#session.userid#&contactid=#currentid#</cfoutput>", function() {
-                // After loading content, initialize the chained selects
-
-               
-            });
-        });
-    });
-</script>
-
-</cfif>
 
 
 

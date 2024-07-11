@@ -1155,37 +1155,60 @@
              </cfoutput>
          
          
-                        <div class="form-group col-md-6">
-                            <label for="countryid">Country <Cfoutput>[#new_countryid#]</Cfoutput><span class="text-danger">*</span></label>
+              <div class="form-group col-md-6">
+    <label for="countryid">Country <Cfoutput>[#new_countryid#]</Cfoutput><span class="text-danger">*</span></label>
+    <select id="countryid" class="form-control" name="new_countryid" data-parsley-required data-parsley-error-message="Country is required">
+        <option value="">--</option>
+        <cfoutput query="countries">
+            <option value="#countries.countryid#" <cfif #countries.countryid# is "#new_countryid#">selected</cfif>>#countries.countryname#</option>
+        </cfoutput>
+    </select>
+</div>
 
-<select id="countryid" class="form-control" name="new_countryid"  data-parsley-required data-parsley-error-message="Country is required">
-    <option value="">--</option>
-    <cfoutput query="countries" >
-        <option value="#countries.countryid#"   <cfif #countries.countryid# is "#new_countryid#">selected </cfif> >#countries.countryname#</option>
-</cfoutput>
-</select>
-                
-
-
-
-                        </div>
-        
-        
-
-                        <div class="form-group col-md-6">
-                            <label for="regionid">State/Region<span class="text-danger">*</span></label>
-
-            <select id="new_regionid" name="new_regionid" class="form-control" >
-    <option value="">--</option>
-
-     <cfoutput query="regions" >
-         <option value="#regions.regionid#"  data-chained="#regions.countryid#" <cfif #regions.regionid# is "#new_regionid#">selected </cfif>   >#regions.regionname#</option>
-</cfoutput>
-
-</select>
+<div class="form-group col-md-6">
+    <label for="regionid">State/Region<span class="text-danger">*</span></label>
+    <select id="new_regionid" name="new_regionid" class="form-control">
+        <option value="">--</option>
+    </select>
+</div>
 
 
-                        </div>
+
+<script>
+$(document).ready(function(){
+    // Store the regions data in a variable
+    var regions = [
+        <cfoutput query="regions">
+        {countryid: '#regions.countryid#', regionid: '#regions.regionid#', regionname: '#regions.regionname#'}<cfif regions.currentRow neq regions.recordCount>,</cfif>
+        </cfoutput>
+    ];
+    
+    // Function to populate the states based on selected country
+    function populateRegions(countryid) {
+        var regionSelect = $('#new_regionid');
+        regionSelect.empty();
+        regionSelect.append('<option value="">--</option>');
+        $.each(regions, function(index, region) {
+            if(region.countryid == countryid) {
+                regionSelect.append('<option value="' + region.regionid + '">' + region.regionname + '</option>');
+            }
+        });
+    }
+
+    // Event listener for country select change
+    $('#countryid').on('change', function() {
+        var selectedCountryId = $(this).val();
+        populateRegions(selectedCountryId);
+    });
+
+    // Initialize the regions based on the pre-selected country if any
+    var initialCountryId = $('#countryid').val();
+    if(initialCountryId) {
+        populateRegions(initialCountryId);
+    }
+});
+</script>
+
 
 
 

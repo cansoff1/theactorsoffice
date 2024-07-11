@@ -6,5 +6,5 @@ ORDER BY utcHourOffset
 <cfquery name="timezones_min"  datasource="#dsn#"   >	
 SELECT tzid,gmt,tzname,tzgeneral,utchouroffset FROM timezones
 WHERE tzgeneral IS NOT null and tzgeneral <> ''
-ORDER BY utcHourOffset
+ORDER BY gmt
 </cfquery>	
