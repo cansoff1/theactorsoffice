@@ -257,7 +257,12 @@ $('#menu a').click(function (e) {
                 handle: ".modal-header"
             });
         </script>
-
+ <script>
+        window.onerror = function(message, source, lineno, colno, error) {
+            console.error(`Error: ${message}\nSource: ${source}\nLine: ${lineno}\nColumn: ${colno}\nError object: ${JSON.stringify(error)}`);
+            return true; // Prevents the default browser error handling
+        };
+    </script>
     </body>
 
     </html>
