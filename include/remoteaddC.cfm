@@ -1,4 +1,3 @@
-
 <style>
     #hidden_div {
         display: none;
@@ -38,7 +37,8 @@
 </cfoutput>
 
 <cfparam name="valuetext" default="" >
-
+<cfinclude template="/include/qry/countries.cfm" />
+<cfinclude template="/include/qry/regions.cfm" />
 <cfinclude template="/include/qry/cities.cfm" />
 
 <cfif FindUser.regionid neq "">
@@ -146,7 +146,7 @@
                 <input class="form-control" type="#valuefieldtype#" placeholder="#placeholder#" id="valuetext" value="#valuetext#" name="valuetext"
                     data-parsley-maxlength="800" data-parsley-maxlength-message="Max length 800 characters"
                     <cfif new_catid neq "4">placeholder="Enter #details.recordname#"</cfif>
-                
+                >
             </div>
         </cfoutput>
     </cfif>
@@ -172,10 +172,6 @@
     </cfif>
 
     <cfif new_catid eq "2">
-
-    <cfinclude template="/include/qry/countries.cfm" />
-<cfinclude template="/include/qry/regions.cfm" />
-
         <cfoutput>
             <div class="form-group col-md-12">
                 <label for="valueStreetAddress">Address<span class="text-danger">*</span></label>
@@ -202,90 +198,26 @@
             <input class="form-control" type="text" id="valuePostalCode" name="valuePostalCode" placeholder="Enter Postal Code">
         </div>
 
-   
-
-
-
-
-   
-<div class="form-group col-md-6">
-    <label for="countryid">Country<span class="text-danger">*</span></label>
-    <select id="countryid" class="form-control" name="countryid" data-parsley-required data-parsley-error-message="Country is required">
-        <option value="">--</option>
-        <cfoutput query="countries">
-            <option value="#countries.countryid#" <cfif countries.countryid eq new_countryid>selected</cfif>>#countries.countryname#</option>
-        </cfoutput>
-    </select>
-</div>
-
-<div class="form-group col-md-6">
-    <label for="regionid">State/Region<span class="text-danger">*</span></label>
-    <select id="regionid" name="regionid" class="form-control">
-        <option value="">--</option>
-    </select>
-</div>
-
- 
-<script>
-javascript
-Copy code
-$(document).ready(function(){
-    // Function to populate the states based on selected country
-    function populateRegions(countryid) {
-        console.log("Populating regions for country ID:", countryid); // Log selected country ID
-        var regionSelect = $('#regionid');
-        regionSelect.empty();
-        regionSelect.append('<option value="">--</option>');
-        $.each(regions, function(index, region) {
-            if(region.countryid == countryid) {
-                regionSelect.append('<option value="' + region.regionid + '">' + region.regionname + '</option>');
-            }
-        });
-    }
-
-    // Event listener for country select change
-    $(document).on('change', '#countryid', function() {
-        var selectedCountryId = $(this).val();
-        console.log("Country changed to:", selectedCountryId); // Log country change
-        populateRegions(selectedCountryId);
-    });
-
-    // Initialize the regions based on the pre-selected country if any
-    var initialCountryId = $('#countryid').val();
-    console.log("Initial Country ID:", initialCountryId); // Log initial country ID
-    if(initialCountryId) {
-        populateRegions(initialCountryId);
-    }
-});
-
-// Load remoteAddName modal content
-$(document).ready(function() {
-    $("#remoteAddName").on("show.bs.modal", function(event) {
-        var modal = $(this);
-        modal.find(".modal-body").load("/include/remoteAddName.cfm", function() {
-            // Store the regions data in a variable
-            var regions = [
-                <cfoutput query="regions">
-                {countryid: '#regions.countryid#', regionid: '#regions.regionid#', regionname: '#regions.regionname#'}<cfif regions.currentRow neq regions.recordCount>,</cfif>
+        <div class="form-group col-md-6">
+            <label for="countryid">Country<span class="text-danger">*</span></label>
+            <select id="countryid" class="form-control" name="countryid" data-parsley-required data-parsley-error-message="Country is required">
+                <option value="">--</option>
+                <cfoutput query="countries">
+                    <option value="#countries.countryid#" <cfif countries.countryid eq new_countryid>selected</cfif>>#countries.countryname#</option>
                 </cfoutput>
-            ];
-            console.log("Regions Array:", regions); // Log regions array
+            </select>
+        </div>
 
-            // Initialize the regions based on the pre-selected country if any
-            var initialCountryId = $('#countryid').val();
-            console.log("Initial Country ID after modal load:", initialCountryId); // Log initial country ID after modal load
-            if(initialCountryId) {
-                populateRegions(initialCountryId);
-            }
-        });
-    });
-});
-</script>
-
- 
-
-
-</cfif>
+        <div class="form-group col-md-6">
+            <label for="regionid">State/Region<span class="text-danger">*</span></label>
+            <select id="regionid" name="regionid" class="form-control">
+                <option value="">--</option>
+                <cfoutput query="regions">
+                    <option value="#regions.regionid#" data-chained="#regions.countryid#" <cfif regions.regionid eq new_regionid>selected</cfif>>#regions.regionname#</option>
+                </cfoutput>
+            </select>
+        </div>
+    </cfif>
 
     <cfif new_catid eq "13">
         <div class="form-group col-md-12">
@@ -414,4 +346,5 @@ $(document).ready(function() {
     }
 </script>
 
-
+<cfset script_name_include="/include/#ListLast(GetCurrentTemplatePath(), '\')#" />
+<cfinclude template="/include/bigbrotherinclude.cfm">
