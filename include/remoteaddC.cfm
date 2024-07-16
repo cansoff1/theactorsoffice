@@ -249,16 +249,6 @@
     </select>
 </div>
 
-<script>
-    function toggleCustomField(select) {
-        var customField = document.getElementById('special');
-        customField.style.display = select.value === 'custom' ? 'block' : 'none';
-    }
-
-    window.onload = function() {
-        toggleCustomField(document.getElementById('valueCompany'));
-    };
-</script>
 
 <cfoutput>
 <div class="form-group col-md-12" id="special" style="display: none;">
@@ -267,17 +257,7 @@
 </div>
 </cfoutput>
 
-        <script>
-            window.onload = function() {
-                // Adjust visibility based on the initial value of the select field
-                toggleCustomField(document.getElementById('valueCompany'));
-            };
-
-            function toggleCustomField(select) {
-                var isCustomSelected = select.value === 'custom';
-                document.getElementById('special').style.display = isCustomSelected ? 'block' : 'none';
-            }
-        </script>
+     
 
         <div class="form-group col-md-12">
             <label for="valuetext">Department</label>
@@ -295,56 +275,7 @@
     </div>
 </form>
 
-<cfif new_catid eq "1665">
-    <script src="/app/assets/js/intlTelInput.js"></script>
-    <script>
-        var input = document.querySelector("#phone"),
-        errorMsg = document.querySelector("#error-msg"),
-        validMsg = document.querySelector("#valid-msg");
 
-        var errorMap = ["Invalid number", "Invalid country code", "Too short", "Too long", "Invalid number"];
-
-        var iti = window.intlTelInput(input, {
-            utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@17.0.3/build/js/utils.js"
-        });
-
-        var reset = function() {
-            input.classList.remove("error");
-            errorMsg.innerHTML = "";
-            errorMsg.classList.add("hide");
-            validMsg.classList.add("hide");
-        };
-
-        input.addEventListener('blur', function() {
-            reset();
-            if (input.value.trim()) {
-                if (iti.isValidNumber()) {
-                    validMsg.classList.remove("hide");
-                } else {
-                    input.classList.add("error");
-                    var errorCode = iti.getValidationError();
-                    errorMsg.innerHTML = errorMap[errorCode];
-                    errorMsg.classList.remove("hide");
-                }
-            }
-        });
-
-        input.addEventListener('change', reset);
-        input.addEventListener('keyup', reset);
-    </script>
-</cfif>
-
-<script>
-    $(document).ready(function() {
-        $(".parsley-examples").parsley();
-    });
-</script>
-
-<script>
-    function showDiv(divId, element) {
-        document.getElementById(divId).style.display = element.value == "Custom" ? 'block' : 'none';
-    }
-</script>
 
 <cfset script_name_include="/include/#ListLast(GetCurrentTemplatePath(), '\')#" />
 <cfinclude template="/include/bigbrotherinclude.cfm">

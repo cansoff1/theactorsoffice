@@ -485,7 +485,7 @@ T4: #t4#<BR>
             });
         });
     </script>
-    
+
 
 
     <div id="remoteAdd<cfoutput>C#c.catid#</cfoutput>" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
@@ -1538,7 +1538,40 @@ T4: #t4#<BR>
 </cfif>
 
 
+<script>
+    function toggleCustomField(select) {
+        var customField = document.getElementById('special');
+        customField.style.display = select.value === 'custom' ? 'block' : 'none';
+    }
 
+    window.onload = function() {
+        toggleCustomField(document.getElementById('valueCompany'));
+    };
+</script>
+
+<script>
+    $(document).ready(function() {
+        $(".parsley-examples").parsley();
+    });
+</script>
+
+   <script>
+            window.onload = function() {
+                // Adjust visibility based on the initial value of the select field
+                toggleCustomField(document.getElementById('valueCompany'));
+            };
+
+            function toggleCustomField(select) {
+                var isCustomSelected = select.value === 'custom';
+                document.getElementById('special').style.display = isCustomSelected ? 'block' : 'none';
+            }
+        </script>
+
+<script>
+    function showDiv(divId, element) {
+        document.getElementById(divId).style.display = element.value == "Custom" ? 'block' : 'none';
+    }
+</script>
 
 
 <cfset script_name_include="/include/#ListLast(GetCurrentTemplatePath(), " \")#" />
