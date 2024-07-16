@@ -198,25 +198,25 @@
             <input class="form-control" type="text" id="valuePostalCode" name="valuePostalCode" placeholder="Enter Postal Code">
         </div>
 
-        <div class="form-group col-md-6">
-            <label for="countryid">Country<span class="text-danger">*</span></label>
-            <select id="countryid" class="form-control" name="countryid" data-parsley-required data-parsley-error-message="Country is required">
-                <option value="">--</option>
-                <cfoutput query="countries">
-                    <option value="#countries.countryid#" <cfif countries.countryid eq new_countryid>selected</cfif>>#countries.countryname#</option>
-                </cfoutput>
-            </select>
-        </div>
+     <div class="form-group col-md-6">
+        <label for="countryid">Country<span class="text-danger">*</span></label>
+        <select id="countryid" class="form-control" name="countryid" data-parsley-required data-parsley-error-message="Country is required">
+            <option value="">--</option>
+            <cfoutput query="countries">
+                <option value="#countries.countryid#" <cfif countries.countryid eq new_countryid>selected</cfif>>#countries.countryname#</option>
+            </cfoutput>
+        </select>
+    </div>
 
-        <div class="form-group col-md-6">
-            <label for="regionid">State/Region<span class="text-danger">*</span></label>
-            <select id="regionid" name="regionid" class="form-control">
-                <option value="">--</option>
-                <cfoutput query="regions">
-                    <option value="#regions.regionid#" data-chained="#regions.countryid#" <cfif regions.regionid eq new_regionid>selected</cfif>>#regions.regionname#</option>
-                </cfoutput>
-            </select>
-        </div>
+    <div class="form-group col-md-6">
+        <label for="regionid">State/Region<span class="text-danger">*</span></label>
+        <select id="regionid" name="regionid" class="form-control">
+            <option value="">--</option>
+            <cfoutput query="regions">
+                <option value="#regions.regionid#" data-chained="#regions.countryid#" <cfif regions.regionid eq new_regionid>selected</cfif>>#regions.regionname#</option>
+            </cfoutput>
+        </select>
+    </div>
     </cfif>
 
     <cfif new_catid eq "13">
