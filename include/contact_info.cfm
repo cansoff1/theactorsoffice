@@ -358,6 +358,8 @@ T4: #t4#<BR>
         });
     </script>
 
+
+
     <div id="remoteUpdate<cfoutput>C#cu.itemid#</cfoutput>" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
 
         <div class="modal-dialog">
@@ -475,6 +477,15 @@ T4: #t4#<BR>
 <cfloop query="c">
 
 
+    <script>
+        $(document).ready(function() {
+            $("#remoteAdd<cfoutput>C#c.catid#</cfoutput>").on("show.bs.modal", function(event) {
+                // Place the returned HTML into the selected element
+                $(this).find(".modal-body").load("<cfoutput>/include/remoteAddC.cfm?catid=#c.catid#&userid=#session.userid#&contactid=#currentid#</cfoutput>");
+            });
+        });
+    </script>
+    
 
 
     <div id="remoteAdd<cfoutput>C#c.catid#</cfoutput>" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
