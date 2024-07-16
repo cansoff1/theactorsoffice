@@ -358,6 +358,8 @@ T4: #t4#<BR>
         });
     </script>
 
+
+
     <div id="remoteUpdate<cfoutput>C#cu.itemid#</cfoutput>" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
 
         <div class="modal-dialog">
@@ -474,6 +476,15 @@ T4: #t4#<BR>
 
 <cfloop query="c">
 
+
+    <script>
+        $(document).ready(function() {
+            $("#remoteAdd<cfoutput>C#c.catid#</cfoutput>").on("show.bs.modal", function(event) {
+                // Place the returned HTML into the selected element
+                $(this).find(".modal-body").load("<cfoutput>/include/remoteAddC.cfm?catid=#c.catid#&userid=#session.userid#&contactid=#currentid#</cfoutput>");
+            });
+        });
+    </script>
 
 
 
@@ -1527,7 +1538,40 @@ T4: #t4#<BR>
 </cfif>
 
 
+<script>
+    function toggleCustomField(select) {
+        var customField = document.getElementById('special');
+        customField.style.display = select.value === 'custom' ? 'block' : 'none';
+    }
 
+    window.onload = function() {
+        toggleCustomField(document.getElementById('valueCompany'));
+    };
+</script>
+
+<script>
+    $(document).ready(function() {
+        $(".parsley-examples").parsley();
+    });
+</script>
+
+   <script>
+            window.onload = function() {
+                // Adjust visibility based on the initial value of the select field
+                toggleCustomField(document.getElementById('valueCompany'));
+            };
+
+            function toggleCustomField(select) {
+                var isCustomSelected = select.value === 'custom';
+                document.getElementById('special').style.display = isCustomSelected ? 'block' : 'none';
+            }
+        </script>
+
+<script>
+    function showDiv(divId, element) {
+        document.getElementById(divId).style.display = element.value == "Custom" ? 'block' : 'none';
+    }
+</script>
 
 
 <cfset script_name_include="/include/#ListLast(GetCurrentTemplatePath(), " \")#" />
