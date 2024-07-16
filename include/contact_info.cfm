@@ -1537,23 +1537,7 @@ T4: #t4#<BR>
     
 </cfif>
 
-    <script>
-        $(document).ready(function() {
-            $('#countryid').change(function() {
-                var selectedCountry = $(this).val();
-                $('#regionid option').each(function() {
-                    var countryid = $(this).data('chained');
-                    if (selectedCountry === "" || countryid === selectedCountry) {
-                        $(this).show();
-                    } else {
-                        $(this).hide();
-                    }
-                });
-                // Reset the region select to the default option
-                $('#regionid').val('');
-            });
-        });
-    </script>
+
 <script>
     function toggleCustomField(select) {
         var customField = document.getElementById('special');
