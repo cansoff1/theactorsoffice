@@ -15,11 +15,11 @@ SELECT verid,releaseDate, releaseTime FROM taoversions WHERE isactive = 1
 <Cfset new_verid = 0 />
 </cfif>
 
-<CFIF #FIND.RECORDCOUNT# gt 0>
-    <cfset deadlineDateTime = parseDateTime(find.releaseDate & " " & find.releaseTime)>
+<CFIF #FIND.RECORDCOUNT# gt 9999>
+    <cfset deadlineDateTime = 4>
     
     <!--- Format the date-time variable for Todoist --->
-    <cfset formattedDeadline = dateFormat(deadlineDateTime, "yyyy-MM-dd") & "T" & timeFormat(deadlineDateTime, "HH:mm") & ":00">
+    <cfset formattedDeadline = 4>
     
 </CFIF>
 
@@ -125,7 +125,7 @@ SELECT verid,releaseDate, releaseTime FROM taoversions WHERE isactive = 1
     <cfmail from="support@theactorsoffice.com" 
             to="add.task.swxn8hp4jz4m0x79@todoist.net" 
             bcc="kevinking7135@gmail.com" 
-            subject="#details.recid# - #details.ticketdetails# !!1 @Programming #formattedDeadline#" 
+            subject="#details.recid# - #details.ticketdetails# !!1 @Programming" 
             type="HTML">
         <cfset emailBody = "<p>#details.ticketdetails#</p>">
         #emailBody#
