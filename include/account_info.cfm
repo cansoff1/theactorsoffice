@@ -36,13 +36,13 @@
 
 
 <cfquery datasource="#dsn#" name="details">
-    SELECT u.viewtypeid, tz.tzgeneral,u.add1, u.add2, u.city, u.region_id, u.zip, u.tzid, u.defRows,u.calstarttime, u.calendtime, u.avatarname, u.userfirstname, u.userlastname, u.useremail, u.nletter_yn,u.nletter_link, v.viewtype,u.defcountry,u.defstate,
-    u.add1,u.add2,u.city,u.region_id,u.zip,u.dateformatid,df.*
+    SELECT u.viewtypeid, tz.tzgeneral,u.add1, u.add2, u.city, u.regionid, u.zip, u.tzid, u.defRows,u.calstarttime, u.calendtime, u.avatarname, u.userfirstname, u.userlastname, u.useremail, u.nletter_yn,u.nletter_link, v.viewtype,u.defcountry,u.defstate,
+    u.add1,u.add2,u.city,u.regionid,u.zip,u.dateformatid,df.*
     
     FROM taousers u 
     LEFT JOIN dateformats df on df.id = u.dateFormatid
     left outer join viewtypes v on v.viewtypeid = u.viewtypeid
-    left join regions r on r.region_id = u.region_id
+    left join regions r on r.regionid = u.regionid
     left join timezones tz on tz.tzid = u.tzid
     WHERE u.userid = #userid#
 </cfquery>
@@ -351,7 +351,7 @@
     
     ,u.contactid AS userContactID
     ,u.tzid
-   ,u.add1,u.add2,u.city,u.region_id,u.zip,u.countryid
+   ,u.add1,u.add2,u.city,u.regionid,u.zip,u.countryid
 
  ,u.dateformatid
 
@@ -587,7 +587,7 @@
         ,add2 = '#add2#'
         ,city = '#city#'
         ,zip = '#zip#'
-        ,region_id = '#new_region_id#'
+        ,regionid = '#new_regionid#'
         ,countryid = '#new_countryid#'
         ,isAuditionModule = #new_isAuditionModule#
 
@@ -605,7 +605,7 @@
 
 </cfif>
 
-<cfparam name="new_region_id" default="" />
+<cfparam name="new_regionid" default="" />
 
 <cfparam name="new_countryid" default="" />
 
@@ -615,7 +615,7 @@
 
 <cfparam name="valuetext" default="" />
 
-<cfparam name="def_region_id" default="" />
+<cfparam name="def_regionid" default="" />
 
 <cfparam name="def_countryid" default="" />
 
@@ -644,9 +644,9 @@
 
     </cfif>
 
-<cfif #new_region_id# is "" and #def_region_id# is not "">
+<cfif #new_regionid# is "" and #def_regionid# is not "">
 
-    <cfset new_region_id=def_region_id />
+    <cfset new_regionid=def_regionid />
 
 </cfif>
 
@@ -1166,8 +1166,8 @@
 </div>
 
 <div class="form-group col-md-6">
-    <label for="region_id">State/Region<span class="text-danger">*</span></label>
-    <select id="new_region_id" name="new_region_id" class="form-control">
+    <label for="regionid">State/Region<span class="text-danger">*</span></label>
+    <select id="new_regionid" name="new_regionid" class="form-control">
         <option value="">--</option>
     </select>
 </div>
@@ -1179,18 +1179,18 @@ $(document).ready(function(){
     // Store the regions data in a variable
     var regions = [
         <cfoutput query="regions">
-        {countryid: '#regions.countryid#', region_id: '#regions.region_id#', regionname: '#regions.regionname#'}<cfif regions.currentRow neq regions.recordCount>,</cfif>
+        {countryid: '#regions.countryid#', regionid: '#regions.regionid#', regionname: '#regions.regionname#'}<cfif regions.currentRow neq regions.recordCount>,</cfif>
         </cfoutput>
     ];
     
     // Function to populate the states based on selected country
     function populateRegions(countryid) {
-        var regionSelect = $('#new_region_id');
+        var regionSelect = $('#new_regionid');
         regionSelect.empty();
         regionSelect.append('<option value="">--</option>');
         $.each(regions, function(index, region) {
             if(region.countryid == countryid) {
-                regionSelect.append('<option value="' + region.region_id + '">' + region.regionname + '</option>');
+                regionSelect.append('<option value="' + region.regionid + '">' + region.regionname + '</option>');
             }
         });
     }
@@ -1283,7 +1283,7 @@ $(document).ready(function(){
 
                 </form>
 
-     <script>$("#new_region_id").chained("#countryid");</script>
+     <script>$("#new_regionid").chained("#countryid");</script>
             </div>
         </div>
 

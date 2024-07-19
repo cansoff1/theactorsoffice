@@ -8,7 +8,7 @@
 <cfparam name="placeholder" default="" />
 <cfparam name="userid" default="0" type="integer">
 <cfparam name="new_catid" default="0" type="integer">
-<cfparam name="new_region_id" default="" type="string">
+<cfparam name="new_regionid" default="" type="string">
 
 <cfquery name="FindUser" datasource="#dsn#">
     SELECT
@@ -24,7 +24,7 @@
     u.avatarname,
     u.IsBetaTester,
     u.defRows,
-    u.region_id,
+    u.regionid,
     u.contactid AS userContactID,
     u.tzid
     FROM taousers u
@@ -41,13 +41,13 @@
 <cfinclude template="/include/qry/regions.cfm" />
 <cfinclude template="/include/qry/cities.cfm" />
 
-<cfif FindUser.region_id neq "">
-    <cfset new_region_id = FindUser.region_id />
+<cfif FindUser.regionid neq "">
+    <cfset new_regionid = FindUser.regionid />
 
     <cfquery name="findcountryb" datasource="#dsn#" maxrows="1">
         SELECT countryid 
         FROM regions 
-        WHERE region_id = <cfqueryparam value="#new_region_id#" cfsqltype="cf_sql_varchar">
+        WHERE regionid = <cfqueryparam value="#new_regionid#" cfsqltype="cf_sql_varchar">
     </cfquery>
 
     <cfif findcountryb.recordcount eq 1>
@@ -209,11 +209,11 @@
     </div>
 
     <div class="form-group col-md-6">
-        <label for="region_id">State/Region<span class="text-danger">*</span></label>
-        <select id="region_id" name="region_id" class="form-control">
+        <label for="regionid">State/Region<span class="text-danger">*</span></label>
+        <select id="regionid" name="regionid" class="form-control">
             <option value="">--</option>
             <cfoutput query="regions">
-                <option value="#regions.region_id#" data-chained="#regions.countryid#" <cfif regions.region_id eq new_region_id>selected</cfif>>#regions.regionname#</option>
+                <option value="#regions.regionid#" data-chained="#regions.countryid#" <cfif regions.regionid eq new_regionid>selected</cfif>>#regions.regionname#</option>
             </cfoutput>
         </select>
     </div>
@@ -279,7 +279,7 @@
         $(document).ready(function() {
             $('#countryid').change(function() {
                 var selectedCountry = $(this).val();
-                $('#region_id option').each(function() {
+                $('#regionid option').each(function() {
                     var countryid = $(this).data('chained');
                     if (selectedCountry === "" || countryid === selectedCountry) {
                         $(this).show();
@@ -288,7 +288,7 @@
                     }
                 });
                 // Reset the region select to the default option
-                $('#region_id').val('');
+                $('#regionid').val('');
             });
         });
     </script>

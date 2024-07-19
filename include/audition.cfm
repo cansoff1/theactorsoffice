@@ -342,7 +342,7 @@
         ad.audzip,
         ad.audlocadd2,
         ad.audcity,
-        ad.region_id,
+        ad.regionid,
         rg.countryid,
         c.countryname,
         rg.regionname
@@ -365,7 +365,7 @@
 
         LEFT OUTER JOIN audbooktypes bt on bt.audbooktypeid = ad.audbooktypeid
 
-        LEFT OUTER JOIN regions rg on rg.region_id = ad.region_id
+        LEFT OUTER JOIN regions rg on rg.regionid = ad.regionid
 
         LEFT OUTER JOIN countries c on rg.countryid = c.countryid
 
