@@ -139,7 +139,7 @@
     ,u.customerid
      ,u.countryid
     ,left(u.passwordhash,10) as U
-     ,u.viewtypeid, u.add1, u.add2, u.city, u.regionid, u.zip
+     ,u.viewtypeid, u.add1, u.add2, u.city, u.region_id, u.zip
     ,isauditionmodule
     ,u.access_token
     ,u.refresh_token
@@ -224,7 +224,7 @@
         ,u.customerid
         ,u.countryid
         ,left(u.passwordhash,10) as U
-        ,u.viewtypeid, u.add1, u.add2, u.city, u.regionid, u.zip
+        ,u.viewtypeid, u.add1, u.add2, u.city, u.region_id, u.zip
           ,u.access_token
     ,u.refresh_token
     ,isauditionmodule
@@ -279,7 +279,7 @@
             ,t.tzname
             ,u.customerid
             ,left(u.passwordhash,10) as U
-            ,u.viewtypeid, u.add1, u.add2, u.city, u.regionid, u.zip,c.countryid
+            ,u.viewtypeid, u.add1, u.add2, u.city, u.region_id, u.zip,c.countryid
             
               ,u.access_token
     ,u.refresh_token
@@ -614,7 +614,7 @@ and l.linktype <> 'css'
          <cfset useradd1=FindUser.add1 />
          <cfset useradd2=FindUser.add2 />
          <cfset usercity=FindUser.city />
-         <cfset userregionid=FindUser.regionid />
+         <cfset userregion_id=FindUser.region_id />
          <cfset userzip=FindUser.zip />
          <cfset userviewtypeid=FindUser.viewtypeid />
 
@@ -627,10 +627,10 @@ and l.linktype <> 'css'
     <cfset userIsBetaTester=FindUser.IsBetaTester />
     <cfset userdefRows=FindUser.defRows />
     <cfset userdefCountry=FindUser.countryid />
-    <cfset userdefState=FindUser.regionid />
+    <cfset userdefState=FindUser.region_id />
         <cfset usercountryname=FindUser.countryname />
     <cfset def_countryid=FindUser.countryid />
-    <cfset def_regionid=FindUser.regionid />  
+    <cfset def_region_id=FindUser.region_id />  
         
     <cfset usertzid=FindUser.tzid />
     <cfset usercustomerid=FindUser.customerid />

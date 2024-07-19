@@ -1,4 +1,3 @@
-
 <style>
     #hidden_div {
         display: none;
@@ -9,7 +8,7 @@
 <cfparam name="placeholder" default="" />
 <cfparam name="userid" default="0" type="integer">
 <cfparam name="new_catid" default="0" type="integer">
-<cfparam name="new_regionid" default="" type="string">
+<cfparam name="new_region_id" default="" type="string">
 
 <cfquery name="FindUser" datasource="#dsn#">
     SELECT
@@ -25,7 +24,7 @@
     u.avatarname,
     u.IsBetaTester,
     u.defRows,
-    u.regionid,
+    u.region_id,
     u.contactid AS userContactID,
     u.tzid
     FROM taousers u
@@ -38,16 +37,17 @@
 </cfoutput>
 
 <cfparam name="valuetext" default="" >
-
+<cfinclude template="/include/qry/countries.cfm" />
+<cfinclude template="/include/qry/regions.cfm" />
 <cfinclude template="/include/qry/cities.cfm" />
 
-<cfif FindUser.regionid neq "">
-    <cfset new_regionid = FindUser.regionid />
+<cfif FindUser.region_id neq "">
+    <cfset new_region_id = FindUser.region_id />
 
     <cfquery name="findcountryb" datasource="#dsn#" maxrows="1">
         SELECT countryid 
         FROM regions 
-        WHERE regionid = <cfqueryparam value="#new_regionid#" cfsqltype="cf_sql_varchar">
+        WHERE region_id = <cfqueryparam value="#new_region_id#" cfsqltype="cf_sql_varchar">
     </cfquery>
 
     <cfif findcountryb.recordcount eq 1>
@@ -146,7 +146,7 @@
                 <input class="form-control" type="#valuefieldtype#" placeholder="#placeholder#" id="valuetext" value="#valuetext#" name="valuetext"
                     data-parsley-maxlength="800" data-parsley-maxlength-message="Max length 800 characters"
                     <cfif new_catid neq "4">placeholder="Enter #details.recordname#"</cfif>
-                
+                >
             </div>
         </cfoutput>
     </cfif>
@@ -172,10 +172,6 @@
     </cfif>
 
     <cfif new_catid eq "2">
-
-    <cfinclude template="/include/qry/countries.cfm" />
-<cfinclude template="/include/qry/regions.cfm" />
-
         <cfoutput>
             <div class="form-group col-md-12">
                 <label for="valueStreetAddress">Address<span class="text-danger">*</span></label>
@@ -202,90 +198,26 @@
             <input class="form-control" type="text" id="valuePostalCode" name="valuePostalCode" placeholder="Enter Postal Code">
         </div>
 
-   
+     <div class="form-group col-md-6">
+        <label for="countryid">Country<span class="text-danger">*</span></label>
+        <select id="countryid" class="form-control" name="countryid" data-parsley-required data-parsley-error-message="Country is required">
+            <option value="">--</option>
+            <cfoutput query="countries">
+                <option value="#countries.countryid#" <cfif countries.countryid eq new_countryid>selected</cfif>>#countries.countryname#</option>
+            </cfoutput>
+        </select>
+    </div>
 
-
-
-
-   
-<div class="form-group col-md-6">
-    <label for="countryid">Country<span class="text-danger">*</span></label>
-    <select id="countryid" class="form-control" name="countryid" data-parsley-required data-parsley-error-message="Country is required">
-        <option value="">--</option>
-        <cfoutput query="countries">
-            <option value="#countries.countryid#" <cfif countries.countryid eq new_countryid>selected</cfif>>#countries.countryname#</option>
-        </cfoutput>
-    </select>
-</div>
-
-<div class="form-group col-md-6">
-    <label for="regionid">State/Region<span class="text-danger">*</span></label>
-    <select id="regionid" name="regionid" class="form-control">
-        <option value="">--</option>
-    </select>
-</div>
-
- 
-<script>
-javascript
-Copy code
-$(document).ready(function(){
-    // Function to populate the states based on selected country
-    function populateRegions(countryid) {
-        console.log("Populating regions for country ID:", countryid); // Log selected country ID
-        var regionSelect = $('#regionid');
-        regionSelect.empty();
-        regionSelect.append('<option value="">--</option>');
-        $.each(regions, function(index, region) {
-            if(region.countryid == countryid) {
-                regionSelect.append('<option value="' + region.regionid + '">' + region.regionname + '</option>');
-            }
-        });
-    }
-
-    // Event listener for country select change
-    $(document).on('change', '#countryid', function() {
-        var selectedCountryId = $(this).val();
-        console.log("Country changed to:", selectedCountryId); // Log country change
-        populateRegions(selectedCountryId);
-    });
-
-    // Initialize the regions based on the pre-selected country if any
-    var initialCountryId = $('#countryid').val();
-    console.log("Initial Country ID:", initialCountryId); // Log initial country ID
-    if(initialCountryId) {
-        populateRegions(initialCountryId);
-    }
-});
-
-// Load remoteAddName modal content
-$(document).ready(function() {
-    $("#remoteAddName").on("show.bs.modal", function(event) {
-        var modal = $(this);
-        modal.find(".modal-body").load("/include/remoteAddName.cfm", function() {
-            // Store the regions data in a variable
-            var regions = [
-                <cfoutput query="regions">
-                {countryid: '#regions.countryid#', regionid: '#regions.regionid#', regionname: '#regions.regionname#'}<cfif regions.currentRow neq regions.recordCount>,</cfif>
-                </cfoutput>
-            ];
-            console.log("Regions Array:", regions); // Log regions array
-
-            // Initialize the regions based on the pre-selected country if any
-            var initialCountryId = $('#countryid').val();
-            console.log("Initial Country ID after modal load:", initialCountryId); // Log initial country ID after modal load
-            if(initialCountryId) {
-                populateRegions(initialCountryId);
-            }
-        });
-    });
-});
-</script>
-
- 
-
-
-</cfif>
+    <div class="form-group col-md-6">
+        <label for="region_id">State/Region<span class="text-danger">*</span></label>
+        <select id="region_id" name="region_id" class="form-control">
+            <option value="">--</option>
+            <cfoutput query="regions">
+                <option value="#regions.region_id#" data-chained="#regions.countryid#" <cfif regions.region_id eq new_region_id>selected</cfif>>#regions.regionname#</option>
+            </cfoutput>
+        </select>
+    </div>
+    </cfif>
 
     <cfif new_catid eq "13">
         <div class="form-group col-md-12">
@@ -317,16 +249,6 @@ $(document).ready(function() {
     </select>
 </div>
 
-<script>
-    function toggleCustomField(select) {
-        var customField = document.getElementById('special');
-        customField.style.display = select.value === 'custom' ? 'block' : 'none';
-    }
-
-    window.onload = function() {
-        toggleCustomField(document.getElementById('valueCompany'));
-    };
-</script>
 
 <cfoutput>
 <div class="form-group col-md-12" id="special" style="display: none;">
@@ -335,17 +257,7 @@ $(document).ready(function() {
 </div>
 </cfoutput>
 
-        <script>
-            window.onload = function() {
-                // Adjust visibility based on the initial value of the select field
-                toggleCustomField(document.getElementById('valueCompany'));
-            };
-
-            function toggleCustomField(select) {
-                var isCustomSelected = select.value === 'custom';
-                document.getElementById('special').style.display = isCustomSelected ? 'block' : 'none';
-            }
-        </script>
+     
 
         <div class="form-group col-md-12">
             <label for="valuetext">Department</label>
@@ -363,55 +275,23 @@ $(document).ready(function() {
     </div>
 </form>
 
-<cfif new_catid eq "1665">
-    <script src="/app/assets/js/intlTelInput.js"></script>
     <script>
-        var input = document.querySelector("#phone"),
-        errorMsg = document.querySelector("#error-msg"),
-        validMsg = document.querySelector("#valid-msg");
-
-        var errorMap = ["Invalid number", "Invalid country code", "Too short", "Too long", "Invalid number"];
-
-        var iti = window.intlTelInput(input, {
-            utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@17.0.3/build/js/utils.js"
+        $(document).ready(function() {
+            $('#countryid').change(function() {
+                var selectedCountry = $(this).val();
+                $('#region_id option').each(function() {
+                    var countryid = $(this).data('chained');
+                    if (selectedCountry === "" || countryid === selectedCountry) {
+                        $(this).show();
+                    } else {
+                        $(this).hide();
+                    }
+                });
+                // Reset the region select to the default option
+                $('#region_id').val('');
+            });
         });
-
-        var reset = function() {
-            input.classList.remove("error");
-            errorMsg.innerHTML = "";
-            errorMsg.classList.add("hide");
-            validMsg.classList.add("hide");
-        };
-
-        input.addEventListener('blur', function() {
-            reset();
-            if (input.value.trim()) {
-                if (iti.isValidNumber()) {
-                    validMsg.classList.remove("hide");
-                } else {
-                    input.classList.add("error");
-                    var errorCode = iti.getValidationError();
-                    errorMsg.innerHTML = errorMap[errorCode];
-                    errorMsg.classList.remove("hide");
-                }
-            }
-        });
-
-        input.addEventListener('change', reset);
-        input.addEventListener('keyup', reset);
     </script>
-</cfif>
 
-<script>
-    $(document).ready(function() {
-        $(".parsley-examples").parsley();
-    });
-</script>
-
-<script>
-    function showDiv(divId, element) {
-        document.getElementById(divId).style.display = element.value == "Custom" ? 'block' : 'none';
-    }
-</script>
-
-
+<cfset script_name_include="/include/#ListLast(GetCurrentTemplatePath(), '\')#" />
+<cfinclude template="/include/bigbrotherinclude.cfm">

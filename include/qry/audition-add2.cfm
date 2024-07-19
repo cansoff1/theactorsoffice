@@ -72,7 +72,7 @@ eventLocation = <cfqueryparam cfsqltype="CF_SQL_VARCHAR" value="#new_eventLocati
 audlocadd1 = <cfqueryparam cfsqltype="CF_SQL_VARCHAR" value="#new_audlocadd1#" maxlength="500" null="#NOT len(trim(new_audlocadd1))#" /> ,
 audlocadd2 = <cfqueryparam cfsqltype="CF_SQL_VARCHAR" value="#new_audlocadd2#" maxlength="500" null="#NOT len(trim(new_audlocadd2))#" /> ,
 audcity = <cfqueryparam cfsqltype="CF_SQL_VARCHAR" value="#new_audcity#" maxlength="500" null="#NOT len(trim(new_eventLocation))#" /> , 
-regionid = <cfqueryparam cfsqltype="CF_SQL_VARCHAR" value="#new_regionid#" maxlength="2" null="#NOT len(trim(new_regionid))#" /> ,
+region_id = <cfqueryparam cfsqltype="CF_SQL_VARCHAR" value="#new_region_id#" maxlength="2" null="#NOT len(trim(new_region_id))#" /> ,
 audzip = <cfqueryparam cfsqltype="CF_SQL_VARCHAR" value="#new_audzip#" maxlength="10" null="#NOT len(trim(new_audzip))#" />    
 where eventid = #new_eventid#
 </cfquery>

@@ -13,7 +13,7 @@
 
 <cfparam name="new_audzip" default="" />
 
-<cfparam name="new_regionid" default="" />
+<cfparam name="new_region_id" default="" />
 
 <cfparam name="new_isDeleted" default="0" />
 
@@ -34,7 +34,7 @@ UPDATE audlocations  SET
 
     audcity = <cfqueryparam cfsqltype="CF_SQL_VARCHAR" value="#new_audcity#" maxlength="500" null="#NOT len(trim(new_audcity))#" />,
 
-    regionid = <cfqueryparam cfsqltype="CF_SQL_VARCHAR" value="#new_regionid#" maxlength="3" null="#NOT len(trim(new_regionid))#" />,
+    region_id = <cfqueryparam cfsqltype="CF_SQL_VARCHAR" value="#new_region_id#" maxlength="3" null="#NOT len(trim(new_region_id))#" />,
 
     audzip = <cfqueryparam cfsqltype="CF_SQL_VARCHAR" value="#new_audzip#" maxlength="50" null="#NOT len(trim(new_audzip))#" />,
 

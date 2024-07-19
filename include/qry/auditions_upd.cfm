@@ -41,7 +41,7 @@
 
 <cfparam name="new_audcity" default="" />
 
-<cfparam name="new_regionid" default="" />
+<cfparam name="new_region_id" default="" />
 
 <cfparam name="new_audzip" default="" />
 
@@ -97,7 +97,7 @@ audlocadd2 = <cfqueryparam cfsqltype="CF_SQL_VARCHAR" value="#new_audlocadd2#" m
     
 audcity = <cfqueryparam cfsqltype="CF_SQL_VARCHAR" value="#new_audcity#" maxlength="500" null="#NOT len(trim(new_audcity))#" /> ,
     
-regionid = <cfqueryparam cfsqltype="CF_SQL_VARCHAR" value="#new_regionid#" maxlength="2" null="#NOT len(trim(new_regionid))#" /> ,
+region_id = <cfqueryparam cfsqltype="CF_SQL_VARCHAR" value="#new_region_id#" maxlength="2" null="#NOT len(trim(new_region_id))#" /> ,
     
 audzip = <cfqueryparam cfsqltype="CF_SQL_VARCHAR" value="#new_audzip#" maxlength="10" null="#NOT len(trim(new_audzip))#" /> ,
 

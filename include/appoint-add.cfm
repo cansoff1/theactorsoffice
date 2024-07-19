@@ -138,13 +138,13 @@ $("#select-relationship").selectize({
              </div>
               
           <cfquery datasource="#dsn#" name="details">
-    SELECT u.viewtypeid, u.add1, u.add2, u.city, u.regionid, u.zip, u.tzid, u.defRows,u.calstarttime, u.calendtime, u.avatarname, u.userfirstname, u.userlastname, u.useremail, u.nletter_yn,u.nletter_link, v.viewtype,
-    u.add1,u.add2,u.city,u.regionid,u.zip
+    SELECT u.viewtypeid, u.add1, u.add2, u.city, u.region_id, u.zip, u.tzid, u.defRows,u.calstarttime, u.calendtime, u.avatarname, u.userfirstname, u.userlastname, u.useremail, u.nletter_yn,u.nletter_link, v.viewtype,
+    u.add1,u.add2,u.city,u.region_id,u.zip
     
     FROM taousers u 
     
     left outer join viewtypes v on v.viewtypeid = u.viewtypeid
-    left join regions r on r.regionid = u.regionid
+    left join regions r on r.region_id = u.region_id
     WHERE u.userid = #userid#
 </cfquery>    
               

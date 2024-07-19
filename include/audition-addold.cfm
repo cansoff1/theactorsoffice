@@ -597,7 +597,7 @@
 
 <script src="/app/assets/js/jquery.chained.js?ver=1.9.7.4"></script>
 
-     <script>$("#new_regionid").chained("#countryid");</script>
+     <script>$("#new_region_id").chained("#countryid");</script>
 
 
                                     <div class="form-group col-md-6">
@@ -618,13 +618,13 @@
 
 
                                     <div class="form-group col-md-6">
-                                        <label for="regionid">State/Region<span class="text-danger">*</span></label>
+                                        <label for="region_id">State/Region<span class="text-danger">*</span></label>
 
-                                        <select id="regionid" name="new_regionid" class="form-control">
+                                        <select id="region_id" name="new_region_id" class="form-control">
                                             <option value="">--</option>
 
                                             <cfoutput query="regions">
-                                                <option value="#regions.regionid#" data-chained="#regions.countryid#">#regions.regionname#</option>
+                                                <option value="#regions.region_id#" data-chained="#regions.countryid#">#regions.regionname#</option>
                                             </cfoutput>
 
                                         </select>
@@ -678,7 +678,7 @@
 
 
 
-                                        <cfparam name="new_regionid" default="CA">
+                                        <cfparam name="new_region_id" default="CA">
                                             <cfparam name="new_countryid" default="US">
 
 
@@ -775,13 +775,13 @@
 
 
                                                             <div class="form-group col-md-6">
-                                                                <label for="regionid">State/Region<span class="text-danger">*</span></label>
+                                                                <label for="region_id">State/Region<span class="text-danger">*</span></label>
 
-                                                                <select id="regionid" name="new_regionid" class="form-control">
+                                                                <select id="region_id" name="new_region_id" class="form-control">
                                                                     <option value="">--</option>
 
                                                                     <cfoutput query="regions">
-                                                                        <option value="#regions.regionid#" data-chained="#regions.countryid#">#regions.regionname#</option>
+                                                                        <option value="#regions.region_id#" data-chained="#regions.countryid#">#regions.regionname#</option>
                                                                     </cfoutput>
 
                                                                 </select>
@@ -824,7 +824,7 @@
 
     </script>
     <script>
-        $("#regionid").chained("#countryid");
+        $("#region_id").chained("#countryid");
 
     </script>
     <script>
