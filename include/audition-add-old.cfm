@@ -100,11 +100,11 @@
 </cfif>
 
 <cfquery name="findregion" datasource="#dsn#">
-    select region_id from regions where regionname = '#valuestate#'
+    select regionid from regions where regionname = '#valuestate#'
 </cfquery>
 
 <cfif #findregion.recordcount# is "1">
-    <cfset new_region_id=findregion.region_id />
+    <cfset new_regionid=findregion.regionid />
 </cfif>
 
 
@@ -616,13 +616,13 @@
 
 
                                     <div class="form-group col-md-6">
-                                        <label for="region_id">State/Region<span class="text-danger">*</span></label>
+                                        <label for="regionid">State/Region<span class="text-danger">*</span></label>
 
-                                        <select id="region_id" name="new_region_id" class="form-control">
+                                        <select id="regionid" name="new_regionid" class="form-control">
                                             <option value="">--</option>
 
                                             <cfoutput query="regions">
-                                                <option value="#regions.region_id#" data-chained="#regions.countryid#">#regions.regionname#</option>
+                                                <option value="#regions.regionid#" data-chained="#regions.countryid#">#regions.regionname#</option>
                                             </cfoutput>
 
                                         </select>
@@ -676,7 +676,7 @@
 
 
 
-                                        <cfparam name="new_region_id" default="CA">
+                                        <cfparam name="new_regionid" default="CA">
                                             <cfparam name="new_countryid" default="US">
 
 
@@ -715,11 +715,11 @@
                                                             </cfif>
 
                                                             <cfquery name="findregion" datasource="#dsn#">
-                                                                select region_id from regions where regionname = '#valuestate#'
+                                                                select regionid from regions where regionname = '#valuestate#'
                                                             </cfquery>
 
                                                             <cfif #findregion.recordcount# is "1">
-                                                                <cfset new_region_id=findregion.region_id />
+                                                                <cfset new_regionid=findregion.regionid />
                                                             </cfif>
 
 
@@ -802,13 +802,13 @@
 
 
                                                             <div class="form-group col-md-6">
-                                                                <label for="region_id">State/Region<span class="text-danger">*</span></label>
+                                                                <label for="regionid">State/Region<span class="text-danger">*</span></label>
 
-                                                                <select id="region_id" name="new_region_id" class="form-control">
+                                                                <select id="regionid" name="new_regionid" class="form-control">
                                                                     <option value="">--</option>
 
                                                                     <cfoutput query="regions">
-                                                                        <option value="#regions.region_id#" data-chained="#regions.countryid#">#regions.regionname#</option>
+                                                                        <option value="#regions.regionid#" data-chained="#regions.countryid#">#regions.regionname#</option>
                                                                     </cfoutput>
 
                                                                 </select>
@@ -851,7 +851,7 @@
 
     </script>
     <script>
-        $("#region_id").chained("#countryid");
+        $("#regionid").chained("#countryid");
 
     </script>
     <script>

@@ -18,7 +18,7 @@
     ,u.customerid
      ,u.countryid
     ,left(u.passwordhash,10) as U
-     ,u.viewtypeid, u.add1, u.add2, u.city, u.region_id, u.zip
+     ,u.viewtypeid, u.add1, u.add2, u.city, u.regionid, u.zip
     ,isauditionmodule
     ,u.access_token
     ,u.refresh_token

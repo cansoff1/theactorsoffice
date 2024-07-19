@@ -5,7 +5,7 @@
  <cfparam name="itemdate" default="" /> 
   <cfparam name="customtype" default="" /> 
   <cfparam name="countryid" default="" /> 
-  <cfparam name="region_id" default="" /> 
+  <cfparam name="regionid" default="" /> 
 
 <cfif #valuetype# is "Custom" and #customtype# is not "">
 <cfquery name="insert" datasource="#dsn#" result="typeresult" >
@@ -49,7 +49,7 @@ select countryid,countryname from countries where countryid = '#countryid#'
 </cfif>
 
 <cfquery name="findregion" datasource="#dsn#">
-select regionname from regions where region_id = '#region_id#' and countryid = '#old_countryid#'
+select regionname from regions where regionid = '#regionid#' and countryid = '#old_countryid#'
 </cfquery>
 
 <cfif #findregion.recordcount# is "1">

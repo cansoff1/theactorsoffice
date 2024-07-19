@@ -31,7 +31,7 @@
 
 
 <cfparam name="new_countryid" default="" />
-<cfparam name="new_region_id" default="" />
+<cfparam name="new_regionid" default="" />
 
 
 <cfquery name="findcountry" datasource="#dsn#">
@@ -43,11 +43,11 @@
 </cfif>
 
 <cfquery name="findregion" datasource="#dsn#">
-    select region_id from regions where regionname = '#details.valueregion#'
+    select regionid from regions where regionname = '#details.valueregion#'
 </cfquery>
 
 <cfif #findregion.recordcount# is "1">
-    <cfset new_region_id=findregion.region_id />
+    <cfset new_regionid=findregion.regionid />
 </cfif>
 
 
@@ -261,13 +261,13 @@
 
 
         <div class="form-group col-md-6">
-            <label for="region_id">State/Region<span class="text-danger">*</span></label>
+            <label for="regionid">State/Region<span class="text-danger">*</span></label>
 
-            <select id="region_id" name="region_id" class="form-control">
+            <select id="regionid" name="regionid" class="form-control">
                 <option value="">--</option>
 
                 <cfoutput query="regions">
-                    <option value="#regions.region_id#" data-chained="#regions.countryid#" <cfif #regions.region_id# is "#new_region_id#"> selected</cfif> >#regions.regionname#</option>
+                    <option value="#regions.regionid#" data-chained="#regions.countryid#" <cfif #regions.regionid# is "#new_regionid#"> selected</cfif> >#regions.regionname#</option>
                 </cfoutput>
 
             </select>
@@ -422,7 +422,7 @@
         </div>
 </form>
 <script>
-    $("#region_id").chained("#countryid");
+    $("#regionid").chained("#countryid");
 
 </script>
 <script>
