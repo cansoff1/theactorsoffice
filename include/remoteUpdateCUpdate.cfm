@@ -14,9 +14,9 @@
 
 <cfparam name="old_countryid" default="" />
 
-<cfparam name="old_regionid" default="" />
+<cfparam name="old_region_id" default="" />
 
-<cfparam name="regionid" default="" />
+<cfparam name="region_id" default="" />
 
 
 
@@ -61,12 +61,12 @@ values ('#customtype#',#session.userid#)
 
 
 <cfquery name="findregion" datasource="#dsn#">
-    select regionname from regions where regionid = '#regionid#' and countryid = '#old_countryid#'
+    select regionname from regions where region_id = '#region_id#' and countryid = '#old_countryid#'
 </cfquery>
 
 
 <cfif #findregion.recordcount# is "1">
-    <cfset new_regionid=findregion.regionname />
+    <cfset new_region_id=findregion.regionname />
 </cfif>
 
 
@@ -151,7 +151,7 @@ values ('#customtype#',#session.userid#)
         ,valueCity =
         <cfqueryparam cfsqltype="cf_sql_varchar" value="#trim(valueCity)#" />
         ,valueRegion =
-        <cfqueryparam cfsqltype="cf_sql_varchar" value="#trim(new_regionid)#" />
+        <cfqueryparam cfsqltype="cf_sql_varchar" value="#trim(new_region_id)#" />
         ,valueCountry =
         <cfqueryparam cfsqltype="cf_sql_varchar" value="#trim(new_countryid)#" />
         ,valuePostalCode =

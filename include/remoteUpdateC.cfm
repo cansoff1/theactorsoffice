@@ -37,7 +37,7 @@
 
 
 <cfparam name="new_countryid" default="" />
-<cfparam name="new_regionid" default="" />
+<cfparam name="new_region_id" default="" />
 
 
 <cfquery name="findcountry" datasource="#dsn#">
@@ -49,11 +49,11 @@
 </cfif>
 
 <cfquery name="findregion" datasource="#dsn#">
-    select regionid from regions where regionname = '#details.valueregion#'
+    select region_id from regions where regionname = '#details.valueregion#'
 </cfquery>
 
 <cfif #findregion.recordcount# is "1">
-    <cfset new_regionid=findregion.regionid />
+    <cfset new_region_id=findregion.region_id />
 </cfif>
 
 
@@ -284,13 +284,13 @@
 
 
         <div class="form-group col-md-6">
-            <label for="regionid">State/Region<span class="text-danger">*</span></label>
+            <label for="region_id">State/Region<span class="text-danger">*</span></label>
 
-            <select id="regionid" name="regionid" class="form-control">
+            <select id="region_id" name="region_id" class="form-control">
                 <option value="">--</option>
 
                 <cfoutput query="regions">
-                    <option value="#regions.regionid#" data-chained="#regions.countryid#" <cfif #regions.regionid# is "#new_regionid#"> selected</cfif> >#regions.regionname#</option>
+                    <option value="#regions.region_id#" data-chained="#regions.countryid#" <cfif #regions.region_id# is "#new_region_id#"> selected</cfif> >#regions.regionname#</option>
                 </cfoutput>
 
             </select>
@@ -444,7 +444,7 @@
         </div>
 </form>
 <script>
-    $("#regionid").chained("#countryid");
+    $("#region_id").chained("#countryid");
 </script>
 <script>
     $(document).ready(function() {
@@ -463,7 +463,7 @@
         $(document).ready(function() {
             $('#countryid').change(function() {
                 var selectedCountry = $(this).val();
-                $('#regionid option').each(function() {
+                $('#region_id option').each(function() {
                     var countryid = $(this).data('chained');
                     if (selectedCountry === "" || countryid === selectedCountry) {
                         $(this).show();
@@ -472,7 +472,7 @@
                     }
                 });
                 // Reset the region select to the default option
-                $('#regionid').val('');
+                $('#region_id').val('');
             });
         });
     </script>

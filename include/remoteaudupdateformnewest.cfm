@@ -24,7 +24,7 @@
     ,t.tzname
     ,u.customerid
     ,left(u.passwordhash,10) as U
-    ,u.viewtypeid, u.add1, u.add2, u.city, u.regionid, u.zip
+    ,u.viewtypeid, u.add1, u.add2, u.city, u.region_id, u.zip
 
 
     FROM taousers u
@@ -326,7 +326,7 @@
         a5.`audroletype`, a6.`auddialect`, c.`audcatid`, t.`audtypeid`, ad.`workwithcoach`,
         ad.`audstepid`, ad.`audlocation`, ad.`parkingdetails`, ad.`audroleid`,
         ad.`audplatformid`, ad.`trackmileage`, t.`audtype`,step.audstep,t.islocation,ad.audbooktypeid,
-        ad.eventLocation,ad.audlocadd1,ad.audzip,ad.audlocadd2,ad.audcity,ad.regionid,r.countryid,
+        ad.eventLocation,ad.audlocadd1,ad.audzip,ad.audlocadd2,ad.audcity,ad.region_id,r.countryid,
         truncate(hour(TIMEDIFF(ad.eventStopTime, ad.eventStartTime)),2) +
 
         truncate(minute(TIMEDIFF(ad.eventStopTime, ad.eventStartTime)),2)/60 AS new_durhours
@@ -344,7 +344,7 @@
         LEFT OUTER JOIN auddialects a6 ON ( a4.`audDialectID` = a6.auddialectid )
         LEFT JOIN audtypes t ON t.audtypeid = ad.audtypeid
 
-        LEFT OUTER JOIN regions r on r.regionid = ad.regionid
+        LEFT OUTER JOIN regions r on r.region_id = ad.region_id
 
 
         WHERE ad.eventid = #eventid#
@@ -868,7 +868,7 @@
 
 
         <Cfoutput>
-            <cfparam name="new_regionid" default="#aud_det.regionid#">
+            <cfparam name="new_region_id" default="#aud_det.region_id#">
                 <cfparam name="new_countryid" default="#aud_det.countryid#">
 
         </Cfoutput>
@@ -991,18 +991,18 @@
                         <cfset new_countryid="US" />
                     </cfif>
 
-                    <cfif #new_regionid# is "">
-                        <cfset new_regionid="CA" />
+                    <cfif #new_region_id# is "">
+                        <cfset new_region_id="CA" />
                     </cfif>
 
                     <div class="form-group col-md-6">
-                        <label for="regionid">State/Region<span class="text-danger">*</span></label>
+                        <label for="region_id">State/Region<span class="text-danger">*</span></label>
 
-                        <select id="regionid" name="new_regionid" class="form-control">
+                        <select id="region_id" name="new_region_id" class="form-control">
                             <option value="">--</option>
 
                             <cfoutput query="regions">
-                                <option value="#regions.regionid#" data-chained="#regions.countryid#" <cfif #regions.regionid# is "#new_regionid#">selected </cfif> >#regions.regionname#</option>
+                                <option value="#regions.region_id#" data-chained="#regions.countryid#" <cfif #regions.region_id# is "#new_region_id#">selected </cfif> >#regions.regionname#</option>
                             </cfoutput>
 
                         </select>
@@ -1139,7 +1139,7 @@
 
 
     <script>
-        $("#regionid").chained("#countryid");
+        $("#region_id").chained("#countryid");
 
     </script>
  
@@ -1147,7 +1147,7 @@
 
 
     <script>
-        $("#regionidx").chained("#countryidx");
+        $("#region_idx").chained("#countryidx");
 
     </script>
    <script src="/app/assets/js/libs/parsleyjs/parsley.min.js"></script>

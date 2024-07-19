@@ -50,12 +50,12 @@
                 ,ad.audlocadd1
                 ,ad.audlocadd2
                 ,ad.audcity
-                ,ad.regionid
+                ,ad.region_id
                 ,ad.audzip
                 ,rg.regionname
                 ,c.countryname 
                 FROM events  ad
-                LEFT OUTER JOIN regions rg on rg.regionid = ad.regionid  
+                LEFT OUTER JOIN regions rg on rg.region_id = ad.region_id  
                 LEFT OUTER JOIN countries c on rg.countryid = c.countryid
                 where ad.eventid = #new_eventid#
             </cfquery>
