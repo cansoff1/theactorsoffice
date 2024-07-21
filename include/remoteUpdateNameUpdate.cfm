@@ -37,7 +37,7 @@ SET contactfullname = <cfqueryparam cfsqltype="cf_sql_varchar" value="#trim(cont
     ,contactmeetingdate = 
  
 
-    <cfqueryparam cfsqltype="cf_sql_date" value="#dateformat(contactmeetingdateValue,'YYYY-DD-MM')#" />
+    <cfqueryparam cfsqltype="cf_sql_date" value="#dateformat(contactmeetingdate,'YYYY-DD-MM')#" />
 
     </cfif>
      ,contactmeetingloc = <cfqueryparam cfsqltype="cf_sql_varchar" value="#trim(contactmeetingloc)#" />
