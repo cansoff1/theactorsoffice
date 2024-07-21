@@ -26,7 +26,31 @@ contactpronoun: #contactpronoun#<BR>
     formattedDate = DateFormat(parsedDate, "yyyy-mm-dd");
 </cfscript>
 
+<cfscript>
+    // Get the date from the form
+    contactbirthday = trim(detais.contactbirthday);
 
+    // Initialize formattedDate
+    contactbirthdayformatted = "";
+
+    try {
+        // Validate the date format using a regular expression
+        if (REFind("^\d{4}-\d{2}-\d{2}$", contactbirthday)) {
+            // Parse the date string to a ColdFusion date object
+            parsedDate = ParseDateTime(contactbirthday);
+
+            // Format the date to a database-friendly format
+            contactbirthdayformatted = DateFormat(parsedDate, "yyyy-mm-dd");
+        } else {
+            // Handle invalid date format
+            throw(message="Invalid date format", detail="Expected format is YYYY-MM-DD");
+        }
+    } catch (any e) {
+        // Handle the error, e.g., invalid date format
+        writeOutput("Invalid date format: " & contactbirthday);
+        abort;
+    }
+</cfscript>
 
 
 <cfquery name="update" datasource="#dsn#" >
@@ -42,11 +66,11 @@ SET contactfullname = <cfqueryparam cfsqltype="cf_sql_varchar" value="#trim(cont
      ,contactPronoun = <cfqueryparam cfsqltype="cf_sql_varchar" value="#trim(contactPronoun)#" />
      </cfif>
  
-
+<cfif #contactbirthdayformatted# is not "">
         ,contactbirthday = 
-<cfqueryparam cfsqltype="cf_sql_date" value="#contactBirthdayValue#" />
-
-
+ 
+<cfqueryparam value="#contactbirthdayformatted#" cfsqltype="cf_sql_date">
+</cfif>
 
              <cfif #contactmeetingdate# is not "">
     ,contactmeetingdate = 

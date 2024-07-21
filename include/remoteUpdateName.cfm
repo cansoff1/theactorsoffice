@@ -48,8 +48,7 @@
             <label for="simpleinput">Next Birthday</label>
 
 
-            <input class="form-control" id="contactbirthday" value="#details.contactbirthday#" type="date" name="contactbirthday">
-
+             <input class="form-control" id="contactbirthday" value="#details.contactbirthday#" type="date" name="contactbirthday">
         </div>
 
 <cfscript>
