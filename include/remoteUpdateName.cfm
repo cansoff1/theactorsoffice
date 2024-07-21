@@ -57,8 +57,9 @@
         <div class="form-group col-sm-6 mb-6">
             <label for="simpleinput">Initial Meeting Date</label>
 
+<cfset contactmeetingdate_format = dateformat(details.contactmeetingdate, "yyyy-mm-dd")>
 
-            <input class="form-control" id="contactmeetingdate" value="#details.contactmeetingdate" type="date" name="contactmeetingdate">
+            <input class="form-control" id="contactmeetingdate" value="#contactmeetingdate_format#" type="date" name="contactmeetingdate">
         </div>
 
         <div class="form-group col-sm-6 mb-6">
