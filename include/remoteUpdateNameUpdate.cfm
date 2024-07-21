@@ -17,15 +17,14 @@ contactpronoun: #contactpronoun#<BR>
 
 <cfscript>
     // Sample date from the form
-    formDate = contactmeetingdate;
-    
-    // Parse the date
-    parsedDate = ParseDateTime(formDate, "MM/DD/YY");
-    
+    formDate = trim(contactmeetingdate);
+
+    // Use LSParseDateTime to parse the date string to a ColdFusion date object
+    parsedDate = LSParseDateTime(formDate);
+
     // Format the date to a database-friendly format
     formattedDate = DateFormat(parsedDate, "yyyy-mm-dd");
 </cfscript>
-
 
 
 

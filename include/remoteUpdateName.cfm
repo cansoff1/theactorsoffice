@@ -54,11 +54,11 @@
 
 <cfscript>
     // Sample date from the form
-    formDate = details.contactmeetingdate;
-    
-    // Parse the date
-    parsedDate = ParseDateTime(formDate, "MM/DD/YY");
-    
+    formDate = trim(details.contactmeetingdate);
+
+    // Use LSParseDateTime to parse the date string to a ColdFusion date object
+    parsedDate = LSParseDateTime(formDate);
+
     // Format the date to a database-friendly format
     formattedDate = DateFormat(parsedDate, "yyyy-mm-dd");
 </cfscript>
