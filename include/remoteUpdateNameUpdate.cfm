@@ -14,6 +14,22 @@ contactpronoun: #contactpronoun#<BR>
 </cfoutput>
 <cfset contactBirthdayValue = iif(contactbirthday EQ '', javaCast('null', ''), contactbirthday) />
 
+
+<cfscript>
+    // Sample date from the form
+    formDate = contactmeetingdate;
+    
+    // Parse the date
+    parsedDate = ParseDateTime(formDate, "MM/DD/YY");
+    
+    // Format the date to a database-friendly format
+    formattedDate = DateFormat(parsedDate, "yyyy-mm-dd");
+</cfscript>
+
+
+
+
+
 <cfquery name="update" datasource="#dsn#" >
 UPDATE contactdetails
 SET contactfullname = <cfqueryparam cfsqltype="cf_sql_varchar" value="#trim(contactfullname)#" />
@@ -37,7 +53,7 @@ SET contactfullname = <cfqueryparam cfsqltype="cf_sql_varchar" value="#trim(cont
     ,contactmeetingdate = 
  
 
-    <cfqueryparam cfsqltype="cf_sql_date" value="#dateformat(contactmeetingdate,'YYYY-DD-MM')#" />
+    <cfqueryparam cfsqltype="cf_sql_date" value="#formattedDate#" />
 
     </cfif>
      ,contactmeetingloc = <cfqueryparam cfsqltype="cf_sql_varchar" value="#trim(contactmeetingloc)#" />
