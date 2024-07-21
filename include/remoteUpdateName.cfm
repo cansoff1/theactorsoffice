@@ -58,7 +58,7 @@
             <label for="simpleinput">Initial Meeting Date</label>
 
 
-            <input class="form-control" id="contactmeetingdate" value="#dateformat(details.contactmeetingdate,'YYYY-MM-DD')#" type="date" name="contactmeetingdate">
+            <input class="form-control" id="contactmeetingdate" value="#details.contactmeetingdate" type="date" name="contactmeetingdate">
         </div>
 
         <div class="form-group col-sm-6 mb-6">
