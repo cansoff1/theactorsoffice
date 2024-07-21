@@ -52,14 +52,23 @@
 
         </div>
 
-
+<cfscript>
+    // Sample date from the form
+    formDate = details.contactmeetingdate;
+    
+    // Parse the date
+    parsedDate = ParseDateTime(formDate, "MM/DD/YY");
+    
+    // Format the date to a database-friendly format
+    formattedDate = DateFormat(parsedDate, "yyyy-mm-dd");
+</cfscript>
 
         <div class="form-group col-sm-6 mb-6">
             <label for="simpleinput">Initial Meeting Date</label>
 
 
 
-            <input class="form-control" id="contactmeetingdate" value="#contactmeetingdate_format#" type="date" name="contactmeetingdate">
+            <input class="form-control" id="contactmeetingdate" value="#formattedDate#" type="date" name="contactmeetingdate">
         </div>
 
         <div class="form-group col-sm-6 mb-6">
